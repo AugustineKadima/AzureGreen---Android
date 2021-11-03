@@ -4,13 +4,86 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@color/azure_background_color">
 
-    <ImageView
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        android:src="@drawable/logo"
+<!--    Logo -->
+    <RelativeLayout
+        android:id="@+id/logo"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/btn_login_main">
+
+        <ImageView
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:src="@drawable/logo"
+            android:layout_centerInParent="true"/>
+    </RelativeLayout>
+
+
+<!--    Login Button-->
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_login_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/btn_create_account_main"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/btn"
+        android:elevation="8dp"
+        android:text="Login"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="16dp" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_create_account_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/social"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="8dp"
+        android:text="Create Account"
+        android:textAllCaps="false"
+        android:background="@drawable/btn_orange"
+        android:elevation="8dp"
+        android:textColor="@color/white"
+        android:textSize="16dp"/>
+
+    <RelativeLayout
+        android:id="@+id/social"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="8dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp"/>
+        android:layout_marginBottom="16dp"
+        >
+
+        <ImageView
+            android:id="@+id/fb_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/icon_shapefb"
+            android:elevation="8dp"
+            android:padding="4dp"
+            android:src="@drawable/fb" />
+
+        <ImageView
+            android:id="@+id/google_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_toRightOf="@id/fb_icon"
+            android:background="@drawable/icon_shapegoogle"
+            android:elevation="8dp"
+            android:padding="4dp"
+            android:src="@drawable/google_icon" />
+
+    </RelativeLayout>
+
 
 </RelativeLayout>

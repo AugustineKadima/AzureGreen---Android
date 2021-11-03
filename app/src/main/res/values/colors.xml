@@ -7,4 +7,9 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="azure_green">#169216</color>
+    <color name="azure_orange">#E06C00</color>
+    <color name="azure_light_green">#799979</color>
+    <color name="azure_background_color">#EEF1EE</color>
+    <color name="azure_blue">#0082E0</color>
 </resources>
