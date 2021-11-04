@@ -10,6 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AzureGreen">
         <activity
+            android:name=".farmer.FarmerHomeActivity"
+            android:exported="true" />
+        <activity
+            android:name=".setup.CreateAccountActivity"
+            android:exported="true" />
+        <activity
+            android:name=".setup.LoginActivity"
+            android:exported="true" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

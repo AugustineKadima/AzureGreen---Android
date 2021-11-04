@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".setup.LoginActivity"
+    android:background="@color/azure_background_color">
+
+<!--    Top title icon-->
+    <RelativeLayout
+        android:id="@+id/top_title_icon"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:gravity="center">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:text="Login"
+            android:textSize="24sp"
+            android:textColor="@color/azure_orange"
+            android:gravity="center"/>
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginEnd="-20dp"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/icon_logo"
+            />
+
+    </RelativeLayout>
+
+    <EditText
+        android:id="@+id/login_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/top_title_icon"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="8dp"
+        android:drawableLeft="@drawable/email_24"
+        android:drawablePadding="8dp"
+        android:hint="Email"
+        android:paddingStart="16dp"
+        android:inputType="textWebEmailAddress"
+        android:textColor="@color/azure_green"
+        android:textColorHint="@color/azure_light_green"
+        android:elevation="8dp"
+        android:minHeight="48dp"
+        android:background="@drawable/edt_shape"
+        />
+
+    <EditText
+        android:id="@+id/login_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/login_email"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="8dp"
+        android:drawableLeft="@drawable/password_24"
+        android:drawablePadding="8dp"
+        android:hint="Password"
+        android:paddingStart="16dp"
+        android:inputType="textPassword"
+        android:textColor="@color/azure_green"
+        android:textColorHint="@color/azure_light_green"
+        android:elevation="8dp"
+        android:minHeight="48dp"
+        android:background="@drawable/edt_shape"
+        />
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minHeight="48dp"
+        android:minWidth="48dp"
+        android:layout_below="@id/login_password"
+        android:layout_marginStart="16dp"
+        android:text="Remember me"
+        android:textColor="@color/azure_green"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_login_farmer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/btn"
+        android:elevation="8dp"
+        android:text="Login"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="16dp"
+        android:layout_above="@id/login_extra"
+        />
+
+    <RelativeLayout
+        android:id="@+id/login_extra"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="16dp"
+        android:layout_marginTop="8dp">
+
+        <TextView
+            android:id="@+id/farmer_new_user"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="New user?"
+            android:textColor="@color/azure_orange"
+            android:textSize="12dp" />
+
+<!--        New user create account-->
+        <TextView
+            android:id="@+id/farmer_new_user_create_account"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_toRightOf="@id/farmer_new_user"
+            android:text="Create account"
+            android:textColor="@color/azure_green"
+            android:textSize="12dp" />
+
+        <TextView
+            android:id="@+id/farmer_forgot_password"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginEnd="16dp"
+            android:text="Forgot password"
+            android:textColor="@color/azure_light_green"
+            android:textSize="12dp" />
+
+    </RelativeLayout>
+
+</RelativeLayout>
