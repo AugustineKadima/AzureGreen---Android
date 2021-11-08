@@ -12,4 +12,5 @@
     <color name="azure_light_green">#799979</color>
     <color name="azure_background_color">#EEF1EE</color>
     <color name="azure_blue">#0082E0</color>
+    <color name="azure_opacity">#99000000</color>
 </resources>
