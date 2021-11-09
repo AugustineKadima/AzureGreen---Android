@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AzureGreen">
         <activity
+            android:name=".farmer.FarmerOrderApplyActivity"
+            android:exported="true" />
+        <activity
             android:name=".farmer.FarmerOrderDetailActivity"
             android:exported="true" />
         <activity
