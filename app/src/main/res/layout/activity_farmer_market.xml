@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".farmer.FarmerHomeActivity"
+    tools:context=".farmer.FarmerMarketActivity"
     android:background="@color/azure_background_color">
 
-<!--    Toolbar-->
+    <!--    Toolbar-->
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
@@ -19,7 +19,7 @@
 
     </androidx.appcompat.widget.Toolbar>
 
-<!--    Top Nav-->
+    <!--    Top Nav-->
     <ScrollView
         android:id="@+id/scroll_top_nav"
         android:layout_width="match_parent"
@@ -31,10 +31,8 @@
         <LinearLayout
             android:id="@+id/top_nav_farmer"
             android:layout_width="match_parent"
-            android:layout_height="80dp"
-            android:orientation="horizontal"
-            android:paddingTop="4dp"
-            android:paddingBottom="4dp">
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
 
             <androidx.appcompat.widget.AppCompatButton
@@ -42,12 +40,12 @@
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
-                android:background="@drawable/btn"
+                android:background="@drawable/shape_white"
                 android:elevation="4dp"
                 android:gravity="center"
                 android:text="Orders"
                 android:textAllCaps="false"
-                android:textColor="@color/white" />
+                android:textColor="@color/azure_orange" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btn_sell_nav"
@@ -77,18 +75,18 @@
                 android:id="@+id/btn_market_nav"
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
-                android:background="@drawable/shape_white"
+                android:background="@drawable/btn"
                 android:elevation="4dp"
                 android:gravity="center"
                 android:text="Market"
                 android:textAllCaps="false"
-                android:textColor="@color/azure_orange" />
+                android:textColor="@color/white" />
 
 
         </LinearLayout>
     </ScrollView>
 
-<!--    Orders recycler-->
+    <!--    Orders recycler-->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view_orders"
         android:layout_width="match_parent"
@@ -100,7 +98,7 @@
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp" />
 
-<!--    Bottom nav-->
+    <!--    Bottom nav-->
     <RelativeLayout
         android:id="@+id/bottom_nav_farmer"
         android:layout_width="match_parent"
