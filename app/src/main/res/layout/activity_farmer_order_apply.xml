@@ -180,13 +180,13 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginBottom="8dp"
-                android:hint="Attach Photo"
+                android:background="@drawable/corner_green"
                 android:drawableLeft="@drawable/add_photo_24"
                 android:drawablePadding="8dp"
-                android:padding="8dp"
                 android:elevation="8dp"
+                android:hint="Attach Photo"
                 android:inputType=""
-                android:background="@drawable/corner_green"/>
+                android:padding="8dp" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btn_apply_farmer"

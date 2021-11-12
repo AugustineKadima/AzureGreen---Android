@@ -33,169 +33,191 @@
             android:src="@drawable/icon_logo" />
 
     </RelativeLayout>
+
     <ScrollView
         android:id="@+id/create_account_scroll"
-        android:layout_below="@+id/top_title_icon"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_below="@+id/top_title_icon">
 
-
-<!--        Name-->
-        <EditText
-            android:id="@+id/create_account_name"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="8dp"
-            android:drawableLeft="@drawable/account_circle_24"
-            android:drawablePadding="8dp"
-            android:hint="Name"
-            android:paddingStart="16dp"
-            android:inputType="text"
-            android:textColor="@color/azure_green"
-            android:textColorHint="@color/azure_light_green"
-            android:elevation="8dp"
-            android:minHeight="48dp"
-            android:background="@drawable/edt_shape"
-            />
+            android:layout_height="match_parent">
 
-<!--    Email-->
-        <EditText
-            android:id="@+id/create_account_email"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/create_account_name"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="8dp"
-            android:drawableLeft="@drawable/email_24"
-            android:drawablePadding="8dp"
-            android:hint="Email"
-            android:paddingStart="16dp"
-            android:inputType="textWebEmailAddress"
-            android:textColor="@color/azure_green"
-            android:textColorHint="@color/azure_light_green"
-            android:elevation="8dp"
-            android:minHeight="48dp"
-            android:background="@drawable/edt_shape"
-            />
 
-<!--        Phone-->
-        <EditText
-            android:id="@+id/create_account_phone"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/create_account_email"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="8dp"
-            android:background="@drawable/edt_shape"
-            android:drawableLeft="@drawable/phone_24"
-            android:drawablePadding="8dp"
-            android:elevation="8dp"
-            android:hint="Phone number"
-            android:inputType="phone"
-            android:minHeight="48dp"
-            android:paddingStart="16dp"
-            android:textColor="@color/azure_green"
-            android:textColorHint="@color/azure_light_green" />
-
-<!--        Password-->
-        <EditText
-            android:id="@+id/create_account_password"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/create_account_phone"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="8dp"
-            android:drawableLeft="@drawable/password_24"
-            android:drawablePadding="8dp"
-            android:hint="Password"
-            android:paddingStart="16dp"
-            android:inputType="textPassword"
-            android:textColor="@color/azure_green"
-            android:textColorHint="@color/azure_light_green"
-            android:elevation="8dp"
-            android:minHeight="48dp"
-            android:background="@drawable/edt_shape"
-            />
-
-<!--        Confirm password-->
-        <EditText
-            android:id="@+id/create_account_confirm_password"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/create_account_password"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="8dp"
-            android:background="@drawable/edt_shape"
-            android:drawableLeft="@drawable/password_24"
-            android:drawablePadding="8dp"
-            android:elevation="8dp"
-            android:hint="Confirm password"
-            android:inputType="textPassword"
-            android:minHeight="48dp"
-            android:paddingStart="16dp"
-            android:textColor="@color/azure_green"
-            android:textColorHint="@color/azure_light_green" />
-
-        <EditText
-            android:id="@+id/create_account_location"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/create_account_confirm_password"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="8dp"
-            android:background="@drawable/edt_shape"
-            android:drawableLeft="@drawable/location_on_24"
-            android:drawablePadding="8dp"
-            android:elevation="8dp"
-            android:hint="Location"
-            android:inputType="textAutoComplete"
-            android:minHeight="48dp"
-            android:paddingStart="16dp"
-            android:textColor="@color/azure_green"
-            android:textColorHint="@color/azure_light_green" />
-
-<!--        Radio Buttons-->
-        <RadioGroup
-            android:id="@+id/create_account_farmer_buyer_option"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_below="@id/create_account_location">
-
-            <RadioButton
-                android:id="@+id/create_account_farmer"
-                android:layout_width="wrap_content"
+            <!--        Name-->
+            <EditText
+                android:id="@+id/create_account_name"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Farmer"
-                android:padding="8dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/edt_shape"
+                android:drawableLeft="@drawable/account_circle_24"
+                android:drawablePadding="8dp"
+                android:elevation="8dp"
+                android:hint="Name"
+                android:inputType="text"
+                android:minHeight="48dp"
+                android:paddingStart="16dp"
+                android:textColor="@color/azure_green"
+                android:textColorHint="@color/azure_light_green"
+                android:textSize="14dp" />
 
-                android:textColor="@color/azure_green"/>
-
-            <RadioButton
-                android:id="@+id/create_account_buyer"
-                android:layout_width="wrap_content"
+            <!--    Email-->
+            <EditText
+                android:id="@+id/create_account_email"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Buyer"
-                android:padding="8dp"
-                android:textColor="@color/azure_green"/>
+                android:layout_below="@id/create_account_name"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/edt_shape"
+                android:drawableLeft="@drawable/email_24"
+                android:drawablePadding="8dp"
+                android:elevation="8dp"
+                android:hint="Email"
+                android:inputType="textWebEmailAddress"
+                android:minHeight="48dp"
+                android:paddingStart="16dp"
+                android:textColor="@color/azure_green"
+                android:textColorHint="@color/azure_light_green"
+                android:textSize="14dp" />
 
-        </RadioGroup>
+            <!--        Phone-->
+            <EditText
+                android:id="@+id/create_account_phone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/create_account_email"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/edt_shape"
+                android:drawableLeft="@drawable/phone_24"
+                android:drawablePadding="8dp"
+                android:elevation="8dp"
+                android:hint="Phone Number"
+                android:inputType="phone"
+                android:minHeight="48dp"
+                android:paddingStart="16dp"
+                android:textColor="@color/azure_green"
+                android:textColorHint="@color/azure_light_green"
+                android:textSize="14dp" />
+
+            <!--        Password-->
+            <EditText
+                android:id="@+id/create_account_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/create_account_phone"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/edt_shape"
+                android:drawableLeft="@drawable/password_24"
+                android:drawablePadding="8dp"
+                android:elevation="8dp"
+                android:hint="Password"
+                android:inputType="textPassword"
+                android:minHeight="48dp"
+                android:paddingStart="16dp"
+                android:textColor="@color/azure_green"
+                android:textColorHint="@color/azure_light_green"
+                android:textSize="14dp" />
+
+            <!--        Confirm password-->
+            <EditText
+                android:id="@+id/create_account_confirm_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/create_account_password"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/edt_shape"
+                android:drawableLeft="@drawable/password_24"
+                android:drawablePadding="8dp"
+                android:elevation="8dp"
+                android:hint="Confirm Password"
+                android:inputType="textPassword"
+                android:minHeight="48dp"
+                android:paddingStart="16dp"
+                android:textColor="@color/azure_green"
+                android:textColorHint="@color/azure_light_green"
+                android:textSize="14dp" />
+
+            <EditText
+                android:id="@+id/create_account_location"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/create_account_confirm_password"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/edt_shape"
+
+                android:drawableLeft="@drawable/location_on_24"
+                android:drawablePadding="8dp"
+                android:elevation="8dp"
+                android:hint="Location"
+                android:inputType="textAutoComplete"
+                android:minHeight="48dp"
+                android:paddingStart="16dp"
+                android:textColor="@color/azure_green"
+                android:textColorHint="@color/azure_light_green"
+                android:textSize="14dp" />
+
+            <TextView
+                android:id="@+id/apply_attach_photo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/create_account_location"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/edt_shape"
+                android:drawableLeft="@drawable/add_photo_24"
+                android:drawablePadding="8dp"
+                android:elevation="8dp"
+                android:gravity="center_vertical"
+                android:hint="Attach Photo"
+                android:minHeight="48dp"
+                android:paddingStart="16dp"
+                android:textColorHint="@color/azure_light_green"
+                android:textSize="14dp" />
+            <!--        Radio Buttons-->
+            <RadioGroup
+                android:id="@+id/create_account_farmer_buyer_option"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/apply_attach_photo"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp">
+
+                <RadioButton
+                    android:id="@+id/create_account_farmer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    android:text="Farmer"
+
+                    android:textColor="@color/azure_green" />
+
+                <RadioButton
+                    android:id="@+id/create_account_buyer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    android:text="Buyer"
+                    android:textColor="@color/azure_green" />
+
+            </RadioGroup>
 
 
-
-
-    </RelativeLayout>
+        </RelativeLayout>
     </ScrollView>
 
     <!--        Create account button-->
@@ -203,9 +225,9 @@
         android:id="@+id/btn_create_account_get_started"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_above="@id/create_account_extra"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
-        android:layout_above="@id/create_account_extra"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="8dp"
         android:background="@drawable/btn"

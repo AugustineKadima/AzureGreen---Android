@@ -40,17 +40,17 @@
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="8dp"
+        android:background="@drawable/edt_shape"
         android:drawableLeft="@drawable/email_24"
         android:drawablePadding="8dp"
-        android:hint="Email"
-        android:paddingStart="16dp"
-        android:inputType="textWebEmailAddress"
-        android:textColor="@color/azure_green"
-        android:textColorHint="@color/azure_light_green"
         android:elevation="8dp"
+        android:hint="Email"
+        android:textSize="14dp"
+        android:inputType="textWebEmailAddress"
         android:minHeight="48dp"
-        android:background="@drawable/edt_shape"
-        />
+        android:paddingStart="16dp"
+        android:textColor="@color/azure_green"
+        android:textColorHint="@color/azure_light_green" />
 
     <EditText
         android:id="@+id/login_password"
@@ -60,17 +60,17 @@
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="8dp"
+        android:background="@drawable/edt_shape"
         android:drawableLeft="@drawable/password_24"
         android:drawablePadding="8dp"
-        android:hint="Password"
-        android:paddingStart="16dp"
-        android:inputType="textPassword"
-        android:textColor="@color/azure_green"
-        android:textColorHint="@color/azure_light_green"
         android:elevation="8dp"
+        android:textSize="14dp"
+        android:hint="Password"
+        android:inputType="textPassword"
         android:minHeight="48dp"
-        android:background="@drawable/edt_shape"
-        />
+        android:paddingStart="16dp"
+        android:textColor="@color/azure_green"
+        android:textColorHint="@color/azure_light_green" />
 
     <RadioButton
         android:layout_width="wrap_content"

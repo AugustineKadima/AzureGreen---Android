@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "39459839734",
+    "project_id": "azuregreen-5aee3",
+    "storage_bucket": "azuregreen-5aee3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:39459839734:android:728104c3ac15609f36d6d7",
+        "android_client_info": {
+          "package_name": "ke.co.azureeworld.azuregreen"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "39459839734-3pnghgh23if03r3t4jok49c101090242.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "ke.co.azureeworld.azuregreen",
+            "certificate_hash": "5092ca5f7637343cf868676db8c430b76cbf006f"
+          }
+        },
+        {
+          "client_id": "39459839734-p3n2afj2utuabfppg1e04e0j7kp50257.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDEH-pugxaE6V97ub8jZmRsZgpkSNYE-D4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "39459839734-p3n2afj2utuabfppg1e04e0j7kp50257.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
