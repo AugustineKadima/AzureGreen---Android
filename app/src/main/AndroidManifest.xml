@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AzureGreen">
         <activity
+            android:name=".farmer.FarmerRecordsActivity"
+            android:exported="true" />
+        <activity
+            android:name=".farmer.MyStallActivity"
+            android:exported="true" />
+        <activity
             android:name=".farmer.FarmerMarketActivity"
             android:exported="true" />
         <activity

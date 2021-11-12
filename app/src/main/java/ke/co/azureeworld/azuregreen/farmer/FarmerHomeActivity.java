@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
+import android.widget.RelativeLayout;
 
 import ke.co.azureeworld.azuregreen.R;
 import ke.co.azureeworld.azuregreen.adapters.OrderAdapter;
@@ -19,6 +20,7 @@ public class FarmerHomeActivity extends AppCompatActivity {
     OrderAdapter adapter;
     LinearLayoutManager linearLayoutManager;
 
+    RelativeLayout myStall, records;
     Button sell, saved, market;
 
     @Override
@@ -47,6 +49,8 @@ public class FarmerHomeActivity extends AppCompatActivity {
         sell = (Button) findViewById(R.id.btn_sell_nav);
         saved = (Button) findViewById(R.id.btn_saved_nav);
         market = (Button) findViewById(R.id.btn_market_nav);
+        myStall = (RelativeLayout) findViewById(R.id.my_stall_wrapper_farmer);
+        records = (RelativeLayout) findViewById(R.id.my_records_wrapper_farmer);
 
         sell.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,6 +70,20 @@ public class FarmerHomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(FarmerHomeActivity.this, FarmerMarketActivity.class));
+            }
+        });
+
+        myStall.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(FarmerHomeActivity.this, MyStallActivity.class));
+            }
+        });
+
+        records.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(FarmerHomeActivity.this, FarmerRecordsActivity.class));
             }
         });
     }
