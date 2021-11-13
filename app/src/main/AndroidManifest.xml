@@ -2,7 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="ke.co.azureeworld.azuregreen">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -10,6 +11,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AzureGreen">
+        <activity
+            android:name=".buyer.BuyerRecordsActivity"
+            android:exported="true" />
+        <activity
+            android:name=".buyer.BuyerOrdersActivity"
+            android:exported="true" />
+        <activity
+            android:name=".buyer.BuyerMarketActivity"
+            android:exported="true" />
+        <activity
+            android:name=".buyer.BuyerSavedActivity"
+            android:exported="true" />
+        <activity
+            android:name=".buyer.BuyerSubmissionsActivity"
+            android:exported="true" />
         <activity
             android:name=".farmer.FarmerRecordsActivity"
             android:exported="true" />
