@@ -113,7 +113,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
-                android:padding="12dp"
+                android:padding="8dp"
+                android:elevation="8dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/shape_white"
                 android:src="@drawable/back_24" />
 
             <TextView
@@ -145,13 +149,14 @@
                 android:id="@+id/add_crop"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:drawableLeft="@drawable/library_add_24"
-                android:drawablePadding="4dp"
-                android:layout_toRightOf="@id/on_sell_crops"
-                android:padding="8dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
-                android:textColor="@color/azure_light_green"/>
+                android:layout_toRightOf="@id/on_sell_crops"
+                android:drawableLeft="@drawable/library_add_light_24"
+                android:drawablePadding="4dp"
+                android:elevation="8dp"
+                android:padding="8dp"
+                android:background="@drawable/shape_white"                android:textColor="@color/azure_light_green" />
 
             <!--            RecyclerView-->
             <androidx.recyclerview.widget.RecyclerView

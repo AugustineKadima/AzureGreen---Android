@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AzureGreen">
         <activity
+            android:name=".buyer.BuyerNewOrderActivity"
+            android:exported="true" />
+        <activity
+            android:name=".buyer.BuyerOpenOrdersActivity"
+            android:exported="true" />
+        <activity
             android:name=".buyer.BuyerRecordsActivity"
             android:exported="true" />
         <activity

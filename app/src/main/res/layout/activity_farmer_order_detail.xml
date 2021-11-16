@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".farmer.FarmerOrderDetailActivity">
+    tools:context=".farmer.FarmerOrderDetailActivity"
+    android:background="@color/azure_background_color">
 
     <!--    Toolbar-->
     <androidx.appcompat.widget.Toolbar
@@ -56,7 +57,7 @@
                 android:gravity="center"
                 android:text="Sell"
                 android:textAllCaps="false"
-                android:textColor="@color/azure_orange" />
+                android:textColor="@color/azure_light_green" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btn_saved_nav"
@@ -68,7 +69,7 @@
                 android:gravity="center"
                 android:text="Saved"
                 android:textAllCaps="false"
-                android:textColor="@color/azure_orange" />
+                android:textColor="@color/azure_light_green" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btn_market_nav"
@@ -79,7 +80,7 @@
                 android:gravity="center"
                 android:text="Market"
                 android:textAllCaps="false"
-                android:textColor="@color/azure_orange" />
+                android:textColor="@color/azure_light_green" />
 
 
         </LinearLayout>

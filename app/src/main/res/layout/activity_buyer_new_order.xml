@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".farmer.FarmerSellActivity"
+    tools:context=".buyer.BuyerNewOrderActivity"
     android:background="@color/azure_background_color">
 
     <!--    Toolbar-->
@@ -24,41 +24,37 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/toolbar"
-        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
         android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp">>
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp">
 
         <LinearLayout
             android:id="@+id/top_nav_farmer"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp">
 
 
+            <!--            Submissions-->
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btn_orders_nav"
-                android:layout_width="80dp"
+                android:id="@+id/btn_submissions_nav"
+                android:layout_width="120dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
                 android:background="@drawable/shape_white"
                 android:elevation="4dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="4dp"
                 android:gravity="center"
-                android:text="Orders"
+                android:text="Submissions"
                 android:textAllCaps="false"
                 android:textColor="@color/azure_light_green" />
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btn_sell_nav"
-                android:layout_width="80dp"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="16dp"
-                android:background="@drawable/btn"
-                android:elevation="4dp"
-                android:gravity="center"
-                android:text="Sell"
-                android:textAllCaps="false"
-                android:textColor="@color/white" />
 
+            <!-- Saved-->
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btn_saved_nav"
                 android:layout_width="80dp"
@@ -66,11 +62,14 @@
                 android:layout_marginEnd="16dp"
                 android:background="@drawable/shape_white"
                 android:elevation="4dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="4dp"
                 android:gravity="center"
                 android:text="Saved"
                 android:textAllCaps="false"
                 android:textColor="@color/azure_light_green" />
 
+            <!--            Market-->
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btn_market_nav"
                 android:layout_width="80dp"
@@ -79,12 +78,15 @@
                 android:elevation="4dp"
                 android:gravity="center"
                 android:text="Market"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="4dp"
                 android:textAllCaps="false"
                 android:textColor="@color/azure_light_green" />
 
 
         </LinearLayout>
     </ScrollView>
+
 
 
 
@@ -111,139 +113,137 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
-                android:padding="12dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/shape_white"
+                android:elevation="8dp"
+                android:padding="8dp"
                 android:src="@drawable/back_24" />
 
-            <!--            Title-->
             <TextView
-                android:id="@+id/apply_title_farmer"
+                android:id="@+id/all_crops"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/order_apply_back"
-                android:padding="16dp"
-                android:text="Enter details of product"
-                android:textColor="@color/azure_green"
-                android:textStyle="bold"
-                android:textSize="16dp"
-                />
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/shape_white"
+                android:elevation="8dp"
+                android:padding="8dp"
+                android:text="All Orders"
+                android:textColor="@color/azure_light_green" />
 
-            <ScrollView
+            <TextView
+                android:id="@+id/on_sell_crops"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_toRightOf="@id/all_crops"
+                android:background="@drawable/shape_white"
+                android:elevation="8dp"
+                android:padding="8dp"
+                android:text="Open Orders"
+                android:textColor="@color/azure_light_green" />
+
+            <TextView
+                android:id="@+id/add_crop"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_toRightOf="@id/on_sell_crops"
+                android:background="@drawable/shape_white"
+                android:drawableLeft="@drawable/library_add_24"
+                android:drawablePadding="4dp"
+                android:elevation="8dp"
+                android:padding="8dp"
+                android:textColor="@color/azure_light_green" />
+
+
+            <!--            Crop name-->
+            <EditText
+                android:id="@+id/crop_name_new_order"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_above="@id/btn_apply_farmer"
-                android:layout_marginBottom="16dp"
-                android:layout_below="@id/apply_title_farmer">
+                android:layout_height="wrap_content"
+                android:layout_below="@id/all_crops"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/corner_green"
+                android:drawableLeft="@drawable/new_label_24"
+                android:drawablePadding="8dp"
+                android:elevation="8dp"
+                android:hint="Crop Name"
+                android:maxLines="10"
+                android:padding="8dp"
+                android:textColor="@color/azure_green"
+                android:textColorHint="@color/azure_light_green"
+                android:textSize="14dp" />
 
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+            <!--            Describe-->
+            <EditText
+                android:id="@+id/crop_description_new_order"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/crop_name_new_order"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/corner_green"
+                android:drawableLeft="@drawable/description_24"
+                android:drawablePadding="8dp"
+                android:elevation="8dp"
+                android:hint="Describe Crop..."
+                android:maxLines="10"
+                android:padding="8dp"
+                android:textColor="@color/azure_green"
+                android:textColorHint="@color/azure_light_green"
+                android:textSize="14dp" />
 
-                    <!--            Product name-->
-                    <EditText
-                        android:id="@+id/apply_product_name_farmer"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginTop="16dp"
-                        android:layout_marginEnd="16dp"
-                        android:background="@drawable/corner_green"
-                        android:drawableLeft="@drawable/new_label_24"
-                        android:drawablePadding="8dp"
-                        android:elevation="8dp"
-                        android:hint="Product name"
-                        android:maxLines="10"
-                        android:padding="8dp"
-                        android:textColor="@color/azure_green"
-                        android:textColorHint="@color/azure_light_green"
-                        android:textSize="14dp" />
+            <!--            Kgs-->
+            <EditText
+                android:id="@+id/crop_kgs_new_order"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/crop_description_new_order"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/corner_green"
+                android:drawableLeft="@drawable/scale_24"
+                android:drawablePadding="8dp"
+                android:elevation="8dp"
+                android:hint="How many Kgs?"
+                android:inputType="number"
+                android:padding="8dp"
+                android:textColor="@color/azure_green"
+                android:textColorHint="@color/azure_light_green"
+                android:textSize="14dp" />
 
-
-                    <!--            Describe-->
-                    <EditText
-                        android:id="@+id/apply_describe_farmer"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@id/apply_product_name_farmer"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginEnd="16dp"
-                        android:layout_marginBottom="8dp"
-                        android:background="@drawable/corner_green"
-                        android:drawableLeft="@drawable/description_24"
-                        android:drawablePadding="8dp"
-                        android:elevation="8dp"
-                        android:hint="Describe your product..."
-                        android:maxLines="10"
-                        android:padding="8dp"
-                        android:textColor="@color/azure_green"
-                        android:textColorHint="@color/azure_light_green"
-                        android:textSize="14dp" />
-
-                    <!--            Kgs-->
-                    <EditText
-                        android:id="@+id/apply_kgs_farmer"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@id/apply_describe_farmer"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginEnd="16dp"
-                        android:layout_marginBottom="8dp"
-                        android:background="@drawable/corner_green"
-                        android:drawableLeft="@drawable/scale_24"
-                        android:drawablePadding="8dp"
-                        android:elevation="8dp"
-                        android:hint="How many Kgs?"
-                        android:inputType="number"
-                        android:padding="8dp"
-                        android:textColor="@color/azure_green"
-                        android:textColorHint="@color/azure_light_green"
-                        android:textSize="14dp" />
-
-                    <!--            Price-->
-                    <EditText
-                        android:id="@+id/apply_price_per_kg"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@id/apply_kgs_farmer"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginEnd="16dp"
-                        android:layout_marginBottom="8dp"
-                        android:background="@drawable/corner_green"
-                        android:drawableLeft="@drawable/money_24"
-                        android:drawablePadding="8dp"
-                        android:elevation="8dp"
-                        android:hint="Price per Kg"
-                        android:inputType="number"
-                        android:padding="8dp"
-                        android:textColor="@color/azure_green"
-                        android:textColorHint="@color/azure_light_green"
-                        android:textSize="14dp" />
-
-                    <TextView
-                        android:id="@+id/apply_attach_photo"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@id/apply_price_per_kg"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginEnd="16dp"
-                        android:layout_marginBottom="8dp"
-                        android:background="@drawable/corner_green"
-                        android:drawableLeft="@drawable/add_photo_24"
-                        android:drawablePadding="8dp"
-                        android:elevation="8dp"
-                        android:hint="Attach Photo"
-                        android:padding="8dp"
-                        android:textColor="@color/azure_green"
-                        android:textColorHint="@color/azure_light_green"
-                        android:textSize="14dp" />
-
-
-                </RelativeLayout>
-            </ScrollView>
+            <!--            Price-->
+            <EditText
+                android:id="@+id/crop_price_new_order"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/crop_kgs_new_order"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/corner_green"
+                android:drawableLeft="@drawable/money_24"
+                android:drawablePadding="8dp"
+                android:elevation="8dp"
+                android:hint="Price per Kg"
+                android:inputType="number"
+                android:padding="8dp"
+                android:textColor="@color/azure_green"
+                android:textColorHint="@color/azure_light_green"
+                android:textSize="14dp" />
 
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btn_apply_farmer"
+                android:id="@+id/btn_order"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
@@ -252,7 +252,7 @@
                 android:layout_marginBottom="80dp"
                 android:background="@drawable/btn"
                 android:elevation="8dp"
-                android:text="Sell"
+                android:text="Order"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 android:textSize="16dp" />
@@ -314,7 +314,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/my_stall_icon_farmer"
                 android:layout_centerHorizontal="true"
-                android:text="My Stall"
+                android:text="Orders"
                 android:textColor="@color/white" />
         </RelativeLayout>
 
@@ -344,5 +344,6 @@
                 android:textColor="@color/white" />
         </RelativeLayout>
     </RelativeLayout>
+
 
 </RelativeLayout>
