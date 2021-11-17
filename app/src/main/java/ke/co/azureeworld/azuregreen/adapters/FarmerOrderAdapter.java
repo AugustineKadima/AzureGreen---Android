@@ -5,13 +5,21 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.HashMap;
 import java.util.List;
 
 import ke.co.azureeworld.azuregreen.R;
@@ -22,6 +30,9 @@ public class FarmerOrderAdapter extends RecyclerView.Adapter<FarmerOrderAdapter.
 
     List<Order> orders;
     Context mContext;
+
+    FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+    DatabaseReference root = firebaseDatabase.getReference("farmer_saved_crops");
 
     public FarmerOrderAdapter(List<Order> orders,Context mContext) {
         this.mContext = mContext;
@@ -42,6 +53,30 @@ public class FarmerOrderAdapter extends RecyclerView.Adapter<FarmerOrderAdapter.
         holder.description.setText(order.getCropDescription());
         holder.title.setText(order.getCropName());
 
+        holder.save.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                HashMap<String, String> savedItems = new HashMap<>();
+                savedItems.put("cropName", order.getCropName());
+                savedItems.put("cropDescription", order.getCropDescription());
+                savedItems.put("status", "Open");
+                savedItems.put("orderDate", order.getOrderDate());
+                savedItems.put("orderTime", order.getOrderTime());
+
+                root.push().setValue(savedItems).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if(task.isSuccessful()){
+                            Toast.makeText(mContext, "Saved successfully!", Toast.LENGTH_SHORT).show();
+                        }else{
+                            Toast.makeText(mContext, "Failed! Try again.", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+
+            }
+        });
+
     }
 
     @Override
@@ -53,6 +88,7 @@ public class FarmerOrderAdapter extends RecyclerView.Adapter<FarmerOrderAdapter.
         CardView cardView;
         ImageView buyer_image;
         TextView buyer_name, title, description, status;
+        Button save;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
@@ -62,6 +98,7 @@ public class FarmerOrderAdapter extends RecyclerView.Adapter<FarmerOrderAdapter.
             title = (TextView) itemView.findViewById(R.id.buyer_order_title_orders);
             description = (TextView) itemView.findViewById(R.id.buyer_order_description_orders);
             status = (TextView) itemView.findViewById(R.id.buyer_order_status_orders);
+            save = itemView.findViewById(R.id.btn_save_order_recycler);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

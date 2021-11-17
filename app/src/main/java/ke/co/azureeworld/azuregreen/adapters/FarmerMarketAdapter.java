@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -26,12 +27,16 @@ public class FarmerMarketAdapter extends RecyclerView.Adapter<FarmerMarketAdapte
     @NonNull
     @Override
     public FarmerMarketAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(mContext).inflate(R.layout.item_on_sell_farmer, parent, false);
+        View view = LayoutInflater.from(mContext).inflate(R.layout.item_market_farmer, parent, false);
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull FarmerMarketAdapter.ViewHolder holder, int position) {
+        Sell sell = on_sell_items.get(position);
+        holder.date.setText(sell.getSellDate());
+        holder.description.setText(sell.getCropDescription());
+        holder.title.setText(sell.getCropName());
 
     }
 
@@ -41,8 +46,16 @@ public class FarmerMarketAdapter extends RecyclerView.Adapter<FarmerMarketAdapte
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
+
+        TextView date, title, description, status;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
+
+            date = itemView.findViewById(R.id.sell_date);
+            title = itemView.findViewById(R.id.sell_title);
+            description = itemView.findViewById(R.id.sell_description);
+            status = itemView.findViewById(R.id.sell_status);
+
         }
     }
 }

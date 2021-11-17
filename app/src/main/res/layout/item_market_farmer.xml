@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/back_recycler"
+    android:padding="16dp"
+    android:layout_marginStart="16dp"
+    android:layout_marginEnd="16dp"
+    android:layout_marginTop="8dp"
+    android:elevation="8dp">
+
+
+
+        <!--        Date-->
+    <TextView
+        android:id="@+id/sell_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:text="1/2/2021"
+        android:textColor="@color/azure_light_green" />
+
+        <!--        Order title-->
+        <TextView
+            android:id="@+id/sell_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:gravity="center"
+            android:text="I need 50 sacks of mangoes"
+            android:textColor="@color/azure_green"
+            android:textStyle="bold" />
+
+        <!--        Order description-->
+    <TextView
+        android:id="@+id/sell_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/sell_title"
+        android:layout_marginTop="8dp"
+        android:layout_marginRight="16dp"
+        android:gravity="left"
+        android:maxLines="3"
+        android:text="I urgently need 50 sacks of ripe mangoes that can be squized to to produce  juice. Our company is located in Nairobi. Our ideal candidate is  ..."
+        android:textColor="@color/black"
+        android:textSize="12dp" />
+
+        <!--        Status-->
+        <TextView
+            android:id="@+id/sell_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/sell_description"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:gravity="left"
+            android:maxLines="3"
+            android:text="Status: Open"
+            android:textColor="@color/azure_light_green"
+            android:textSize="12dp" />
+
+
+
+</RelativeLayout>
