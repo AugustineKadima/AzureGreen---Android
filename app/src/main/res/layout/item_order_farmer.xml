@@ -8,7 +8,8 @@
     android:layout_marginTop="8dp"
     android:padding="16dp"
     android:layout_marginEnd="16dp"
-    android:layout_marginStart="16dp">
+    android:layout_marginStart="16dp"
+    >
 
 
         <!--        Donor image-->
@@ -64,18 +65,17 @@
         <!--        Order description-->
         <TextView
             android:id="@+id/buyer_order_description_orders"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/buyer_order_title_orders"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
             android:layout_marginRight="16dp"
-            android:layout_toLeftOf="@id/btn_apply_order_recycler"
             android:gravity="left"
-            android:maxLines="3"
-            android:text="I urgently need 50 sacks of ripe mangoes that can be squized to to produce  juice. Our company is located in Nairobi. Our ideal candidate is  ..."
+            android:maxLines="5"
+            android:text="I urgently need 50 gggggggggggg sacks of ripe mangoes that can be squized to to produce  juice. Our company is located in Nairobi. Our ideal candidate is  ..."
             android:textColor="@color/black"
-            android:textSize="12dp" />
+            android:textSize="14dp" />
 
         <!--        Status-->
         <TextView
@@ -92,35 +92,43 @@
             android:textColor="@color/azure_light_green"
             android:textSize="12dp" />
 
-        <!--        Apply-->
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btn_apply_order_recycler"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_below="@id/buyer_order_status_orders"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/buyer_date_orders"
-            android:layout_alignParentRight="true"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/corner_green"
-            android:elevation="4dp"
-            android:text="Apply"
-            android:textAllCaps="false"
-            android:textColor="@color/azure_green"
-            android:textSize="12dp" />
+            android:orientation="horizontal"
+            android:layout_marginTop="16dp"
+            >
+                <!--        Save-->
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_save_order_recycler"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:background="@drawable/corner_azure_bg_color"
+                    android:elevation="4dp"
+                    android:text="Save"
+                    android:textAllCaps="false"
+                    android:textColor="@color/azure_green"
+                    android:textSize="12dp" />
 
-        <!--        Save-->
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btn_save_order_recycler"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/btn_apply_order_recycler"
-            android:layout_alignParentRight="true"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
-            android:background="@drawable/shape_white"
-            android:elevation="4dp"
-            android:text="Save"
-            android:textAllCaps="false"
-            android:textColor="@color/azure_orange"
-            android:textSize="12dp" />
+                <!--        Apply-->
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_apply_order_recycler"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="8dp"
+                    android:background="@drawable/corner_azure_bg_color"
+                    android:elevation="4dp"
+                    android:text="Apply"
+                    android:textAllCaps="false"
+                    android:textColor="@color/azure_orange"
+                    android:textSize="12dp" />
+        </LinearLayout>
+
+
+
 
 </RelativeLayout>

@@ -28,8 +28,7 @@ import ke.co.azureeworld.azuregreen.R;
 
 public class FarmerSellActivity extends AppCompatActivity {
 
-    Button sell;
-    ImageView back;
+    Button sell, order, saved, market;
     EditText product_name,product_description, kgs, price;
 
     FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -48,19 +47,36 @@ public class FarmerSellActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        back = (ImageView) findViewById(R.id.order_apply_back);
         sell = (Button) findViewById(R.id.btn_apply_farmer);
         product_name = (EditText) findViewById(R.id.apply_product_name_farmer);
         product_description = (EditText) findViewById(R.id.apply_describe_farmer);
         kgs = (EditText) findViewById(R.id.apply_kgs_farmer);
         price = (EditText) findViewById(R.id.apply_price_per_kg);
+        order = (Button) findViewById(R.id.btn_orders_nav);
+        saved = (Button) findViewById(R.id.btn_saved_nav);
+        market = (Button) findViewById(R.id.btn_market_nav);
 
-        back.setOnClickListener(new View.OnClickListener() {
+        order.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(FarmerSellActivity.this, FarmerHomeActivity.class));
             }
         });
+
+        saved.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(FarmerSellActivity.this, FarmerSavedActivity.class));
+            }
+        });
+
+        market.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(FarmerSellActivity.this, FarmerMarketActivity.class));
+            }
+        });
+
 
         sell.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.O)

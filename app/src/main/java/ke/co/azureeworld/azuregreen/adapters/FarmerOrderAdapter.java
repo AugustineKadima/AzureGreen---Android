@@ -77,6 +77,23 @@ public class FarmerOrderAdapter extends RecyclerView.Adapter<FarmerOrderAdapter.
             }
         });
 
+        holder.apply.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                DatabaseReference root = firebaseDatabase.getReference("submissions");
+                HashMap<String, String> application = new HashMap<>();
+                application.put("cropName", order.getCropName());
+                application.put("cropDescription", order.getCropDescription());
+                application.put("orderDate", order.getOrderDate());
+                application.put("orderTime", order.getOrderTime());
+                application.put("price", "500");
+                application.put("Kgs", "10");
+
+                root.push().setValue(application);
+
+            }
+        });
+
     }
 
     @Override
@@ -88,7 +105,7 @@ public class FarmerOrderAdapter extends RecyclerView.Adapter<FarmerOrderAdapter.
         CardView cardView;
         ImageView buyer_image;
         TextView buyer_name, title, description, status;
-        Button save;
+        Button save, apply;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
@@ -99,6 +116,7 @@ public class FarmerOrderAdapter extends RecyclerView.Adapter<FarmerOrderAdapter.
             description = (TextView) itemView.findViewById(R.id.buyer_order_description_orders);
             status = (TextView) itemView.findViewById(R.id.buyer_order_status_orders);
             save = itemView.findViewById(R.id.btn_save_order_recycler);
+            apply = itemView.findViewById(R.id.btn_apply_order_recycler);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

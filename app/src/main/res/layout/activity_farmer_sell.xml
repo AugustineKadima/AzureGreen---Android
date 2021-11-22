@@ -18,248 +18,231 @@
 
     </androidx.appcompat.widget.Toolbar>
 
+
     <!--    Top Nav-->
-    <ScrollView
-        android:id="@+id/scroll_top_nav"
+
+    <LinearLayout
+        android:id="@+id/top_nav_farmer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/toolbar"
-        android:layout_marginTop="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp">>
+        android:background="@color/white"
+        android:elevation="8dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingBottom="4dp">
 
-        <LinearLayout
-            android:id="@+id/top_nav_farmer"
-            android:layout_width="match_parent"
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_orders_nav"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:background="@color/white"
+            android:layout_weight="1"
+            android:elevation="4dp"
+            android:gravity="center"
+            android:text="Orders"
+            android:textAllCaps="false"
+            android:textColor="@color/azure_light_green" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_sell_nav"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:layout_weight="1"
+            android:elevation="4dp"
+            android:gravity="center"
+            android:text="Sell"
+            android:textAllCaps="false"
+            android:textColor="@color/azure_orange" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_saved_nav"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:layout_weight="1"
+            android:elevation="4dp"
+            android:gravity="center"
+            android:text="Saved"
+            android:textAllCaps="false"
+            android:textColor="@color/azure_light_green" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_market_nav"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:layout_weight="1"
+            android:elevation="4dp"
+            android:gravity="center"
+            android:text="Market"
+            android:textAllCaps="false"
+            android:textColor="@color/azure_light_green" />
 
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btn_orders_nav"
-                android:layout_width="80dp"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="16dp"
-                android:background="@drawable/shape_white"
-                android:elevation="4dp"
-                android:gravity="center"
-                android:text="Orders"
-                android:textAllCaps="false"
-                android:textColor="@color/azure_light_green" />
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btn_sell_nav"
-                android:layout_width="80dp"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="16dp"
-                android:background="@drawable/btn"
-                android:elevation="4dp"
-                android:gravity="center"
-                android:text="Sell"
-                android:textAllCaps="false"
-                android:textColor="@color/white" />
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btn_saved_nav"
-                android:layout_width="80dp"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="16dp"
-                android:background="@drawable/shape_white"
-                android:elevation="4dp"
-                android:gravity="center"
-                android:text="Saved"
-                android:textAllCaps="false"
-                android:textColor="@color/azure_light_green" />
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btn_market_nav"
-                android:layout_width="80dp"
-                android:layout_height="wrap_content"
-                android:background="@drawable/shape_white"
-                android:elevation="4dp"
-                android:gravity="center"
-                android:text="Market"
-                android:textAllCaps="false"
-                android:textColor="@color/azure_light_green" />
+    </LinearLayout>
 
 
-        </LinearLayout>
-    </ScrollView>
-
-
-
-    <!--    Apply Page-->
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/toolbar"
-        android:background="@color/azure_opacity">
+        android:layout_above="@id/bottom_nav_farmer"
+        android:layout_below="@id/top_nav_farmer"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/back_recycler"
+        android:elevation="8dp">
 
-        <RelativeLayout
+
+        <!--            Title-->
+        <TextView
+            android:id="@+id/apply_title_farmer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:layout_marginTop="16dp"
+            android:text="Enter details of product"
+            android:textColor="@color/azure_green"
+            android:textSize="16dp"
+            android:textStyle="bold" />
+
+        <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="88dp"
-            android:layout_marginEnd="16dp"
-            android:background="@drawable/back_recycler"
-            android:elevation="8dp">
+            android:layout_above="@id/btn_apply_farmer"
+            android:layout_below="@id/apply_title_farmer"
+            android:layout_marginBottom="16dp">
 
-            <!--                Back arrow-->
-
-            <ImageView
-                android:id="@+id/order_apply_back"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:padding="12dp"
-                android:src="@drawable/back_24" />
-
-            <!--            Title-->
-            <TextView
-                android:id="@+id/apply_title_farmer"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/order_apply_back"
-                android:padding="16dp"
-                android:text="Enter details of product"
-                android:textColor="@color/azure_green"
-                android:textStyle="bold"
-                android:textSize="16dp"
-                />
-
-            <ScrollView
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_above="@id/btn_apply_farmer"
-                android:layout_marginBottom="16dp"
-                android:layout_below="@id/apply_title_farmer">
+                android:layout_height="match_parent">
 
-                <RelativeLayout
+                <!--            Product name-->
+                <EditText
+                    android:id="@+id/apply_product_name_farmer"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <!--            Product name-->
-                    <EditText
-                        android:id="@+id/apply_product_name_farmer"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginTop="16dp"
-                        android:layout_marginEnd="16dp"
-                        android:background="@drawable/corner_green"
-                        android:drawableLeft="@drawable/new_label_24"
-                        android:drawablePadding="8dp"
-                        android:elevation="8dp"
-                        android:hint="Product name"
-                        android:maxLines="10"
-                        android:padding="8dp"
-                        android:textColor="@color/azure_green"
-                        android:textColorHint="@color/azure_light_green"
-                        android:textSize="14dp" />
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:background="@drawable/corner_green"
+                    android:drawableLeft="@drawable/new_label_24"
+                    android:drawablePadding="8dp"
+                    android:elevation="8dp"
+                    android:hint="Product name"
+                    android:maxLines="10"
+                    android:padding="8dp"
+                    android:textColor="@color/azure_green"
+                    android:textColorHint="@color/azure_light_green"
+                    android:textSize="14dp" />
 
 
-                    <!--            Describe-->
-                    <EditText
-                        android:id="@+id/apply_describe_farmer"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@id/apply_product_name_farmer"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginEnd="16dp"
-                        android:layout_marginBottom="8dp"
-                        android:background="@drawable/corner_green"
-                        android:drawableLeft="@drawable/description_24"
-                        android:drawablePadding="8dp"
-                        android:elevation="8dp"
-                        android:hint="Describe your product..."
-                        android:maxLines="10"
-                        android:padding="8dp"
-                        android:textColor="@color/azure_green"
-                        android:textColorHint="@color/azure_light_green"
-                        android:textSize="14dp" />
+                <!--            Describe-->
+                <EditText
+                    android:id="@+id/apply_describe_farmer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/apply_product_name_farmer"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="8dp"
+                    android:background="@drawable/corner_green"
+                    android:drawableLeft="@drawable/description_24"
+                    android:drawablePadding="8dp"
+                    android:elevation="8dp"
+                    android:hint="Describe your product..."
+                    android:maxLines="10"
+                    android:padding="8dp"
+                    android:textColor="@color/azure_green"
+                    android:textColorHint="@color/azure_light_green"
+                    android:textSize="14dp" />
 
-                    <!--            Kgs-->
-                    <EditText
-                        android:id="@+id/apply_kgs_farmer"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@id/apply_describe_farmer"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginEnd="16dp"
-                        android:layout_marginBottom="8dp"
-                        android:background="@drawable/corner_green"
-                        android:drawableLeft="@drawable/scale_24"
-                        android:drawablePadding="8dp"
-                        android:elevation="8dp"
-                        android:hint="How many Kgs?"
-                        android:inputType="number"
-                        android:padding="8dp"
-                        android:textColor="@color/azure_green"
-                        android:textColorHint="@color/azure_light_green"
-                        android:textSize="14dp" />
+                <!--            Kgs-->
+                <EditText
+                    android:id="@+id/apply_kgs_farmer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/apply_describe_farmer"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="8dp"
+                    android:background="@drawable/corner_green"
+                    android:drawableLeft="@drawable/scale_24"
+                    android:drawablePadding="8dp"
+                    android:elevation="8dp"
+                    android:hint="How many Kgs?"
+                    android:inputType="number"
+                    android:padding="8dp"
+                    android:textColor="@color/azure_green"
+                    android:textColorHint="@color/azure_light_green"
+                    android:textSize="14dp" />
 
-                    <!--            Price-->
-                    <EditText
-                        android:id="@+id/apply_price_per_kg"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@id/apply_kgs_farmer"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginEnd="16dp"
-                        android:layout_marginBottom="8dp"
-                        android:background="@drawable/corner_green"
-                        android:drawableLeft="@drawable/money_24"
-                        android:drawablePadding="8dp"
-                        android:elevation="8dp"
-                        android:hint="Price per Kg"
-                        android:inputType="number"
-                        android:padding="8dp"
-                        android:textColor="@color/azure_green"
-                        android:textColorHint="@color/azure_light_green"
-                        android:textSize="14dp" />
+                <!--            Price-->
+                <EditText
+                    android:id="@+id/apply_price_per_kg"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/apply_kgs_farmer"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="8dp"
+                    android:background="@drawable/corner_green"
+                    android:drawableLeft="@drawable/money_24"
+                    android:drawablePadding="8dp"
+                    android:elevation="8dp"
+                    android:hint="Price per Kg"
+                    android:inputType="number"
+                    android:padding="8dp"
+                    android:textColor="@color/azure_green"
+                    android:textColorHint="@color/azure_light_green"
+                    android:textSize="14dp" />
 
-                    <TextView
-                        android:id="@+id/apply_attach_photo"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@id/apply_price_per_kg"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginEnd="16dp"
-                        android:layout_marginBottom="8dp"
-                        android:background="@drawable/corner_green"
-                        android:drawableLeft="@drawable/add_photo_24"
-                        android:drawablePadding="8dp"
-                        android:elevation="8dp"
-                        android:hint="Attach Photo"
-                        android:padding="8dp"
-                        android:textColor="@color/azure_green"
-                        android:textColorHint="@color/azure_light_green"
-                        android:textSize="14dp" />
-
-
-                </RelativeLayout>
-            </ScrollView>
+                <TextView
+                    android:id="@+id/apply_attach_photo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/apply_price_per_kg"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="8dp"
+                    android:background="@drawable/corner_green"
+                    android:drawableLeft="@drawable/add_photo_24"
+                    android:drawablePadding="8dp"
+                    android:elevation="8dp"
+                    android:hint="Attach Photo"
+                    android:padding="8dp"
+                    android:textColor="@color/azure_green"
+                    android:textColorHint="@color/azure_light_green"
+                    android:textSize="14dp" />
 
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btn_apply_farmer"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginBottom="80dp"
-                android:background="@drawable/btn"
-                android:elevation="8dp"
-                android:text="Sell"
-                android:textAllCaps="false"
-                android:textColor="@color/white"
-                android:textSize="16dp" />
+            </RelativeLayout>
+        </ScrollView>
 
 
-        </RelativeLayout>
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_apply_farmer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/corner_azure_bg_color"
+            android:elevation="8dp"
+            android:text="Sell"
+            android:textAllCaps="false"
+            android:textColor="@color/azure_orange"
+            android:textSize="16dp" />
+
+
     </RelativeLayout>
+
 
     <!--    Bottom nav-->
     <RelativeLayout
