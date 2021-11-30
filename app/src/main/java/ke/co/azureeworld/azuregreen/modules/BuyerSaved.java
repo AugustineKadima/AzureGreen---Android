@@ -1,26 +1,22 @@
 package ke.co.azureeworld.azuregreen.modules;
 
-import org.parceler.Parcel;
-
-@Parcel
-public class Submission {
-
+public class BuyerSaved {
     private String cropName;
     private String cropDescription;
-    private String Kgs;
     private String orderDate;
-    private String orderTime;
     private String price;
+    private String orderTime;
+    private String Kgs;
 
-    public Submission(){}
+    public BuyerSaved(){}
 
-    public Submission(String cropName, String cropDescription, String kgs, String orderDate,String orderTime, String price) {
+    public BuyerSaved(String cropName, String cropDescription, String orderDate, String price, String orderTime, String kgs) {
         this.cropName = cropName;
         this.cropDescription = cropDescription;
-        Kgs = kgs;
         this.orderDate = orderDate;
-        this.orderTime = orderTime;
         this.price = price;
+        this.orderTime = orderTime;
+        Kgs = kgs;
     }
 
     public String getCropName() {
@@ -39,20 +35,20 @@ public class Submission {
         this.cropDescription = cropDescription;
     }
 
-    public String getKgs() {
-        return Kgs;
-    }
-
-    public void setKgs(String kgs) {
-        Kgs = kgs;
-    }
-
     public String getOrderDate() {
         return orderDate;
     }
 
     public void setOrderDate(String orderDate) {
         this.orderDate = orderDate;
+    }
+
+    public String getPrice() {
+        return price;
+    }
+
+    public void setPrice(String price) {
+        this.price = price;
     }
 
     public String getOrderTime() {
@@ -63,11 +59,11 @@ public class Submission {
         this.orderTime = orderTime;
     }
 
-    public String getPrice() {
-        return price;
+    public String getKgs() {
+        return Kgs;
     }
 
-    public void setPrice(String price) {
-        this.price = price;
+    public void setKgs(String kgs) {
+        Kgs = kgs;
     }
 }

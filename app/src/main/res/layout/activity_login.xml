@@ -72,15 +72,44 @@
         android:textColor="@color/azure_green"
         android:textColorHint="@color/azure_light_green" />
 
+    <!--        Radio Buttons-->
+    <RadioGroup
+        android:id="@+id/login_farmer_buyer_option"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/login_password"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp">
+
+        <RadioButton
+            android:id="@+id/login_farmer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:text="Login as farmer"
+
+            android:textColor="@color/azure_green" />
+
+        <RadioButton
+            android:id="@+id/login_buyer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:text="Login as buyer"
+            android:textColor="@color/azure_green" />
+
+    </RadioGroup>
+<!--    Remember me-->
     <RadioButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:minHeight="48dp"
-        android:minWidth="48dp"
-        android:layout_below="@id/login_password"
+        android:layout_below="@id/login_farmer_buyer_option"
         android:layout_marginStart="16dp"
+        android:minWidth="48dp"
+        android:minHeight="48dp"
+        android:padding="8dp"
         android:text="Remember me"
-        android:textColor="@color/azure_green"/>
+        android:textColor="@color/azure_green" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_login_farmer"

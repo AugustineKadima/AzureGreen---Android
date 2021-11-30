@@ -5,6 +5,7 @@
     <solid android:color="@color/azure_background_color"
         />
     <corners android:radius="8dp"/>
-
+    <stroke android:color="@color/azure_orange"
+        android:width="1dp"/>
 
 </shape>

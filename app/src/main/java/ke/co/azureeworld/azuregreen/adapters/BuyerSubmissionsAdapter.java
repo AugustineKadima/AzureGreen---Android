@@ -1,6 +1,7 @@
 package ke.co.azureeworld.azuregreen.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,12 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.HashMap;
 import java.util.List;
 
 import ke.co.azureeworld.azuregreen.R;
@@ -43,7 +50,26 @@ public class BuyerSubmissionsAdapter extends RecyclerView.Adapter<BuyerSubmissio
         holder.btn_save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(mContext, "Save clicked!", Toast.LENGTH_SHORT).show();
+                FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+                DatabaseReference mRef = firebaseDatabase.getReference("buyer_saved_items");
+                HashMap<String, String> saved = new HashMap<>();
+                saved.put("cropName", submission.getCropName());
+                saved.put("cropDescription", submission.getCropDescription());
+                saved.put("orderDate", submission.getOrderDate());
+                saved.put("price", submission.getPrice());
+                saved.put("Kgs", submission.getKgs());
+                saved.put("orderTime", submission.getOrderTime());
+
+                mRef.push().setValue(saved).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if(task.isSuccessful()){
+                            Toast.makeText(mContext, "Saved successfully!", Toast.LENGTH_SHORT).show();
+                        }else{
+                            Toast.makeText(mContext, "Failed! Try again.", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
             }
         });
 

@@ -82,10 +82,7 @@
         android:layout_height="match_parent"
         android:layout_above="@id/bottom_nav_farmer"
         android:layout_below="@id/top_nav_farmer"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp" />
+        android:layout_marginBottom="8dp" />
 
     <!--    Bottom nav-->
     <RelativeLayout
