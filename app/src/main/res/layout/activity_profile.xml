@@ -4,9 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".farmer.MyStallActivity"
+    tools:context=".menu.ProfileActivity"
     android:background="@color/azure_background_color">
-
     <!--    Toolbar-->
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -36,8 +35,8 @@
             android:id="@+id/btn_orders_nav"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@color/white"
             android:layout_weight="1"
+            android:background="@color/white"
             android:elevation="4dp"
             android:gravity="center"
             android:text="Orders"
@@ -48,8 +47,8 @@
             android:id="@+id/btn_sell_nav"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@color/white"
             android:layout_weight="1"
+            android:background="@color/white"
             android:elevation="4dp"
             android:gravity="center"
             android:text="Sell"
@@ -60,8 +59,8 @@
             android:id="@+id/btn_saved_nav"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@color/white"
             android:layout_weight="1"
+            android:background="@color/white"
             android:elevation="4dp"
             android:gravity="center"
             android:text="Saved"
@@ -84,77 +83,76 @@
     </LinearLayout>
 
 
-
-
-    <!--    Apply Page-->
+<!--Profile holder-->
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/toolbar"
-        android:background="@color/azure_opacity">
-
-        <RelativeLayout
+        android:layout_above="@id/bottom_nav_farmer"
+        android:layout_below="@id/top_nav_farmer"
+        android:layout_margin="16dp"
+        android:background="@drawable/back_recycler"
+        android:elevation="8dp"
+        >
+        <!--        Donor image-->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/profile_image"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="88dp"
-            android:layout_marginEnd="16dp"
-            android:background="@drawable/back_recycler"
-            android:elevation="8dp">
+            android:layout_height="200dp"
+            app:cardCornerRadius="16dp"
+            >
 
-            <LinearLayout
-                android:id="@+id/stall_nav"
-                android:layout_marginTop="16dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/white"
-                android:elevation="4dp"
-                >
-
-                <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/all_crops"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="@color/white"
-                    android:text="All Crops"
-                    android:textAllCaps="false"
-                    android:textColor="@color/azure_orange" />
-
-                <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/on_sell_crops"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@color/white"
-                    android:layout_weight="1"
-                    android:text="On Sell"
-                    android:textAllCaps="false"
-                    android:textColor="@color/azure_light_green" />
-
-                <ImageView
-                    android:id="@+id/add_new_crop"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_weight="1"
-                    android:background="@color/white"
-                    android:padding="12dp"
-                    android:src="@drawable/add_new_24" />
-            </LinearLayout>
-
-
-
-            <!--            Fragment Holder-->
-            <FrameLayout
-                android:id="@+id/my_stall_container"
+            <ImageView
+                android:id="@+id/buyer_image_orders"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_below="@id/stall_nav"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="72dp" />
+                android:background="@drawable/corner_green"
+                android:src="@drawable/farmer_profile"
+                android:scaleType="centerCrop"
+                />
+        </androidx.cardview.widget.CardView>
 
+<!--        Name-->
+        <TextView
+            android:id="@+id/farmer_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/profile_image"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:textColor="@color/azure_green"
+            android:drawableLeft="@drawable/account_circle_24"
+            android:drawablePadding="8dp"
+            android:gravity="center"
+            android:text="John Kiplimo" />
 
-        </RelativeLayout>
+        <!--        email-->
+        <TextView
+            android:id="@+id/farmer_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/farmer_name"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:textColor="@color/azure_green"
+            android:drawableLeft="@drawable/email_24"
+            android:drawablePadding="8dp"
+            android:gravity="center"
+            android:text="johnkiplimo@example.com" />
+
+        <!--        Phone-->
+        <TextView
+            android:id="@+id/farmer_phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/farmer_email"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:textColor="@color/azure_green"
+            android:drawableLeft="@drawable/phone_24"
+            android:drawablePadding="8dp"
+            android:gravity="center"
+            android:text="0743252149" />
+
     </RelativeLayout>
 
     <!--    Bottom nav-->
@@ -195,14 +193,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:layout_centerVertical="true"
-            android:background="@drawable/border_white_green_bg"
-            android:paddingTop="4dp"
-            android:paddingStart="8dp"
-            android:paddingBottom="4dp"
-            android:paddingEnd="8dp"
-            android:elevation="8dp">
-            >
+            android:layout_centerVertical="true">
 
             <ImageView
                 android:id="@+id/my_stall_icon_farmer"
@@ -247,5 +238,6 @@
                 android:textColor="@color/white" />
         </RelativeLayout>
     </RelativeLayout>
+
 
 </RelativeLayout>

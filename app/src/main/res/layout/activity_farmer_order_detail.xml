@@ -28,52 +28,52 @@
         android:background="@color/white"
         android:elevation="8dp"
         android:gravity="center_vertical"
-        android:minHeight="60dp"
         android:orientation="horizontal"
-        android:paddingBottom="4dp">
+        >
 
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn_orders_nav"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
             android:layout_weight="1"
+            android:background="@color/white"
             android:elevation="4dp"
             android:gravity="center"
             android:text="Orders"
             android:textAllCaps="false"
-            android:textColor="@color/azure_orange" />
+            android:textColor="@color/azure_light_green" />
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn_sell_nav"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
             android:layout_weight="1"
             android:elevation="4dp"
             android:gravity="center"
             android:text="Sell"
+            android:background="@color/white"
             android:textAllCaps="false"
             android:textColor="@color/azure_light_green" />
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn_saved_nav"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
             android:layout_weight="1"
             android:elevation="4dp"
             android:gravity="center"
             android:text="Saved"
+            android:background="@color/white"
             android:textAllCaps="false"
             android:textColor="@color/azure_light_green" />
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn_market_nav"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="@color/white"
             android:elevation="4dp"
             android:gravity="center"
             android:text="Market"
@@ -205,9 +205,9 @@
                 android:id="@+id/description_scroll"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_above="@id/status_label"
                 android:layout_below="@id/order_details_sub_title"
-                android:layout_marginBottom="8dp"
-                android:layout_above="@id/status_label">
+                android:layout_marginBottom="8dp">
 
                 <!--            Order description-->
                 <TextView
@@ -224,7 +224,6 @@
                     android:textColor="@color/black"
                     android:textSize="14sp" />
             </ScrollView>
-
 
 
             <!--            Status-->
@@ -268,20 +267,20 @@
                     android:id="@+id/btn_apply_order_details"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/corner_azure_bg_color_with_corner"
-                    android:elevation="4dp"
                     android:layout_marginStart="16dp"
                     android:layout_marginEnd="16dp"
+                    android:background="@drawable/corner_azure_bg_color_with_corner"
+                    android:elevation="4dp"
                     android:text="Apply"
                     android:textAllCaps="false"
                     android:textColor="@color/azure_orange" />
                 <!--            Save-->
                 <androidx.appcompat.widget.AppCompatButton
-                    android:layout_marginTop="8dp"
                     android:id="@+id/btn_save_order_details"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
                     android:layout_marginEnd="16dp"
                     android:layout_marginBottom="4dp"
                     android:background="@drawable/corner_azure_bg_color"

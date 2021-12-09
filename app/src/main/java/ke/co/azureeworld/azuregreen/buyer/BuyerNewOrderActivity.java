@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -27,6 +28,13 @@ import java.time.LocalTime;
 import java.util.HashMap;
 
 import ke.co.azureeworld.azuregreen.R;
+import ke.co.azureeworld.azuregreen.farmer.FarmerHomeActivity;
+import ke.co.azureeworld.azuregreen.farmer.FarmerMarketActivity;
+import ke.co.azureeworld.azuregreen.menu.BuyerProfileActivity;
+import ke.co.azureeworld.azuregreen.menu.BuyerSettingsActivity;
+import ke.co.azureeworld.azuregreen.menu.ProfileActivity;
+import ke.co.azureeworld.azuregreen.menu.SettingsActivity;
+import ke.co.azureeworld.azuregreen.setup.LoginActivity;
 
 @RequiresApi(api = Build.VERSION_CODES.O)
 public class BuyerNewOrderActivity extends AppCompatActivity {
@@ -47,6 +55,33 @@ public class BuyerNewOrderActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.azure_menu, menu);
+        MenuItem logout = menu.findItem(R.id.logout);
+        MenuItem profile = menu.findItem(R.id.profile);
+        MenuItem settings = menu.findItem(R.id.settings);
+
+        settings.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem menuItem) {
+                startActivity(new Intent(BuyerNewOrderActivity.this, BuyerSettingsActivity.class));
+                return false;
+            }
+        });
+
+        profile.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem menuItem) {
+                startActivity(new Intent(BuyerNewOrderActivity.this, BuyerProfileActivity.class));
+                return false;
+            }
+        });
+
+        logout.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem menuItem) {
+                startActivity(new Intent(BuyerNewOrderActivity.this, LoginActivity.class));
+                return true;
+            }
+        });
         return super.onCreateOptionsMenu(menu);
     }
 

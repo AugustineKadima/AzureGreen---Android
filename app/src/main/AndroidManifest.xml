@@ -12,6 +12,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AzureGreen">
         <activity
+            android:name=".menu.BuyerSettingsActivity"
+            android:exported="true" />
+        <activity
+            android:name=".menu.BuyerProfileActivity"
+            android:exported="true" />
+        <activity
+            android:name=".menu.SettingsActivity"
+            android:exported="true" />
+        <activity
+            android:name=".menu.ProfileActivity"
+            android:exported="true" />
+        <activity
             android:name=".buyer.BuyerNewOrderActivity"
             android:exported="true" />
         <activity

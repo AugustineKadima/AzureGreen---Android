@@ -5,6 +5,7 @@
       <map>
         <entry key="app/src/main/res/drawable-v24/corner_azure_bg_color_with_corner.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/back_recycler.xml" value="0.11388888888888889" />
+        <entry key="app/src/main/res/drawable/border_white_green_bg.xml" value="0.13796296296296295" />
         <entry key="app/src/main/res/drawable/bottom_nav_background.xml" value="0.11388888888888889" />
         <entry key="app/src/main/res/drawable/btn.xml" value="0.15833333333333333" />
         <entry key="app/src/main/res/drawable/btn_orange.xml" value="0.1" />
@@ -22,13 +23,15 @@
         <entry key="app/src/main/res/layout/activity_buyer_new_order.xml" value="0.2" />
         <entry key="app/src/main/res/layout/activity_buyer_open_orders.xml" value="0.2" />
         <entry key="app/src/main/res/layout/activity_buyer_orders.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/activity_buyer_profile.xml" value="0.18" />
         <entry key="app/src/main/res/layout/activity_buyer_records.xml" value="0.18" />
         <entry key="app/src/main/res/layout/activity_buyer_saved.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/activity_buyer_settings.xml" value="0.18" />
         <entry key="app/src/main/res/layout/activity_buyer_submissions.xml" value="0.2248995983935743" />
         <entry key="app/src/main/res/layout/activity_create_account.xml" value="0.22" />
         <entry key="app/src/main/res/layout/activity_farmer_home.xml" value="0.22" />
         <entry key="app/src/main/res/layout/activity_farmer_market.xml" value="0.18" />
-        <entry key="app/src/main/res/layout/activity_farmer_order_apply.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/activity_farmer_order_apply.xml" value="0.2" />
         <entry key="app/src/main/res/layout/activity_farmer_order_detail.xml" value="0.2" />
         <entry key="app/src/main/res/layout/activity_farmer_records.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_farmer_saved.xml" value="0.18" />
@@ -37,7 +40,12 @@
         <entry key="app/src/main/res/layout/activity_login_farmer.xml" value="0.18" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.22" />
         <entry key="app/src/main/res/layout/activity_my_stall.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_profile.xml" value="0.2" />
+        <entry key="app/src/main/res/layout/activity_settings.xml" value="0.2" />
         <entry key="app/src/main/res/layout/fragment_add_crop_to_stall_farmer.xml" value="0.18" />
+        <entry key="app/src/main/res/layout/fragment_buyer_all_orders.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_buyer_new_order.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/fragment_on_sell_my_stall_farmer.xml" value="0.1" />
         <entry key="app/src/main/res/layout/item_buyer_submission.xml" value="0.22" />
         <entry key="app/src/main/res/layout/item_market_farmer.xml" value="0.22" />
         <entry key="app/src/main/res/layout/item_on_sell_farmer.xml" value="0.1" />

@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RelativeLayout;
@@ -27,7 +28,10 @@ import java.util.List;
 
 import ke.co.azureeworld.azuregreen.R;
 import ke.co.azureeworld.azuregreen.adapters.FarmerOrderAdapter;
+import ke.co.azureeworld.azuregreen.menu.ProfileActivity;
+import ke.co.azureeworld.azuregreen.menu.SettingsActivity;
 import ke.co.azureeworld.azuregreen.modules.Order;
+import ke.co.azureeworld.azuregreen.setup.LoginActivity;
 
 public class FarmerHomeActivity extends AppCompatActivity {
     RecyclerView recyclerView;
@@ -43,6 +47,34 @@ public class FarmerHomeActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.azure_menu, menu);
+
+        MenuItem logout = menu.findItem(R.id.logout);
+        MenuItem profile = menu.findItem(R.id.profile);
+        MenuItem settings = menu.findItem(R.id.settings);
+
+        settings.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem menuItem) {
+                startActivity(new Intent(FarmerHomeActivity.this, SettingsActivity.class));
+                return false;
+            }
+        });
+
+        profile.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem menuItem) {
+                startActivity(new Intent(FarmerHomeActivity.this, ProfileActivity.class));
+                return false;
+            }
+        });
+
+        logout.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem menuItem) {
+                startActivity(new Intent(FarmerHomeActivity.this, LoginActivity.class));
+                return true;
+            }
+        });
         return super.onCreateOptionsMenu(menu);
     }
 

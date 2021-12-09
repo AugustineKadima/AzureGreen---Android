@@ -6,12 +6,20 @@ import androidx.appcompat.widget.Toolbar;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import ke.co.azureeworld.azuregreen.R;
+import ke.co.azureeworld.azuregreen.farmer.FarmerHomeActivity;
+import ke.co.azureeworld.azuregreen.farmer.FarmerMarketActivity;
+import ke.co.azureeworld.azuregreen.menu.BuyerProfileActivity;
+import ke.co.azureeworld.azuregreen.menu.BuyerSettingsActivity;
+import ke.co.azureeworld.azuregreen.menu.ProfileActivity;
+import ke.co.azureeworld.azuregreen.menu.SettingsActivity;
+import ke.co.azureeworld.azuregreen.setup.LoginActivity;
 
 public class BuyerOpenOrdersActivity extends AppCompatActivity {
 
@@ -24,6 +32,33 @@ public class BuyerOpenOrdersActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.azure_menu, menu);
+        MenuItem logout = menu.findItem(R.id.logout);
+        MenuItem profile = menu.findItem(R.id.profile);
+        MenuItem settings = menu.findItem(R.id.settings);
+
+        settings.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem menuItem) {
+                startActivity(new Intent(BuyerOpenOrdersActivity.this, BuyerSettingsActivity.class));
+                return false;
+            }
+        });
+
+        profile.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem menuItem) {
+                startActivity(new Intent(BuyerOpenOrdersActivity.this, BuyerProfileActivity.class));
+                return false;
+            }
+        });
+
+        logout.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem menuItem) {
+                startActivity(new Intent(BuyerOpenOrdersActivity.this, LoginActivity.class));
+                return true;
+            }
+        });
         return super.onCreateOptionsMenu(menu);
     }
 

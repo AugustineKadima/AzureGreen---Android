@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import ke.co.azureeworld.azuregreen.R;
@@ -17,6 +18,8 @@ public class LoginActivity extends AppCompatActivity {
 
     Button login;
     RadioButton radio_farmer, radio_buyer;
+    TextView farmer_new_user_create_account;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,6 +28,14 @@ public class LoginActivity extends AppCompatActivity {
         login = (Button) findViewById(R.id.btn_login_farmer);
         radio_buyer = (RadioButton) findViewById(R.id.login_buyer);
         radio_farmer = (RadioButton) findViewById(R.id.login_farmer);
+        farmer_new_user_create_account = (TextView) findViewById(R.id.farmer_new_user_create_account);
+
+        farmer_new_user_create_account.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(LoginActivity.this, CreateAccountActivity.class));
+            }
+        });
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

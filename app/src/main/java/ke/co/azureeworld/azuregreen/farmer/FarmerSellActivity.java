@@ -9,10 +9,12 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -25,11 +27,15 @@ import java.time.LocalTime;
 import java.util.HashMap;
 
 import ke.co.azureeworld.azuregreen.R;
+import ke.co.azureeworld.azuregreen.menu.ProfileActivity;
+import ke.co.azureeworld.azuregreen.menu.SettingsActivity;
+import ke.co.azureeworld.azuregreen.setup.LoginActivity;
 
 public class FarmerSellActivity extends AppCompatActivity {
 
     Button sell, order, saved, market;
     EditText product_name,product_description, kgs, price;
+    RelativeLayout home, records , my_stall;
 
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference myRef = database.getReference("on_sell_items");
@@ -37,6 +43,33 @@ public class FarmerSellActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.azure_menu, menu);
+        MenuItem logout = menu.findItem(R.id.logout);
+        MenuItem profile = menu.findItem(R.id.profile);
+        MenuItem settings = menu.findItem(R.id.settings);
+
+        settings.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem menuItem) {
+                startActivity(new Intent(FarmerSellActivity.this, SettingsActivity.class));
+                return false;
+            }
+        });
+
+        profile.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem menuItem) {
+                startActivity(new Intent(FarmerSellActivity.this, ProfileActivity.class));
+                return false;
+            }
+        });
+
+        logout.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem menuItem) {
+                startActivity(new Intent(FarmerSellActivity.this, LoginActivity.class));
+                return true;
+            }
+        });
         return super.onCreateOptionsMenu(menu);
     }
     @Override
@@ -55,6 +88,31 @@ public class FarmerSellActivity extends AppCompatActivity {
         order = (Button) findViewById(R.id.btn_orders_nav);
         saved = (Button) findViewById(R.id.btn_saved_nav);
         market = (Button) findViewById(R.id.btn_market_nav);
+        home = (RelativeLayout) findViewById(R.id.home_wrapper_farmer);
+        my_stall = (RelativeLayout) findViewById(R.id.my_stall_wrapper_farmer);
+        records = (RelativeLayout) findViewById(R.id.my_records_wrapper_farmer);
+
+
+        home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(FarmerSellActivity.this, FarmerHomeActivity.class));
+            }
+        });
+
+        my_stall.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(FarmerSellActivity.this, MyStallActivity.class));
+            }
+        });
+
+        records.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(FarmerSellActivity.this, FarmerRecordsActivity.class));
+            }
+        });
 
         order.setOnClickListener(new View.OnClickListener() {
             @Override

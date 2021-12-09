@@ -3,15 +3,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.AddCropToStallFarmerFragment">
+    tools:context=".fragments.BuyerNewOrderFragment">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
         android:layout_marginEnd="16dp"
+        android:layout_marginBottom="8dp"
         android:background="@drawable/back_recycler"
         android:elevation="8dp">
 
@@ -23,7 +23,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:padding="16dp"
-            android:text="Enter Crop Details"
+            android:text="New Order"
             android:textColor="@color/azure_green"
             android:textSize="16dp"
             android:textStyle="bold" />
@@ -80,12 +80,52 @@
                     android:textColorHint="@color/azure_light_green"
                     android:textSize="14dp" />
 
+                <!--            Kgs-->
+                <EditText
+                    android:id="@+id/apply_kgs_farmer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/apply_describe_farmer"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="8dp"
+                    android:background="@drawable/corner_green"
+                    android:drawableLeft="@drawable/scale_24"
+                    android:drawablePadding="8dp"
+                    android:elevation="8dp"
+                    android:hint="How many Kgs?"
+                    android:inputType="number"
+                    android:padding="8dp"
+                    android:textColor="@color/azure_green"
+                    android:textColorHint="@color/azure_light_green"
+                    android:textSize="14dp" />
+
+                <!--            Price-->
+                <EditText
+                    android:id="@+id/apply_price_per_kg"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/apply_kgs_farmer"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="8dp"
+                    android:background="@drawable/corner_green"
+                    android:drawableLeft="@drawable/money_24"
+                    android:drawablePadding="8dp"
+                    android:elevation="8dp"
+                    android:hint="Price per Kg"
+                    android:inputType="number"
+                    android:padding="8dp"
+                    android:textColor="@color/azure_green"
+                    android:textColorHint="@color/azure_light_green"
+                    android:textSize="14dp" />
+
                 <!--           Location-->
                 <EditText
                     android:id="@+id/crop_location_farmer"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/apply_describe_farmer"
+                    android:layout_below="@id/apply_price_per_kg"
                     android:layout_marginStart="16dp"
                     android:layout_marginEnd="16dp"
                     android:layout_marginBottom="8dp"
@@ -99,7 +139,6 @@
                     android:textColor="@color/azure_green"
                     android:textColorHint="@color/azure_light_green"
                     android:textSize="14dp" />
-
 
 
                 <TextView
@@ -135,14 +174,13 @@
             android:layout_marginBottom="16dp"
             android:background="@drawable/corner_azure_bg_color_with_corner"
             android:elevation="8dp"
-            android:text="Add Crop"
+            android:text="Create Order"
             android:textAllCaps="false"
             android:textColor="@color/azure_orange"
             android:textSize="16dp" />
 
 
     </RelativeLayout>
-
 
 
 </RelativeLayout>

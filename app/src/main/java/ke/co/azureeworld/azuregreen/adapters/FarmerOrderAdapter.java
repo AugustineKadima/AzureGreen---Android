@@ -1,5 +1,6 @@
 package ke.co.azureeworld.azuregreen.adapters;
 
+import android.app.ActivityManager;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -23,6 +24,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import ke.co.azureeworld.azuregreen.R;
+import ke.co.azureeworld.azuregreen.farmer.FarmerOrderApplyActivity;
 import ke.co.azureeworld.azuregreen.farmer.FarmerOrderDetailActivity;
 import ke.co.azureeworld.azuregreen.modules.Order;
 
@@ -80,7 +82,7 @@ public class FarmerOrderAdapter extends RecyclerView.Adapter<FarmerOrderAdapter.
         holder.apply.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                DatabaseReference root = firebaseDatabase.getReference("submissions");
+//                DatabaseReference root = firebaseDatabase.getReference("submissions");
                 HashMap<String, String> application = new HashMap<>();
                 application.put("cropName", order.getCropName());
                 application.put("cropDescription", order.getCropDescription());
@@ -88,9 +90,17 @@ public class FarmerOrderAdapter extends RecyclerView.Adapter<FarmerOrderAdapter.
                 application.put("orderTime", order.getOrderTime());
                 application.put("price", "500");
                 application.put("Kgs", "10");
+//
+//                root.push().setValue(application).addOnCompleteListener(new OnCompleteListener<Void>() {
+//                    @Override
+//                    public void onComplete(@NonNull Task<Void> task) {
+//                        if(task.isSuccessful()) Toast.makeText(mContext, "Applied!", Toast.LENGTH_SHORT).show();
+//                    }
+//                });
 
-                root.push().setValue(application);
-
+                Intent intent = new Intent(mContext, FarmerOrderApplyActivity.class);
+                intent.putExtra("application",application);
+                mContext.startActivity(intent);
             }
         });
 
