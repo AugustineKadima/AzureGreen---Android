@@ -170,30 +170,69 @@
                 android:textColorHint="@color/azure_light_green"
                 android:textSize="14dp" />
 
-            <TextView
-                android:id="@+id/apply_attach_photo"
+            <LinearLayout
+                android:id="@+id/photo_wrapper"
+                android:background="@drawable/edt_shape"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/create_account_location"
                 android:layout_marginStart="16dp"
+                android:gravity="center_vertical"
                 android:layout_marginEnd="16dp"
                 android:layout_marginBottom="8dp"
-                android:background="@drawable/edt_shape"
-                android:drawableLeft="@drawable/add_photo_24"
-                android:drawablePadding="8dp"
-                android:elevation="8dp"
-                android:gravity="center_vertical"
-                android:hint="Attach Photo"
-                android:minHeight="48dp"
-                android:paddingStart="16dp"
-                android:textColorHint="@color/azure_light_green"
-                android:textSize="14dp" />
+                android:layout_below="@id/create_account_location"
+                >
+
+                <TextView
+                    android:id="@+id/attach_photo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawableLeft="@drawable/add_photo_24"
+                    android:drawablePadding="8dp"
+                    android:gravity="center_vertical"
+                    android:hint="Attach Photo"
+                    android:minHeight="48dp"
+                    android:paddingStart="16dp"
+                    android:textColorHint="@color/azure_light_green"
+                    android:textSize="14dp" />
+
+                <ImageView
+                    android:id="@+id/photo_link"
+                    android:layout_width="48dp"
+                    android:layout_height="32dp"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginEnd="8dp"
+                    android:background="@drawable/corner_azure_bg_color"
+                    android:minHeight="32dp"
+                    android:gravity="center"
+                    android:paddingStart="16dp"
+                    android:textColorHint="@color/azure_light_green"
+                    android:textSize="14dp" />
+
+                <TextView
+                    android:id="@+id/upload_photo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/edt_shape"
+                    android:layout_weight="1"
+                    android:drawableLeft="@drawable/upload_24"
+                    android:drawablePadding="8dp"
+                    android:gravity="center_vertical"
+                    android:hint="Upload"
+                    android:minHeight="32dp"
+                    android:paddingStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:textColorHint="@color/azure_light_green"
+                    android:textSize="14dp" />
+            </LinearLayout>
+
+
             <!--        Radio Buttons-->
             <RadioGroup
                 android:id="@+id/create_account_farmer_buyer_option"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/apply_attach_photo"
+                android:layout_below="@id/photo_wrapper"
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp">
 
