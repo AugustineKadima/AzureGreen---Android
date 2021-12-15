@@ -45,12 +45,12 @@
         android:drawablePadding="8dp"
         android:elevation="8dp"
         android:hint="Email"
-        android:textSize="14dp"
         android:inputType="textWebEmailAddress"
         android:minHeight="48dp"
         android:paddingStart="16dp"
         android:textColor="@color/azure_green"
-        android:textColorHint="@color/azure_light_green" />
+        android:textColorHint="@color/azure_light_green"
+        android:textSize="14dp" />
 
     <EditText
         android:id="@+id/login_password"
@@ -64,13 +64,13 @@
         android:drawableLeft="@drawable/password_24"
         android:drawablePadding="8dp"
         android:elevation="8dp"
-        android:textSize="14dp"
         android:hint="Password"
         android:inputType="textPassword"
         android:minHeight="48dp"
         android:paddingStart="16dp"
         android:textColor="@color/azure_green"
-        android:textColorHint="@color/azure_light_green" />
+        android:textColorHint="@color/azure_light_green"
+        android:textSize="14dp" />
 
     <!--        Radio Buttons-->
     <RadioGroup

@@ -109,11 +109,11 @@
             android:layout_below="@id/profile_image"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
-            android:textColor="@color/azure_green"
             android:drawableLeft="@drawable/account_circle_24"
             android:drawablePadding="8dp"
             android:gravity="center"
-            android:text="John Kiplimo" />
+            android:text="John Kiplimo"
+            android:textColor="@color/azure_green" />
 
         <!--        email-->
         <TextView
@@ -123,11 +123,11 @@
             android:layout_below="@id/farmer_name"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
-            android:textColor="@color/azure_green"
             android:drawableLeft="@drawable/email_24"
             android:drawablePadding="8dp"
             android:gravity="center"
-            android:text="johnkiplimo@example.com" />
+            android:text="johnkiplimo@example.com"
+            android:textColor="@color/azure_green" />
 
         <!--        Phone-->
         <TextView
@@ -137,11 +137,11 @@
             android:layout_below="@id/farmer_email"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
-            android:textColor="@color/azure_green"
             android:drawableLeft="@drawable/phone_24"
             android:drawablePadding="8dp"
             android:gravity="center"
-            android:text="0743252149" />
+            android:text="0743252149"
+            android:textColor="@color/azure_green" />
 
     </RelativeLayout>
 

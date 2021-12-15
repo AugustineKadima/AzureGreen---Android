@@ -1,5 +1,6 @@
 package ke.co.azureeworld.azuregreen.menu;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
@@ -9,7 +10,17 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.List;
 
 import ke.co.azureeworld.azuregreen.R;
 import ke.co.azureeworld.azuregreen.buyer.BuyerMarketActivity;
@@ -23,12 +34,19 @@ import ke.co.azureeworld.azuregreen.farmer.FarmerRecordsActivity;
 import ke.co.azureeworld.azuregreen.farmer.FarmerSavedActivity;
 import ke.co.azureeworld.azuregreen.farmer.FarmerSellActivity;
 import ke.co.azureeworld.azuregreen.farmer.MyStallActivity;
+import ke.co.azureeworld.azuregreen.modules.User;
 import ke.co.azureeworld.azuregreen.setup.LoginActivity;
 
 public class BuyerProfileActivity extends AppCompatActivity {
 
     Button submissions, saved, market;
     RelativeLayout home, orders, records;
+    User user1;
+    ImageView profileImage;
+    TextView name, email, phone;
+
+    private FirebaseDatabase db = FirebaseDatabase.getInstance();
+    private DatabaseReference root = db.getReference().child("buyers");
 
 
     @Override
@@ -71,6 +89,18 @@ public class BuyerProfileActivity extends AppCompatActivity {
         home = (RelativeLayout) findViewById(R.id.home_wrapper_farmer);
         orders = (RelativeLayout) findViewById(R.id.my_stall_wrapper_farmer);
         records = (RelativeLayout) findViewById(R.id.my_records_wrapper_farmer);
+        profileImage = (ImageView) findViewById(R.id.buyer_image_orders);
+        name = (TextView) findViewById(R.id.farmer_name);
+        email = (TextView) findViewById(R.id.farmer_email);
+        phone = (TextView) findViewById(R.id.farmer_phone);
+
+
+
+        user1 = new User();
+
+        name.setText(user1.getUserName());
+        email.setText(user1.getEmail());
+        phone.setText(user1.getPhoneNumber());
 
         home.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -112,6 +142,21 @@ public class BuyerProfileActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(BuyerProfileActivity.this, BuyerMarketActivity.class));
+            }
+        });
+
+        root.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot dataSnapshot: snapshot.getChildren()){
+                    User user = dataSnapshot.getValue(User.class);
+                    user1 = user;
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
             }
         });
     }

@@ -2,20 +2,20 @@ package ke.co.azureeworld.azuregreen.modules;
 
 public class User {
     private String userName;
-    private String userEmail;
+    private String email;
     private String userLocation;
-    private String userPassword;
+    private String password;
     private String phoneNumber;
     private String imageUrl;
     private String accountCreationDate;
 
     public  User(){}
 
-    public User(String userName, String userEmail, String userLocation, String userPassword, String phoneNumber, String imageUrl, String accountCreationDate) {
+    public User(String userName, String email, String userLocation, String password, String phoneNumber, String imageUrl, String accountCreationDate) {
         this.userName = userName;
-        this.userEmail = userEmail;
+        this.email = email;
         this.userLocation = userLocation;
-        this.userPassword = userPassword;
+        this.password = password;
         this.phoneNumber = phoneNumber;
         this.imageUrl = imageUrl;
         this.accountCreationDate = accountCreationDate;
@@ -29,12 +29,12 @@ public class User {
         this.userName = userName;
     }
 
-    public String getUserEmail() {
-        return userEmail;
+    public String getEmail() {
+        return email;
     }
 
-    public void setUserEmail(String userEmail) {
-        this.userEmail = userEmail;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getUserLocation() {
@@ -45,12 +45,12 @@ public class User {
         this.userLocation = userLocation;
     }
 
-    public String getUserPassword() {
-        return userPassword;
+    public String getPassword() {
+        return password;
     }
 
-    public void setUserPassword(String userPassword) {
-        this.userPassword = userPassword;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getPhoneNumber() {

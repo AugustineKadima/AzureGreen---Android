@@ -11,6 +11,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Patterns;
 import android.view.View;
 import android.webkit.MimeTypeMap;
 import android.widget.Button;
@@ -20,8 +21,12 @@ import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
@@ -45,10 +50,11 @@ public class CreateAccountActivity extends AppCompatActivity {
     ImageView photo_link;
     private Uri imageUri;
     String imageDownloadLink;
+    FirebaseAuth mAuth;
 
     // Write a message to the database
-    FirebaseDatabase database = FirebaseDatabase.getInstance();
-    DatabaseReference myRef;
+//    FirebaseDatabase database = FirebaseDatabase.getInstance();
+//    DatabaseReference mRef;
     StorageReference storageReference = FirebaseStorage.getInstance().getReference();
 
     @Override
@@ -80,6 +86,7 @@ public class CreateAccountActivity extends AppCompatActivity {
        farmer_new_user_create_account = (TextView) findViewById(R.id.farmer_new_user_create_account);
        upload_photo = (TextView) findViewById(R.id.upload_photo);
 
+
        upload_photo.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View view) {
@@ -104,9 +111,15 @@ public class CreateAccountActivity extends AppCompatActivity {
 
 
        btn_create_account.setOnClickListener(new View.OnClickListener() {
+
+
+
            @RequiresApi(api = Build.VERSION_CODES.O)
            @Override
            public void onClick(View view) {
+
+               mAuth = FirebaseAuth.getInstance();
+
                String userName = name.getText().toString().trim();
                String userEmail = email.getText().toString().trim();
                String phoneNumber = phone_number.getText().toString().trim();
@@ -115,23 +128,107 @@ public class CreateAccountActivity extends AppCompatActivity {
                String userLocation = location.getText().toString().trim();
                LocalDate date = LocalDate.now();
 
-
-               HashMap<String, String> user = new HashMap<>();
-               user.put("userName", userName);
-               user.put("userEmail", userEmail);
-               user.put("phoneNumber", phoneNumber);
-               user.put("userPassword", userPassword);
-               user.put("userLocation", userLocation);
-               user.put("imageUrl", imageDownloadLink);
-               user.put("accountCreationDate", date.toString());
-
-               if(radio_buyer.isChecked()){
-                   myRef = database.getReference("buyers");
-                   myRef.push().setValue(user);
-               }else if(radio_farmer.isChecked()){
-                   myRef = database.getReference("farmers");
-                   myRef.push().setValue(user);
+               if(userEmail.isEmpty() && userPassword.isEmpty() && userName.isEmpty() && userLocation.isEmpty() && confirmPassword.isEmpty()){
+                   Toast.makeText(CreateAccountActivity.this, "Fill in all input fields to continue.", Toast.LENGTH_LONG).show();
+               }else if(userName.isEmpty()){
+                   name.setError("Name required!");
+                   name.requestFocus();
+               }else if(userEmail.isEmpty()){
+                   email.setError("Email required!");
+                   email.requestFocus();
+               }else if(!Patterns.EMAIL_ADDRESS.matcher(userEmail).matches()){
+                   email.setError("Use the correct email format");
+                   email.requestFocus();
+               }else if(phoneNumber.isEmpty()){
+                   phone_number.setError("Phone number required!");
+                   phone_number.requestFocus();
+               }else if(userPassword.isEmpty()){
+                   password.setError("Password required!");
+                   password.requestFocus();
+               }else if(userPassword.length() < 6){
+                   password.setError("Password must be a minimum of 6 characters");
+                   password.requestFocus();
+               }else if(confirmPassword.isEmpty()){
+                   confirm_password.setError("Please confirm password.");
+                   confirm_password.requestFocus();
+               }else if(!userPassword.equals(confirmPassword)){
+                   confirm_password.setError("Password does not match!");
+                   confirm_password.requestFocus();
+               }else if(userLocation.isEmpty()){
+                   location.setError("Location required!");
+                   location.requestFocus();
                }
+
+                   HashMap<String, String> user = new HashMap<>();
+                   user.put("userName", userName);
+                   user.put("email", userEmail);
+                   user.put("phoneNumber", phoneNumber);
+                   user.put("password", userPassword);
+                   user.put("userLocation", userLocation);
+                   user.put("imageUrl", imageDownloadLink);
+                   user.put("accountCreationDate", date.toString());
+
+
+
+                if(radio_farmer.isChecked()) {
+                    mAuth.createUserWithEmailAndPassword(userEmail, userPassword)
+                            .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                                @Override
+                                public void onComplete(@NonNull Task<AuthResult> task) {
+                                    if (task.isSuccessful()) {
+                                        FirebaseDatabase.getInstance().getReference("farmers")
+                                                .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                                                .setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                            @Override
+                                            public void onComplete(@NonNull Task<Void> task) {
+                                                if (task.isSuccessful()) {
+                                                    Toast.makeText(CreateAccountActivity.this, "You signed up successfully", Toast.LENGTH_SHORT).show();
+
+                                                    Intent intent = new Intent(CreateAccountActivity.this, LoginActivity.class);
+                                                    startActivity(intent);
+                                                    finish();
+                                                } else {
+                                                    Toast.makeText(CreateAccountActivity.this, "Failed! Try again.", Toast.LENGTH_LONG).show();
+                                                }
+                                            }
+                                        });
+                                    } else {
+                                        Toast.makeText(CreateAccountActivity.this, "Failed! Try again.", Toast.LENGTH_LONG).show();
+                                    }
+                                }
+                            });
+
+                }else if(radio_buyer.isChecked()){
+                    mAuth.createUserWithEmailAndPassword(userEmail, userPassword)
+                            .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                                @Override
+                                public void onComplete(@NonNull Task<AuthResult> task) {
+                                    if (task.isSuccessful()) {
+                                        FirebaseDatabase.getInstance().getReference("buyers")
+                                                .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                                                .setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                            @Override
+                                            public void onComplete(@NonNull Task<Void> task) {
+                                                if (task.isSuccessful()) {
+                                                    Toast.makeText(CreateAccountActivity.this, "You signed up successfully", Toast.LENGTH_SHORT).show();
+
+                                                    Intent intent = new Intent(CreateAccountActivity.this, LoginActivity.class);
+                                                    startActivity(intent);
+                                                    finish();
+                                                } else {
+                                                    Toast.makeText(CreateAccountActivity.this, "Failed! Try again.", Toast.LENGTH_LONG).show();
+                                                }
+                                            }
+                                        });
+                                    } else {
+                                        Toast.makeText(CreateAccountActivity.this, "Failed! Try again.", Toast.LENGTH_LONG).show();
+                                    }
+                                }
+                            });
+                }
+
+
+
            }
        });
 
