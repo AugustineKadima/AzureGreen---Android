@@ -2,17 +2,15 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginEnd="16dp"
+    android:layout_marginStart="16dp"
+    android:elevation="4dp"
     android:background="@drawable/back_recycler"
     android:padding="16dp"
-    android:layout_marginStart="16dp"
-    android:layout_marginEnd="16dp"
-    android:layout_marginTop="8dp"
-    android:elevation="8dp">
-
-
+    android:layout_marginBottom="8dp">
     <!--        Date-->
     <TextView
-        android:id="@+id/saved_date"
+        android:id="@+id/activity_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
@@ -22,9 +20,9 @@
         android:text="1/2/2021"
         android:textColor="@color/azure_light_green" />
 
-    <!--        Order title-->
+    <!--        Activity title-->
     <TextView
-        android:id="@+id/saved_title"
+        android:id="@+id/activity_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -34,12 +32,12 @@
         android:textColor="@color/azure_green"
         android:textStyle="bold" />
 
-    <!--        Order description-->
+    <!--        Record description-->
     <TextView
-        android:id="@+id/saved_description"
+        android:id="@+id/record_description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/saved_title"
+        android:layout_below="@id/activity_title"
         android:layout_marginTop="8dp"
         android:layout_marginRight="16dp"
         android:gravity="left"
@@ -48,35 +46,19 @@
         android:textColor="@color/black"
         android:textSize="12dp" />
 
-    <!--        Status-->
+    <!--        Activity title-->
     <TextView
-        android:id="@+id/saved_status"
+        android:id="@+id/activity_cost"
+        android:layout_below="@id/record_description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/saved_description"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:gravity="left"
-        android:maxLines="3"
-        android:text="Status: Open"
+        android:gravity="center"
+        android:text="Cost: 50000"
         android:textColor="@color/azure_light_green"
-        android:textSize="12dp" />
+        android:textStyle="bold" />
 
-    <!--        Apply-->
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_apply_order_recycler"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/saved_status"
-        android:layout_weight="1"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/corner_azure_bg_color"
-        android:elevation="4dp"
-        android:text="Apply"
-        android:textAllCaps="false"
-        android:textColor="@color/azure_orange"
-        android:textSize="12dp" />
 
 
 </RelativeLayout>

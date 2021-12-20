@@ -64,6 +64,20 @@
             android:textColor="@color/azure_light_green"
             android:textSize="12dp" />
 
+    <!--        Apply-->
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_apply_order_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/sell_status"
+        android:layout_weight="1"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/corner_azure_bg_color"
+        android:elevation="4dp"
+        android:text="Buy"
+        android:textAllCaps="false"
+        android:textColor="@color/azure_orange"
+        android:textSize="12dp" />
 
 
 </RelativeLayout>
