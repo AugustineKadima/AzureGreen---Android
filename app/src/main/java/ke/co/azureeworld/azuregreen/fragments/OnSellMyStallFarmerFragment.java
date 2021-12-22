@@ -2,13 +2,30 @@ package ke.co.azureeworld.azuregreen.fragments;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import org.w3c.dom.Text;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import ke.co.azureeworld.azuregreen.R;
+import ke.co.azureeworld.azuregreen.adapters.FarmerOnSellAdapter;
+import ke.co.azureeworld.azuregreen.modules.Sell;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -16,6 +33,13 @@ import ke.co.azureeworld.azuregreen.R;
  * create an instance of this fragment.
  */
 public class OnSellMyStallFarmerFragment extends Fragment {
+    RecyclerView recyclerView;
+    FarmerOnSellAdapter adapter;
+    List<Sell> on_sell_items;
+
+    FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+    DatabaseReference mRef = firebaseDatabase.getReference().child("on_sell_items");
+
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -62,5 +86,33 @@ public class OnSellMyStallFarmerFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_on_sell_my_stall_farmer, container, false);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        recyclerView = view.findViewById(R.id.recycler_on_sell);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        recyclerView.setHasFixedSize(true);
+        on_sell_items = new ArrayList<>();
+        adapter = new FarmerOnSellAdapter(on_sell_items, getContext());
+        recyclerView.setAdapter(adapter);
+
+        mRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for(DataSnapshot dataSnapshot: snapshot.getChildren()){
+                    Sell item = dataSnapshot.getValue(Sell.class);
+                    on_sell_items.add(item);
+                }
+                adapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 }

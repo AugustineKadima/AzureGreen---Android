@@ -100,6 +100,7 @@ public class FarmerRecordsActivity extends AppCompatActivity {
         all_records = (Button) findViewById(R.id.all_crops);
         new_record = (ImageView) findViewById(R.id.add_new_crop);
 
+        allRecords();
         btn_market.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
