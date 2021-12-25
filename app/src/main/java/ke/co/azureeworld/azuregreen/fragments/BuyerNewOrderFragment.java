@@ -1,14 +1,26 @@
 package ke.co.azureeworld.azuregreen.fragments;
 
+import android.os.Build;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
+
+import java.time.LocalDate;
+import java.time.LocalTime;
 
 import ke.co.azureeworld.azuregreen.R;
+import ke.co.azureeworld.azuregreen.view_models.BuyerOrderViewModel;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -16,6 +28,9 @@ import ke.co.azureeworld.azuregreen.R;
  * create an instance of this fragment.
  */
 public class BuyerNewOrderFragment extends Fragment {
+    BuyerOrderViewModel orderViewModel;
+    EditText crop_name, crop_description, _kgs, _price, _location;
+    Button btn_create_order;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -62,5 +77,53 @@ public class BuyerNewOrderFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_buyer_new_order, container, false);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        orderViewModel =  new ViewModelProvider(getActivity()).get(BuyerOrderViewModel.class);
+        crop_name = view.findViewById(R.id.crop_name_buyer);
+        crop_description = view.findViewById(R.id.crop_description_buyer);
+        _kgs = view.findViewById(R.id.kgs_buyer);
+        _price = view.findViewById(R.id.price_buyer);
+        _location = view.findViewById(R.id.crop_location_buyer);
+        btn_create_order = view.findViewById(R.id.btn_create_order_buyer);
+
+        btn_create_order.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
+            @Override
+            public void onClick(View view) {
+                String cropName = crop_name.getText().toString().trim();
+                String cropDescription = crop_description.getText().toString().trim();
+                String kgs = _kgs.getText().toString().trim();
+                String price = _price.getText().toString().trim();
+                String location = _location.getText().toString().trim();
+                LocalDate orderDate = LocalDate.now();
+                LocalTime orderTime = LocalTime.now();
+
+                if(cropDescription.isEmpty() && cropName.isEmpty() && kgs.isEmpty() && price.isEmpty() && location.isEmpty()){
+                    Toast.makeText(getContext(), "Failed! Fill all input fields to continue.", Toast.LENGTH_SHORT).show();
+                }else if(cropName.isEmpty()){
+                    crop_name.setError("Name required!");
+                    crop_name.requestFocus();
+                }else if(cropDescription.isEmpty()){
+                    crop_description.setError("Description required!");
+                    crop_description.requestFocus();
+                }else if(kgs.isEmpty()){
+                    _kgs.setError("Quantity required!");
+                    _kgs.requestFocus();
+                }else if(price.isEmpty()){
+                    _price.setError("Price required!");
+                    _price.requestFocus();
+                }else if(location.isEmpty()){
+                    _location.setError("Location required!");
+                    _location.requestFocus();
+                }else{
+                    orderViewModel.setData(cropName,cropDescription,kgs,orderDate.toString(), orderTime.toString(),price, "Open", location);
+                }
+            }
+        });
     }
 }

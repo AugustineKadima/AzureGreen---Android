@@ -41,7 +41,7 @@
 
                 <!--            Product name-->
                 <EditText
-                    android:id="@+id/apply_product_name_farmer"
+                    android:id="@+id/crop_name_buyer"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
@@ -61,10 +61,10 @@
 
                 <!--            Describe-->
                 <EditText
-                    android:id="@+id/apply_describe_farmer"
+                    android:id="@+id/crop_description_buyer"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/apply_product_name_farmer"
+                    android:layout_below="@id/crop_name_buyer"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="16dp"
@@ -82,10 +82,10 @@
 
                 <!--            Kgs-->
                 <EditText
-                    android:id="@+id/apply_kgs_farmer"
+                    android:id="@+id/kgs_buyer"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/apply_describe_farmer"
+                    android:layout_below="@id/crop_description_buyer"
                     android:layout_marginStart="16dp"
                     android:layout_marginEnd="16dp"
                     android:layout_marginBottom="8dp"
@@ -102,10 +102,10 @@
 
                 <!--            Price-->
                 <EditText
-                    android:id="@+id/apply_price_per_kg"
+                    android:id="@+id/price_buyer"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/apply_kgs_farmer"
+                    android:layout_below="@id/kgs_buyer"
                     android:layout_marginStart="16dp"
                     android:layout_marginEnd="16dp"
                     android:layout_marginBottom="8dp"
@@ -122,10 +122,10 @@
 
                 <!--           Location-->
                 <EditText
-                    android:id="@+id/crop_location_farmer"
+                    android:id="@+id/crop_location_buyer"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/apply_price_per_kg"
+                    android:layout_below="@id/price_buyer"
                     android:layout_marginStart="16dp"
                     android:layout_marginEnd="16dp"
                     android:layout_marginBottom="8dp"
@@ -141,31 +141,13 @@
                     android:textSize="14dp" />
 
 
-                <TextView
-                    android:id="@+id/apply_attach_photo"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/crop_location_farmer"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginEnd="16dp"
-                    android:layout_marginBottom="8dp"
-                    android:background="@drawable/corner_green"
-                    android:drawableLeft="@drawable/add_photo_24"
-                    android:drawablePadding="8dp"
-                    android:elevation="8dp"
-                    android:hint="Attach Photo"
-                    android:padding="8dp"
-                    android:textColor="@color/azure_green"
-                    android:textColorHint="@color/azure_light_green"
-                    android:textSize="14dp" />
-
 
             </RelativeLayout>
         </ScrollView>
 
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btn_apply_farmer"
+            android:id="@+id/btn_create_order_buyer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"

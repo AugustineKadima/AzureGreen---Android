@@ -8,17 +8,19 @@ public class Order {
     private String orderTime;
     private String price;
     private String status;
+    private String location;
 
     public Order(){}
 
-    public Order(String cropName, String cropDescription, String kgs, String orderDate, String orderTime, String price, String status) {
+    public Order(String cropName, String cropDescription, String kgs, String orderDate, String orderTime, String price, String status, String location) {
         this.cropName = cropName;
         this.cropDescription = cropDescription;
-        this.Kgs = kgs;
+        Kgs = kgs;
         this.orderDate = orderDate;
         this.orderTime = orderTime;
         this.price = price;
         this.status = status;
+        this.location = location;
     }
 
     public String getCropName() {
@@ -75,5 +77,13 @@ public class Order {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
     }
 }

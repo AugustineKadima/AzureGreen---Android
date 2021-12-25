@@ -1,9 +1,11 @@
 package ke.co.azureeworld.azuregreen.buyer;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,6 +16,12 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import ke.co.azureeworld.azuregreen.R;
 import ke.co.azureeworld.azuregreen.farmer.FarmerHomeActivity;
@@ -27,12 +35,17 @@ import ke.co.azureeworld.azuregreen.menu.BuyerSettingsActivity;
 import ke.co.azureeworld.azuregreen.menu.ProfileActivity;
 import ke.co.azureeworld.azuregreen.menu.SettingsActivity;
 import ke.co.azureeworld.azuregreen.setup.LoginActivity;
+import ke.co.azureeworld.azuregreen.view_models.BuyerOrderViewModel;
 
 public class BuyerOrdersActivity extends AppCompatActivity {
 
     RelativeLayout records, home;
     Button open_orders, all_orders, btn_submissions, btn_saved, btn_market;
     ImageView new_order;
+    BuyerOrderViewModel orderViewModel;
+
+    FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+    DatabaseReference mRef = firebaseDatabase.getReference("orders");
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -139,6 +152,19 @@ public class BuyerOrdersActivity extends AppCompatActivity {
             }
         });
 
+        orderViewModel = new ViewModelProvider(this).get(BuyerOrderViewModel.class);
+        orderViewModel.getOrder().observe(this, order ->{
+            mRef.push().setValue(order).addOnCompleteListener(new OnCompleteListener<Void>() {
+                @Override
+                public void onComplete(@NonNull Task<Void> task) {
+                    if(task.isSuccessful()){
+                        Toast.makeText(BuyerOrdersActivity.this, "Order created successfully!", Toast.LENGTH_SHORT).show();
+                    }else{
+                        Toast.makeText(BuyerOrdersActivity.this, "Failed! Try again.", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
+        });
 
 
     }
