@@ -55,6 +55,7 @@
         <entry key="app/src/main/res/layout/item_market_farmer.xml" value="0.22" />
         <entry key="app/src/main/res/layout/item_on_sell_farmer.xml" value="0.22" />
         <entry key="app/src/main/res/layout/item_order.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/item_order_buyer.xml" value="0.22" />
         <entry key="app/src/main/res/layout/item_order_farmer.xml" value="0.25" />
         <entry key="app/src/main/res/layout/item_saved_buyer.xml" value="0.22" />
         <entry key="app/src/main/res/layout/item_saved_farmer.xml" value="0.18" />

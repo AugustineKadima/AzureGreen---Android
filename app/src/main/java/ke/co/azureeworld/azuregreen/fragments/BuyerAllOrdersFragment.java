@@ -2,13 +2,28 @@ package ke.co.azureeworld.azuregreen.fragments;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import ke.co.azureeworld.azuregreen.R;
+import ke.co.azureeworld.azuregreen.adapters.BuyerAllOrdersAdapter;
+import ke.co.azureeworld.azuregreen.modules.Order;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -16,6 +31,12 @@ import ke.co.azureeworld.azuregreen.R;
  * create an instance of this fragment.
  */
 public class BuyerAllOrdersFragment extends Fragment {
+    List<Order> orders;
+    RecyclerView recyclerView;
+    BuyerAllOrdersAdapter adapter;
+
+    FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+    DatabaseReference mRef = firebaseDatabase.getReference().child("orders");
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -62,5 +83,32 @@ public class BuyerAllOrdersFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_buyer_all_orders, container, false);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        recyclerView = view.findViewById(R.id.recycler_all_orders);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        recyclerView.setHasFixedSize(true);
+        orders = new ArrayList<>();
+        adapter = new BuyerAllOrdersAdapter(getContext(), orders);
+        recyclerView.setAdapter(adapter);
+
+        mRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for(DataSnapshot dataSnapshot: snapshot.getChildren()){
+                    Order order = dataSnapshot.getValue(Order.class);
+                    orders.add(order);
+                }
+                adapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 }

@@ -40,7 +40,7 @@ import ke.co.azureeworld.azuregreen.view_models.BuyerOrderViewModel;
 public class BuyerOrdersActivity extends AppCompatActivity {
 
     RelativeLayout records, home;
-    Button open_orders, all_orders, btn_submissions, btn_saved, btn_market;
+    Button  all_orders, btn_submissions, btn_saved, btn_market;
     ImageView new_order;
     BuyerOrderViewModel orderViewModel;
 
@@ -89,13 +89,13 @@ public class BuyerOrdersActivity extends AppCompatActivity {
 
         home = (RelativeLayout) findViewById(R.id.home_wrapper_farmer);
         records = (RelativeLayout) findViewById(R.id.my_records_wrapper_farmer);
-        open_orders = (Button) findViewById(R.id.on_sell_crops);
         all_orders = (Button) findViewById(R.id.all_crops);
         new_order = (ImageView) findViewById(R.id.add_new_crop);
         btn_submissions = (Button) findViewById(R.id.btn_submissions_nav);
         btn_saved = (Button) findViewById(R.id.btn_saved_nav);
         btn_market = (Button) findViewById(R.id.btn_market_nav);
 
+        allOrders();
         home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -110,12 +110,7 @@ public class BuyerOrdersActivity extends AppCompatActivity {
             }
         });
 
-        open_orders.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                openOrders();
-            }
-        });
+
 
         new_order.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -170,6 +165,8 @@ public class BuyerOrdersActivity extends AppCompatActivity {
     }
 
     private void allOrders() {
+        all_orders.setTextColor(getResources().getColor(R.color.azure_orange));
+        new_order.setColorFilter(getResources().getColor(R.color.azure_light_green));
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         BuyerAllOrdersFragment buyerAllOrdersFragment = new BuyerAllOrdersFragment();
@@ -179,6 +176,8 @@ public class BuyerOrdersActivity extends AppCompatActivity {
     }
 
     private void newOrder() {
+        all_orders.setTextColor(getResources().getColor(R.color.azure_light_green));
+        new_order.setColorFilter(getResources().getColor(R.color.azure_orange));
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         BuyerNewOrderFragment buyerNewOrderFragment = new BuyerNewOrderFragment();
@@ -187,12 +186,5 @@ public class BuyerOrdersActivity extends AppCompatActivity {
         fragmentTransaction.commit();
     }
 
-    private void openOrders() {
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        BuyerOpenOrdersFragment buyerOpenOrdersFragment = new BuyerOpenOrdersFragment();
-        fragmentTransaction.replace(R.id.buyer_orders_container, buyerOpenOrdersFragment);
-        fragmentTransaction.addToBackStack(null);
-        fragmentTransaction.commit();
-    }
+
 }
