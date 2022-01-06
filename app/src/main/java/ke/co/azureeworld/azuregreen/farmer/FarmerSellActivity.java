@@ -169,6 +169,7 @@ public class FarmerSellActivity extends AppCompatActivity {
                     itemOnSell.put("price", Price);
                     itemOnSell.put("sellDate", date.toString());
                     itemOnSell.put("sellTime", time.toString());
+                    itemOnSell.put("status", "Open");
 
                     myRef.push().setValue(itemOnSell).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override

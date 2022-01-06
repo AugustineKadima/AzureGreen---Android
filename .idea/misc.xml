@@ -31,6 +31,7 @@
         <entry key="app/src/main/res/layout/activity_create_account.xml" value="0.22" />
         <entry key="app/src/main/res/layout/activity_farmer_home.xml" value="0.22" />
         <entry key="app/src/main/res/layout/activity_farmer_market.xml" value="0.18" />
+        <entry key="app/src/main/res/layout/activity_farmer_market_detail.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_farmer_order_apply.xml" value="0.2" />
         <entry key="app/src/main/res/layout/activity_farmer_order_detail.xml" value="0.2" />
         <entry key="app/src/main/res/layout/activity_farmer_records.xml" value="0.25" />
