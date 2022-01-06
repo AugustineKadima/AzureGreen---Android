@@ -42,10 +42,10 @@
         android:id="@+id/btn_create_account_main"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@id/social"
+        android:layout_alignParentBottom="true"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="16dp"
         android:background="@drawable/btn_orange"
         android:elevation="8dp"
         android:text="Create Account"
@@ -53,37 +53,37 @@
         android:textColor="@color/white"
         android:textSize="16dp" />
 
-    <RelativeLayout
-        android:id="@+id/social"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginTop="8dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="16dp"
-        >
+<!--    <RelativeLayout-->
+<!--        android:id="@+id/social"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_alignParentBottom="true"-->
+<!--        android:layout_marginTop="8dp"-->
+<!--        android:layout_centerHorizontal="true"-->
+<!--        android:layout_marginBottom="16dp"-->
+<!--        >-->
 
-        <ImageView
-            android:id="@+id/fb_icon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/icon_shapefb"
-            android:elevation="8dp"
-            android:padding="4dp"
-            android:src="@drawable/fb" />
+<!--        <ImageView-->
+<!--            android:id="@+id/fb_icon"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:background="@drawable/icon_shapefb"-->
+<!--            android:elevation="8dp"-->
+<!--            android:padding="4dp"-->
+<!--            android:src="@drawable/fb" />-->
 
-        <ImageView
-            android:id="@+id/google_icon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_toRightOf="@id/fb_icon"
-            android:background="@drawable/icon_shapegoogle"
-            android:elevation="8dp"
-            android:padding="4dp"
-            android:src="@drawable/google_icon" />
+<!--        <ImageView-->
+<!--            android:id="@+id/google_icon"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="16dp"-->
+<!--            android:layout_toRightOf="@id/fb_icon"-->
+<!--            android:background="@drawable/icon_shapegoogle"-->
+<!--            android:elevation="8dp"-->
+<!--            android:padding="4dp"-->
+<!--            android:src="@drawable/google_icon" />-->
 
-    </RelativeLayout>
+<!--    </RelativeLayout>-->
 
 
 </RelativeLayout>

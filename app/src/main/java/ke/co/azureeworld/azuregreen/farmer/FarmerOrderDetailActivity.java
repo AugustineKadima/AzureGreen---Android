@@ -1,5 +1,6 @@
 package ke.co.azureeworld.azuregreen.farmer;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
@@ -11,6 +12,16 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.HashMap;
 
 import ke.co.azureeworld.azuregreen.R;
 import ke.co.azureeworld.azuregreen.menu.ProfileActivity;
@@ -20,8 +31,12 @@ import ke.co.azureeworld.azuregreen.setup.LoginActivity;
 public class FarmerOrderDetailActivity extends AppCompatActivity {
 
     ImageView order_details_back;
-    RelativeLayout home, my_stall, records;
-    Button  btn_orders, btn_sell, btn_saved, btn_market;
+    RelativeLayout home, my_stall, records, detail_layout;
+    Button  btn_orders, btn_sell, btn_saved, btn_market, btn_save;
+    TextView crop_name, crop_description, order_date, order_time, _price, _kgs, _status;
+
+    FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+    DatabaseReference mRef = firebaseDatabase.getReference("farmer_saved_crops");
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -73,6 +88,16 @@ public class FarmerOrderDetailActivity extends AppCompatActivity {
         btn_sell = (Button) findViewById(R.id.btn_sell_nav);
         btn_saved = (Button) findViewById(R.id.btn_saved_nav);
         btn_market = (Button) findViewById(R.id.btn_market_nav);
+        crop_name = (TextView) findViewById(R.id.order_details_title);
+        crop_description = (TextView) findViewById(R.id.order_details_description);
+        order_date = (TextView) findViewById(R.id.order_details_date);
+//        order_time = (TextView) findViewById(R.id.);
+        _price = (TextView) findViewById(R.id.order_details_price);
+        _kgs = (TextView) findViewById(R.id.order_details_sub_title);
+        _status = (TextView) findViewById(R.id.status_value);
+        btn_save = (Button) findViewById(R.id.btn_save_order_details);
+        detail_layout = (RelativeLayout) findViewById(R.id.order_detail_layout);
+
         order_details_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -125,6 +150,50 @@ public class FarmerOrderDetailActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(FarmerOrderDetailActivity.this, FarmerHomeActivity.class));
+            }
+        });
+
+        Intent intent = getIntent();
+        String cropName = intent.getStringExtra("cropName");
+        String cropDescription = intent.getStringExtra("cropDescription");
+        String orderDate = intent.getStringExtra("orderDate");
+        String orderTime = intent.getStringExtra("orderTime");
+        String price = intent.getStringExtra("price");
+        String kgs = intent.getStringExtra("kgs");
+        String status = intent.getStringExtra("status");
+
+        crop_name.setText(cropName);
+        crop_description.setText(cropDescription);
+        order_date.setText(orderDate);
+        _price.setText("KSh. "+price+"/Kg");
+        _kgs.setText(kgs+" Kgs");
+        _status.setText(status);
+
+        btn_save.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                HashMap<String, String> cropMap = new HashMap<>();
+                cropMap.put("cropName", cropName);
+                cropMap.put("cropDescription", cropDescription);
+                cropMap.put("orderDate", orderDate);
+                cropMap.put("price", price);
+                cropMap.put("kgs",  kgs);
+                cropMap.put("status", status);
+
+                mRef.push().setValue(cropMap).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if(task.isSuccessful()){
+                            Snackbar.make(detail_layout,"Saved successfully!", Snackbar.LENGTH_LONG).setAction("Ok", new View.OnClickListener() {
+                                @Override
+                                public void onClick(View view) {
+
+                                }
+                            }).setActionTextColor(getResources().getColor(R.color.azure_orange)).show();
+//                            Toast.makeText(FarmerOrderDetailActivity.this, "Saved successfully!", Toast.LENGTH_SHORT).show();
+                        }else Toast.makeText(FarmerOrderDetailActivity.this, "Failed! Try again.", Toast.LENGTH_SHORT).show();
+                    }
+                });
             }
         });
 

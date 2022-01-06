@@ -1,6 +1,7 @@
 package ke.co.azureeworld.azuregreen.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 import ke.co.azureeworld.azuregreen.R;
+import ke.co.azureeworld.azuregreen.farmer.FarmerSavedDetailActivity;
 import ke.co.azureeworld.azuregreen.modules.FarmerSaved;
 
 public class FarmerSavedAdapter extends RecyclerView.Adapter<FarmerSavedAdapter.ViewHolder> {
@@ -38,6 +40,19 @@ public class FarmerSavedAdapter extends RecyclerView.Adapter<FarmerSavedAdapter.
         holder.status.setText("Status: "+crop.getStatus());
         holder.orderDate.setText(crop.getOrderDate());
         holder.cropDescription.setText(crop.getCropDescription());
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(mContext, FarmerSavedDetailActivity.class);
+                intent.putExtra("cropName", crop.getCropName());
+                intent.putExtra("cropDescription", crop.getCropDescription());
+                intent.putExtra("status", crop.getStatus());
+                intent.putExtra("orderDate", crop.getOrderDate());
+                intent.putExtra("kgs", crop.getKgs());
+                intent.putExtra("price", crop.getPrice());
+                mContext.startActivity(intent);
+            }
+        });
     }
 
     @Override

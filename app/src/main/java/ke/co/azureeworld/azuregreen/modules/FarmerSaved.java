@@ -6,14 +6,18 @@ public class FarmerSaved {
     private String cropDescription;
     private String status;
     private String orderDate;
+    private String kgs;
+    private String price;
 
     public FarmerSaved(){}
 
-    public FarmerSaved(String cropName, String cropDescription, String status, String orderDate) {
+    public FarmerSaved(String cropName, String cropDescription, String status, String orderDate, String kgs, String price) {
         this.cropName = cropName;
         this.cropDescription = cropDescription;
         this.status = status;
         this.orderDate = orderDate;
+        this.kgs = kgs;
+        this.price = price;
     }
 
     public String getCropName() {
@@ -46,5 +50,21 @@ public class FarmerSaved {
 
     public void setOrderDate(String orderDate) {
         this.orderDate = orderDate;
+    }
+
+    public String getKgs() {
+        return kgs;
+    }
+
+    public void setKgs(String kgs) {
+        this.kgs = kgs;
+    }
+
+    public String getPrice() {
+        return price;
+    }
+
+    public void setPrice(String price) {
+        this.price = price;
     }
 }

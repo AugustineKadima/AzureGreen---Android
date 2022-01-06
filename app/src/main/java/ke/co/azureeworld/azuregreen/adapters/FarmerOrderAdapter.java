@@ -88,8 +88,8 @@ public class FarmerOrderAdapter extends RecyclerView.Adapter<FarmerOrderAdapter.
                 application.put("cropDescription", order.getCropDescription());
                 application.put("orderDate", order.getOrderDate());
                 application.put("orderTime", order.getOrderTime());
-                application.put("price", "500");
-                application.put("Kgs", "10");
+                application.put("price", order.getPrice());
+                application.put("Kgs", order.getKgs());
 //
 //                root.push().setValue(application).addOnCompleteListener(new OnCompleteListener<Void>() {
 //                    @Override
@@ -103,6 +103,22 @@ public class FarmerOrderAdapter extends RecyclerView.Adapter<FarmerOrderAdapter.
                 mContext.startActivity(intent);
             }
         });
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(mContext, FarmerOrderDetailActivity.class);
+                intent.putExtra("cropName", order.getCropName());
+                intent.putExtra("cropDescription", order.getCropDescription());
+                intent.putExtra("orderDate", order.getOrderDate());
+                intent.putExtra("orderTime", order.getOrderTime());
+                intent.putExtra("price", order.getPrice());
+                intent.putExtra("kgs",  order.getKgs());
+                intent.putExtra("status", order.getStatus());
+                mContext.startActivity(intent);
+            }
+        });
+
 
     }
 
@@ -128,12 +144,13 @@ public class FarmerOrderAdapter extends RecyclerView.Adapter<FarmerOrderAdapter.
             save = itemView.findViewById(R.id.btn_save_order_recycler);
             apply = itemView.findViewById(R.id.btn_apply_order_recycler);
 
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    mContext.startActivity(new Intent(mContext, FarmerOrderDetailActivity.class));
-                }
-            });
+//            itemView.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View view) {
+//                    Intent intent = new Intent(mContext, FarmerOrderDetailActivity.class);
+//                    mContext.startActivity(intent);
+//                }
+//            });
         }
     }
 
