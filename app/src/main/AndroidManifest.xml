@@ -12,6 +12,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AzureGreen">
         <activity
+            android:name=".buyer.BuyerMarketDetailActivity"
+            android:exported="true" />
+        <activity
+            android:name=".buyer.BuyerSavedDetailActivity"
+            android:exported="true" />
+        <activity
+            android:name=".buyer.BuyerSubmissionDetailActivity"
+            android:exported="true" />
+        <activity
             android:name=".farmer.FarmerMarketDetailActivity"
             android:exported="true" />
         <activity

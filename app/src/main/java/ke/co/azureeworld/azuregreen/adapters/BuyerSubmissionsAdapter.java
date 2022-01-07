@@ -21,6 +21,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import ke.co.azureeworld.azuregreen.R;
+import ke.co.azureeworld.azuregreen.buyer.BuyerSubmissionDetailActivity;
 import ke.co.azureeworld.azuregreen.modules.Submission;
 
 public class BuyerSubmissionsAdapter extends RecyclerView.Adapter<BuyerSubmissionsAdapter.ViewHolder> {
@@ -77,6 +78,19 @@ public class BuyerSubmissionsAdapter extends RecyclerView.Adapter<BuyerSubmissio
             @Override
             public void onClick(View view) {
                 Toast.makeText(mContext, "Buy clicked!", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(mContext, BuyerSubmissionDetailActivity.class);
+                    intent.putExtra("cropName",submission.getCropName());
+                    intent.putExtra("cropDescription", submission.getCropDescription());
+                    intent.putExtra("kgs", submission.getKgs());
+                    intent.putExtra("price", submission.getPrice());
+                    intent.putExtra("orderDate", submission.getOrderDate());
+                mContext.startActivity(intent);
             }
         });
     }

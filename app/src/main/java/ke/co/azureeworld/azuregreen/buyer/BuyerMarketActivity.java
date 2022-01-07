@@ -24,6 +24,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ke.co.azureeworld.azuregreen.R;
+import ke.co.azureeworld.azuregreen.adapters.BuyerMarketAdapter;
 import ke.co.azureeworld.azuregreen.adapters.FarmerMarketAdapter;
 import ke.co.azureeworld.azuregreen.farmer.FarmerHomeActivity;
 import ke.co.azureeworld.azuregreen.farmer.FarmerMarketActivity;
@@ -38,7 +39,7 @@ public class BuyerMarketActivity extends AppCompatActivity {
 
     Button btn_saved, btn_submissions;
     RecyclerView recyclerView;
-    FarmerMarketAdapter adapter;
+    BuyerMarketAdapter adapter;
     List<Sell> on_sell_items;
     RelativeLayout orders, records,home;
 
@@ -96,7 +97,7 @@ public class BuyerMarketActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setHasFixedSize(true);
         on_sell_items = new ArrayList<>();
-        adapter = new FarmerMarketAdapter(on_sell_items, this);
+        adapter = new BuyerMarketAdapter(on_sell_items, this);
         recyclerView.setAdapter(adapter);
 
 

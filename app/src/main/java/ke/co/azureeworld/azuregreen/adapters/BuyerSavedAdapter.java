@@ -1,6 +1,7 @@
 package ke.co.azureeworld.azuregreen.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +15,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 import ke.co.azureeworld.azuregreen.R;
+import ke.co.azureeworld.azuregreen.buyer.BuyerSavedDetailActivity;
+import ke.co.azureeworld.azuregreen.buyer.BuyerSubmissionDetailActivity;
 import ke.co.azureeworld.azuregreen.modules.BuyerSaved;
 
 public class BuyerSavedAdapter extends RecyclerView.Adapter<BuyerSavedAdapter.ViewHolder> {
@@ -43,6 +46,19 @@ public class BuyerSavedAdapter extends RecyclerView.Adapter<BuyerSavedAdapter.Vi
             @Override
             public void onClick(View view) {
                 Toast.makeText(mContext, "You have bought.", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(mContext, BuyerSavedDetailActivity.class);
+                intent.putExtra("cropName",savedItem.getCropName());
+                intent.putExtra("cropDescription", savedItem.getCropDescription());
+                intent.putExtra("kgs", savedItem.getKgs());
+                intent.putExtra("price", savedItem.getPrice());
+                intent.putExtra("orderDate", savedItem.getOrderDate());
+                mContext.startActivity(intent);
             }
         });
 
