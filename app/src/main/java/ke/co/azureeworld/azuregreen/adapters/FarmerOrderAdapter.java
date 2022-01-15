@@ -99,7 +99,8 @@ public class FarmerOrderAdapter extends RecyclerView.Adapter<FarmerOrderAdapter.
 //                });
 
                 Intent intent = new Intent(mContext, FarmerOrderApplyActivity.class);
-                intent.putExtra("application",application);
+                intent.putExtra("cropName", order.getCropName());
+                intent.putExtra("price", order.getPrice());
                 mContext.startActivity(intent);
             }
         });

@@ -13,11 +13,12 @@ public class FarmerRecordsViewModel extends ViewModel {
     private MutableLiveData<HashMap<String, String>> record = new MutableLiveData<>();
     private HashMap<String, String> data = new HashMap<>();
 
-    public void setData(String activityName, String activityDescription, String cost, String date){
+    public void setData(String activityName, String activityDescription, String cost, String date, String email){
         data.put("activityName", activityName);
         data.put("activityDescription", activityDescription);
         data.put("cost", cost);
         data.put("date", date);
+        data.put("email", email);
         record.setValue(data);
 
     }

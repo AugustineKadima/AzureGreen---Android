@@ -75,12 +75,78 @@
     </LinearLayout>
 
 
-    <!--            RecyclerView-->
-    <androidx.recyclerview.widget.RecyclerView
+
+    <!--    Apply Page-->
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/top_nav_farmer"
-        android:layout_marginBottom="72dp" />
+        android:layout_below="@id/toolbar"
+        android:background="@color/azure_opacity">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="88dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/back_recycler"
+            android:elevation="8dp">
+
+            <!--                Top Nav-->
+
+
+            <LinearLayout
+                android:id="@+id/records_nav"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@color/white"
+                android:elevation="4dp">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/all_crops"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:text="All Records"
+                    android:textAllCaps="false"
+                    android:textColor="@color/azure_orange" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/on_sell_crops"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:textAllCaps="false"
+                    android:textColor="@color/azure_light_green" />
+
+                <ImageView
+                    android:id="@+id/add_new_crop"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:padding="12dp"
+                    android:src="@drawable/add_new_24" />
+            </LinearLayout>
+
+
+            <!--            Container-->
+            <FrameLayout
+                android:id="@+id/records_container"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/records_nav"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="72dp" />
+
+
+        </RelativeLayout>
+    </RelativeLayout>
+
 
     <!--    Bottom nav-->
     <RelativeLayout

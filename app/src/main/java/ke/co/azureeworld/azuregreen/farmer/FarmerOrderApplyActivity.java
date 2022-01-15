@@ -9,6 +9,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
@@ -22,6 +23,7 @@ public class FarmerOrderApplyActivity extends AppCompatActivity {
     RelativeLayout home, my_stall, records;
     Button  btn_orders, btn_sell, btn_saved, btn_market;
     ImageView order_details_back;
+    EditText product_name, price;
 
 
     @Override
@@ -75,6 +77,17 @@ public class FarmerOrderApplyActivity extends AppCompatActivity {
         btn_saved = (Button) findViewById(R.id.btn_saved_nav);
         btn_market = (Button) findViewById(R.id.btn_market_nav);
         order_details_back = (ImageView) findViewById(R.id.order_details_back);
+        product_name = (EditText) findViewById(R.id.apply_product_name_farmer);
+        price = (EditText) findViewById(R.id.apply_price_per_kg);
+
+        Intent orderIntent = getIntent();
+        String _productName = orderIntent.getStringExtra("cropName");
+        String _price = orderIntent.getStringExtra("price");
+
+        price.setText(_price);
+        product_name.setText(_productName);
+
+
 
         order_details_back.setOnClickListener(new View.OnClickListener() {
             @Override

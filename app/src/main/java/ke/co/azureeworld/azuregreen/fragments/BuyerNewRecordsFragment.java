@@ -1,5 +1,6 @@
 package ke.co.azureeworld.azuregreen.fragments;
 
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 
@@ -24,14 +25,14 @@ import ke.co.azureeworld.azuregreen.view_models.FarmerRecordsViewModel;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link FarmerNewRecordFragment#newInstance} factory method to
+ * Use the {@link BuyerNewRecordsFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class FarmerNewRecordFragment extends Fragment {
-
+public class BuyerNewRecordsFragment extends Fragment {
     FarmerRecordsViewModel recordsViewModel;
     Button btn_create_record;
     EditText activity_name, activity_description, cost, email;
+
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -42,7 +43,7 @@ public class FarmerNewRecordFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public FarmerNewRecordFragment() {
+    public BuyerNewRecordsFragment() {
         // Required empty public constructor
     }
 
@@ -52,11 +53,11 @@ public class FarmerNewRecordFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment FarmerNewRecordFragment.
+     * @return A new instance of fragment BuyerNewRecordsFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static FarmerNewRecordFragment newInstance(String param1, String param2) {
-        FarmerNewRecordFragment fragment = new FarmerNewRecordFragment();
+    public static BuyerNewRecordsFragment newInstance(String param1, String param2) {
+        BuyerNewRecordsFragment fragment = new BuyerNewRecordsFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -77,7 +78,7 @@ public class FarmerNewRecordFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_farmer_new_record, container, false);
+        return inflater.inflate(R.layout.fragment_buyer_new_records, container, false);
     }
 
     @Override
@@ -88,8 +89,8 @@ public class FarmerNewRecordFragment extends Fragment {
         activity_name = view.findViewById(R.id.apply_product_name_farmer);
         activity_description = view.findViewById(R.id.apply_describe_farmer);
         cost = view.findViewById(R.id.activity_cost_farmer);
-        email = view.findViewById(R.id.farmer_email);
         btn_create_record = view.findViewById(R.id.btn_apply_farmer);
+        email = view.findViewById(R.id.buyer_email);
 
         btn_create_record.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.O)

@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
@@ -24,34 +25,26 @@ import com.google.firebase.auth.FirebaseAuth;
 
 import ke.co.azureeworld.azuregreen.R;
 import ke.co.azureeworld.azuregreen.buyer.BuyerSubmissionsActivity;
+import ke.co.azureeworld.azuregreen.constants.AzureConstants;
 import ke.co.azureeworld.azuregreen.farmer.FarmerHomeActivity;
 
 public class LoginActivity extends AppCompatActivity {
 
     private Button login;
-    private RadioButton radio_farmer, radio_buyer;
+    private RadioButton radio_farmer, radio_buyer, remember_me;
     private TextView farmer_new_user_create_account;
     private EditText email, password;
     private FirebaseAuth mAuth;
 //    private FirebaseAuth.AuthStateListener mAuthListener;
+
+    SharedPreferences sharedPreferences;
+    SharedPreferences.Editor editor;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-// Configure sign-in to request the user's ID, email address, and basic
-// profile. ID and basic profile are included in DEFAULT_SIGN_IN.
-//        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-//                .requestEmail()
-//                .build();
-//
-//        // Build a GoogleSignInClient with the options specified by gso.
-//        GoogleSignInClient mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
-//        // Check for existing Google Sign In account, if the user is already signed in
-//// the GoogleSignInAccount will be non-null.
-//        GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
-////        updateUI(account);
 
 
         login = (Button) findViewById(R.id.btn_login_farmer);
@@ -60,19 +53,21 @@ public class LoginActivity extends AppCompatActivity {
         email = (EditText) findViewById(R.id.login_email);
         password = (EditText) findViewById(R.id.login_password);
         farmer_new_user_create_account = (TextView) findViewById(R.id.farmer_new_user_create_account);
+        String USER_EMAIL = AzureConstants.getLoginEmail();
+        String PASSWORD = AzureConstants.getLoginPassword();
+        remember_me = (RadioButton) findViewById(R.id.remember_me);
+
 
         // ...
 // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
 
-//        mAuthListener = new FirebaseAuth.AuthStateListener() {
-//            @Override
-//            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-//                if(firebaseAuth.getCurrentUser() != null){
-//
-//                }
-//            }
-//        };
+        sharedPreferences = getSharedPreferences("login_ref", MODE_PRIVATE);
+        editor = sharedPreferences.edit();
+
+
+        email.setText(sharedPreferences.getString("login_email", null));
+        password.setText(sharedPreferences.getString("login_password", null));
 
         farmer_new_user_create_account.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -83,6 +78,9 @@ public class LoginActivity extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+
+
                 if(!radio_farmer.isChecked() && !radio_buyer.isChecked()){
                     Toast.makeText(LoginActivity.this, "Are you logging in as a farmer or buyer? Select the appropriate option above.", Toast.LENGTH_LONG).show();
                 }
@@ -126,6 +124,11 @@ public class LoginActivity extends AppCompatActivity {
                         password.setError("Password should contain a minimum of 6 values");
                         password.requestFocus();
                     }else{
+
+
+                        editor.putString(USER_EMAIL, Email).apply();
+                        editor.putString(PASSWORD, Password).apply();
+
                         mAuth.signInWithEmailAndPassword(Email, Password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
@@ -140,19 +143,7 @@ public class LoginActivity extends AppCompatActivity {
 
                     }
                 }
-//
-//                switch (v.getId()) {
-//                    case R.id.sign_in_button:
-//                        signIn();
-//                        break;
-//                    // ...
-//                }
-//            }
-//
-//            private void signIn() {
-//                Intent signInIntent = mGoogleSignInClient.getSignInIntent();
-//                startActivityForResult(signInIntent, RC_SIGN_IN);
-//            }
+
             }
         });
     }

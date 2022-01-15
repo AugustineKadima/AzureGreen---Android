@@ -20,7 +20,7 @@
         <entry key="app/src/main/res/drawable/nav_border.xml" value="0.1111111111111111" />
         <entry key="app/src/main/res/drawable/shape_white.xml" value="0.11944444444444445" />
         <entry key="app/src/main/res/layout/activity_buyer_market.xml" value="0.22" />
-        <entry key="app/src/main/res/layout/activity_buyer_market_detail.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_buyer_market_detail.xml" value="0.22" />
         <entry key="app/src/main/res/layout/activity_buyer_new_order.xml" value="0.2" />
         <entry key="app/src/main/res/layout/activity_buyer_open_orders.xml" value="0.2" />
         <entry key="app/src/main/res/layout/activity_buyer_orders.xml" value="0.22" />
@@ -39,7 +39,7 @@
         <entry key="app/src/main/res/layout/activity_farmer_order_detail.xml" value="0.2" />
         <entry key="app/src/main/res/layout/activity_farmer_records.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_farmer_saved.xml" value="0.18" />
-        <entry key="app/src/main/res/layout/activity_farmer_saved_detail.xml" value="0.18" />
+        <entry key="app/src/main/res/layout/activity_farmer_saved_detail.xml" value="0.17094017094017094" />
         <entry key="app/src/main/res/layout/activity_farmer_sell.xml" value="0.22" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.22" />
         <entry key="app/src/main/res/layout/activity_login_farmer.xml" value="0.18" />
@@ -50,7 +50,9 @@
         <entry key="app/src/main/res/layout/fragment_add_crop_to_stall_farmer.xml" value="0.18" />
         <entry key="app/src/main/res/layout/fragment_all_crops_in_my_stall_farmer.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_buyer_all_orders.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_buyer_all_records.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_buyer_new_order.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/fragment_buyer_new_records.xml" value="0.22" />
         <entry key="app/src/main/res/layout/fragment_farmer_all_records.xml" value="0.18" />
         <entry key="app/src/main/res/layout/fragment_farmer_new_record.xml" value="0.22" />
         <entry key="app/src/main/res/layout/fragment_on_sell_my_stall_farmer.xml" value="0.1" />

@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -13,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 import ke.co.azureeworld.azuregreen.R;
+import ke.co.azureeworld.azuregreen.farmer.FarmerOrderApplyActivity;
 import ke.co.azureeworld.azuregreen.farmer.FarmerSavedDetailActivity;
 import ke.co.azureeworld.azuregreen.modules.FarmerSaved;
 
@@ -53,6 +55,16 @@ public class FarmerSavedAdapter extends RecyclerView.Adapter<FarmerSavedAdapter.
                 mContext.startActivity(intent);
             }
         });
+
+        holder.btn_apply.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(mContext, FarmerOrderApplyActivity.class);
+                intent.putExtra("price", crop.getPrice());
+                intent.putExtra("cropName", crop.getCropName());
+                mContext.startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -62,6 +74,7 @@ public class FarmerSavedAdapter extends RecyclerView.Adapter<FarmerSavedAdapter.
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView cropName, cropDescription, status, orderDate;
+        Button btn_apply;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
@@ -69,6 +82,7 @@ public class FarmerSavedAdapter extends RecyclerView.Adapter<FarmerSavedAdapter.
             cropDescription = itemView.findViewById(R.id.saved_description);
             status = itemView.findViewById(R.id.saved_status);
             orderDate = itemView.findViewById(R.id.saved_date);
+            btn_apply = itemView.findViewById(R.id.btn_apply_order_recycler);
         }
     }
 }

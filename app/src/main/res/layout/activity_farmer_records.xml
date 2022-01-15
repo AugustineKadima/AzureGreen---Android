@@ -107,12 +107,11 @@
 
             <LinearLayout
                 android:id="@+id/records_nav"
-                android:layout_marginTop="16dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
                 android:background="@color/white"
-                android:elevation="4dp"
-                >
+                android:elevation="4dp">
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/all_crops"
@@ -128,8 +127,8 @@
                     android:id="@+id/on_sell_crops"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@color/white"
                     android:layout_weight="1"
+                    android:background="@color/white"
                     android:textAllCaps="false"
                     android:textColor="@color/azure_light_green" />
 

@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -24,6 +25,7 @@ public class FarmerSavedDetailActivity extends AppCompatActivity {
         order_date = (TextView) findViewById(R.id.order_details_date);
         _kgs = (TextView) findViewById(R.id.order_details_sub_title);
         _price = (TextView) findViewById(R.id.order_details_price);
+        btn_apply = (Button) findViewById(R.id.btn_apply_order_details);
 
         Intent intent = getIntent();
 
@@ -40,6 +42,16 @@ public class FarmerSavedDetailActivity extends AppCompatActivity {
         order_date.setText(orderDate);
         _kgs.setText(kgs + "Kgs required");
         _price.setText("KSh. " + price + "/Kg");
+
+        btn_apply.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent1 = new Intent(FarmerSavedDetailActivity.this, FarmerOrderApplyActivity.class);
+                intent1.putExtra("price", price);
+                intent1.putExtra("cropName", cropName);
+                startActivity(intent1);
+            }
+        });
 
     }
 }
