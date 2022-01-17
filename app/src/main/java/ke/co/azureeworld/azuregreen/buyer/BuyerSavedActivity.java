@@ -33,6 +33,7 @@ import ke.co.azureeworld.azuregreen.menu.ProfileActivity;
 import ke.co.azureeworld.azuregreen.menu.SettingsActivity;
 import ke.co.azureeworld.azuregreen.modules.BuyerSaved;
 import ke.co.azureeworld.azuregreen.setup.LoginActivity;
+import ke.co.azureeworld.azuregreen.view_models.EmailViewModel;
 
 public class BuyerSavedActivity extends AppCompatActivity {
 
@@ -127,7 +128,9 @@ public class BuyerSavedActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for(DataSnapshot dataSnapshot: snapshot.getChildren()){
                     BuyerSaved saved = dataSnapshot.getValue(BuyerSaved.class);
-                    savedList.add(saved);
+                    if(EmailViewModel.email.equals(saved.getEmail())){
+                        savedList.add(saved);
+                    }
                 }
                 adapter.notifyDataSetChanged();
             }

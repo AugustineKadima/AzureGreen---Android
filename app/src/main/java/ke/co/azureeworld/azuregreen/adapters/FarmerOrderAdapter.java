@@ -27,6 +27,7 @@ import ke.co.azureeworld.azuregreen.R;
 import ke.co.azureeworld.azuregreen.farmer.FarmerOrderApplyActivity;
 import ke.co.azureeworld.azuregreen.farmer.FarmerOrderDetailActivity;
 import ke.co.azureeworld.azuregreen.modules.Order;
+import ke.co.azureeworld.azuregreen.view_models.EmailViewModel;
 
 public class FarmerOrderAdapter extends RecyclerView.Adapter<FarmerOrderAdapter.ViewHolder> {
 
@@ -64,6 +65,7 @@ public class FarmerOrderAdapter extends RecyclerView.Adapter<FarmerOrderAdapter.
                 savedItems.put("status", "Open");
                 savedItems.put("orderDate", order.getOrderDate());
                 savedItems.put("orderTime", order.getOrderTime());
+                savedItems.put("email", EmailViewModel.email);
 
                 root.push().setValue(savedItems).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override

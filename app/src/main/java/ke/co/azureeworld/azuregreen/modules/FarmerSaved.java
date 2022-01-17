@@ -8,16 +8,18 @@ public class FarmerSaved {
     private String orderDate;
     private String kgs;
     private String price;
+    private String email;
 
     public FarmerSaved(){}
 
-    public FarmerSaved(String cropName, String cropDescription, String status, String orderDate, String kgs, String price) {
+    public FarmerSaved(String cropName, String cropDescription, String status, String orderDate, String kgs, String price, String email) {
         this.cropName = cropName;
         this.cropDescription = cropDescription;
         this.status = status;
         this.orderDate = orderDate;
         this.kgs = kgs;
         this.price = price;
+        this.email = email;
     }
 
     public String getCropName() {
@@ -66,5 +68,13 @@ public class FarmerSaved {
 
     public void setPrice(String price) {
         this.price = price;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

@@ -20,6 +20,7 @@ import android.widget.Toast;
 import java.time.LocalDate;
 
 import ke.co.azureeworld.azuregreen.R;
+import ke.co.azureeworld.azuregreen.view_models.EmailViewModel;
 import ke.co.azureeworld.azuregreen.view_models.FarmerRecordsViewModel;
 
 /**
@@ -31,7 +32,7 @@ public class FarmerNewRecordFragment extends Fragment {
 
     FarmerRecordsViewModel recordsViewModel;
     Button btn_create_record;
-    EditText activity_name, activity_description, cost, email;
+    EditText activity_name, activity_description, cost;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -88,7 +89,6 @@ public class FarmerNewRecordFragment extends Fragment {
         activity_name = view.findViewById(R.id.apply_product_name_farmer);
         activity_description = view.findViewById(R.id.apply_describe_farmer);
         cost = view.findViewById(R.id.activity_cost_farmer);
-        email = view.findViewById(R.id.farmer_email);
         btn_create_record = view.findViewById(R.id.btn_apply_farmer);
 
         btn_create_record.setOnClickListener(new View.OnClickListener() {
@@ -98,9 +98,8 @@ public class FarmerNewRecordFragment extends Fragment {
                 String activityName = activity_name.getText().toString().trim();
                 String activityDescription = activity_description.getText().toString().trim();
                 String Cost = cost.getText().toString().trim();
-                String Email = email.getText().toString().trim();
                 LocalDate localDate = LocalDate.now();
-                if(activityDescription.isEmpty() && activityName.isEmpty() && Cost.isEmpty() && Email.isEmpty()){
+                if(activityDescription.isEmpty() && activityName.isEmpty() && Cost.isEmpty()){
                     Toast.makeText(getContext(), "Fill in all inputs to continue.", Toast.LENGTH_SHORT).show();
                 }else if(activityName.isEmpty()){
                     activity_name.setError("Activity name required!");
@@ -111,15 +110,9 @@ public class FarmerNewRecordFragment extends Fragment {
                 }else if(Cost.isEmpty()){
                     cost.setError("Cost required!");
                     cost.requestFocus();
-                }else if(Email.isEmpty()){
-                    email.setError("Email required!");
-                    email.requestFocus();
-                }else if(!Patterns.EMAIL_ADDRESS.matcher(Email).matches()){
-                    email.setError("Use the correct email format!");
-                    email.requestFocus();
                 }
                 else{
-                    recordsViewModel.setData(activityName, activityDescription,Cost,localDate.toString(), Email);
+                    recordsViewModel.setData(activityName, activityDescription,Cost,localDate.toString(), EmailViewModel.email);
                 }
 
             }

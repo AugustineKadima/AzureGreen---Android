@@ -23,6 +23,7 @@ import java.util.List;
 import ke.co.azureeworld.azuregreen.R;
 import ke.co.azureeworld.azuregreen.buyer.BuyerSubmissionDetailActivity;
 import ke.co.azureeworld.azuregreen.modules.Submission;
+import ke.co.azureeworld.azuregreen.view_models.EmailViewModel;
 
 public class BuyerSubmissionsAdapter extends RecyclerView.Adapter<BuyerSubmissionsAdapter.ViewHolder> {
 
@@ -60,6 +61,7 @@ public class BuyerSubmissionsAdapter extends RecyclerView.Adapter<BuyerSubmissio
                 saved.put("price", submission.getPrice());
                 saved.put("Kgs", submission.getKgs());
                 saved.put("orderTime", submission.getOrderTime());
+                saved.put("email", EmailViewModel.email);
 
                 mRef.push().setValue(saved).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override

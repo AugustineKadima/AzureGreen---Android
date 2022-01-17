@@ -13,6 +13,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -29,6 +30,7 @@ import ke.co.azureeworld.azuregreen.menu.ProfileActivity;
 import ke.co.azureeworld.azuregreen.menu.SettingsActivity;
 import ke.co.azureeworld.azuregreen.modules.FarmerSaved;
 import ke.co.azureeworld.azuregreen.setup.LoginActivity;
+import ke.co.azureeworld.azuregreen.view_models.EmailViewModel;
 
 public class FarmerSavedActivity extends AppCompatActivity {
 
@@ -145,7 +147,9 @@ public class FarmerSavedActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for(DataSnapshot dataSnapshot: snapshot.getChildren()){
                     FarmerSaved saved = dataSnapshot.getValue(FarmerSaved.class);
-                    saved_crops.add(saved);
+                    if(saved.getEmail().equals(EmailViewModel.email)){
+                        saved_crops.add(saved);
+                    }
                 }
                 adapter.notifyDataSetChanged();
             }
