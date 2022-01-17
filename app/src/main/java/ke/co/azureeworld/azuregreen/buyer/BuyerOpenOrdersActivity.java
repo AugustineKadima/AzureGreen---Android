@@ -13,12 +13,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import ke.co.azureeworld.azuregreen.R;
-import ke.co.azureeworld.azuregreen.farmer.FarmerHomeActivity;
-import ke.co.azureeworld.azuregreen.farmer.FarmerMarketActivity;
 import ke.co.azureeworld.azuregreen.menu.BuyerProfileActivity;
 import ke.co.azureeworld.azuregreen.menu.BuyerSettingsActivity;
-import ke.co.azureeworld.azuregreen.menu.ProfileActivity;
-import ke.co.azureeworld.azuregreen.menu.SettingsActivity;
 import ke.co.azureeworld.azuregreen.setup.LoginActivity;
 
 public class BuyerOpenOrdersActivity extends AppCompatActivity {
@@ -79,7 +75,7 @@ public class BuyerOpenOrdersActivity extends AppCompatActivity {
         new_order.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(BuyerOpenOrdersActivity.this, BuyerNewOrderActivity.class));
+                startActivity(new Intent(BuyerOpenOrdersActivity.this, FarmerMarketDetailActivity.class));
             }
         });
 

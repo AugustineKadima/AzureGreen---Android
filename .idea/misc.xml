@@ -19,6 +19,7 @@
         <entry key="app/src/main/res/drawable/library_add_24.xml" value="0.18333333333333332" />
         <entry key="app/src/main/res/drawable/nav_border.xml" value="0.1111111111111111" />
         <entry key="app/src/main/res/drawable/shape_white.xml" value="0.11944444444444445" />
+        <entry key="app/src/main/res/layout/activity_buy.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_buyer_market.xml" value="0.22" />
         <entry key="app/src/main/res/layout/activity_buyer_market_detail.xml" value="0.22" />
         <entry key="app/src/main/res/layout/activity_buyer_new_order.xml" value="0.2" />

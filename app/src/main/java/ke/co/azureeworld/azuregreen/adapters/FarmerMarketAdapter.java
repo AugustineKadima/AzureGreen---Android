@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -13,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 import ke.co.azureeworld.azuregreen.R;
+import ke.co.azureeworld.azuregreen.buyer.BuyActivity;
 import ke.co.azureeworld.azuregreen.farmer.FarmerMarketDetailActivity;
 import ke.co.azureeworld.azuregreen.modules.Sell;
 
@@ -54,6 +56,13 @@ public class FarmerMarketAdapter extends RecyclerView.Adapter<FarmerMarketAdapte
             }
         });
 
+        holder.btn_buy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mContext.startActivity(new Intent(mContext, BuyActivity.class));
+            }
+        });
+
     }
 
     @Override
@@ -64,6 +73,7 @@ public class FarmerMarketAdapter extends RecyclerView.Adapter<FarmerMarketAdapte
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         TextView date, title, description, status;
+        Button btn_buy;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
@@ -71,6 +81,7 @@ public class FarmerMarketAdapter extends RecyclerView.Adapter<FarmerMarketAdapte
             title = itemView.findViewById(R.id.sell_title);
             description = itemView.findViewById(R.id.sell_description);
             status = itemView.findViewById(R.id.sell_status);
+            btn_buy = itemView.findViewById(R.id.btn_apply_order_recycler);
 
         }
     }

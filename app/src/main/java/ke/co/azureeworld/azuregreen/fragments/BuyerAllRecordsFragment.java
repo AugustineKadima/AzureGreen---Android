@@ -24,6 +24,7 @@ import java.util.List;
 import ke.co.azureeworld.azuregreen.R;
 import ke.co.azureeworld.azuregreen.adapters.FarmerAllRecordsAdapter;
 import ke.co.azureeworld.azuregreen.modules.FarmerRecord;
+import ke.co.azureeworld.azuregreen.view_models.EmailViewModel;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -100,7 +101,10 @@ public class BuyerAllRecordsFragment extends Fragment {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for(DataSnapshot dataSnapshot: snapshot.getChildren()){
                     FarmerRecord newRecord = dataSnapshot.getValue(FarmerRecord.class);
-                    records.add(newRecord);
+                    if(EmailViewModel.email.equals(newRecord.getEmail())){
+                        records.add(newRecord);
+                    }
+
                 }
                 adapter.notifyDataSetChanged();
             }

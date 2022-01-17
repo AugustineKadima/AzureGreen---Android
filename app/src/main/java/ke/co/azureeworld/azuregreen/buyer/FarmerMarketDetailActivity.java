@@ -28,16 +28,12 @@ import java.time.LocalTime;
 import java.util.HashMap;
 
 import ke.co.azureeworld.azuregreen.R;
-import ke.co.azureeworld.azuregreen.farmer.FarmerHomeActivity;
-import ke.co.azureeworld.azuregreen.farmer.FarmerMarketActivity;
 import ke.co.azureeworld.azuregreen.menu.BuyerProfileActivity;
 import ke.co.azureeworld.azuregreen.menu.BuyerSettingsActivity;
-import ke.co.azureeworld.azuregreen.menu.ProfileActivity;
-import ke.co.azureeworld.azuregreen.menu.SettingsActivity;
 import ke.co.azureeworld.azuregreen.setup.LoginActivity;
 
 @RequiresApi(api = Build.VERSION_CODES.O)
-public class BuyerNewOrderActivity extends AppCompatActivity {
+public class FarmerMarketDetailActivity extends AppCompatActivity {
 
     RelativeLayout records, home;
     TextView open_orders, all_orders;
@@ -62,7 +58,7 @@ public class BuyerNewOrderActivity extends AppCompatActivity {
         settings.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem menuItem) {
-                startActivity(new Intent(BuyerNewOrderActivity.this, BuyerSettingsActivity.class));
+                startActivity(new Intent(FarmerMarketDetailActivity.this, BuyerSettingsActivity.class));
                 return false;
             }
         });
@@ -70,7 +66,7 @@ public class BuyerNewOrderActivity extends AppCompatActivity {
         profile.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem menuItem) {
-                startActivity(new Intent(BuyerNewOrderActivity.this, BuyerProfileActivity.class));
+                startActivity(new Intent(FarmerMarketDetailActivity.this, BuyerProfileActivity.class));
                 return false;
             }
         });
@@ -78,7 +74,7 @@ public class BuyerNewOrderActivity extends AppCompatActivity {
         logout.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem menuItem) {
-                startActivity(new Intent(BuyerNewOrderActivity.this, LoginActivity.class));
+                startActivity(new Intent(FarmerMarketDetailActivity.this, LoginActivity.class));
                 return true;
             }
         });
@@ -107,35 +103,35 @@ public class BuyerNewOrderActivity extends AppCompatActivity {
         home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(BuyerNewOrderActivity.this, BuyerSubmissionsActivity.class));
+                startActivity(new Intent(FarmerMarketDetailActivity.this, BuyerSubmissionsActivity.class));
             }
         });
 
         records.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(BuyerNewOrderActivity.this, BuyerRecordsActivity.class));
+                startActivity(new Intent(FarmerMarketDetailActivity.this, BuyerRecordsActivity.class));
             }
         });
 
         open_orders.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(BuyerNewOrderActivity.this, BuyerOpenOrdersActivity.class));
+                startActivity(new Intent(FarmerMarketDetailActivity.this, BuyerOpenOrdersActivity.class));
             }
         });
 
         all_orders.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(BuyerNewOrderActivity.this, BuyerOrdersActivity.class));
+                startActivity(new Intent(FarmerMarketDetailActivity.this, BuyerOrdersActivity.class));
             }
         });
 
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(BuyerNewOrderActivity.this, BuyerSubmissionsActivity.class));
+                startActivity(new Intent(FarmerMarketDetailActivity.this, BuyerSubmissionsActivity.class));
             }
         });
 
@@ -150,7 +146,7 @@ public class BuyerNewOrderActivity extends AppCompatActivity {
                 local_time = LocalTime.now();
 
                 if(cropName.isEmpty() && cropDescription.isEmpty() && Kgs.isEmpty() && Price.isEmpty()){
-                    Toast.makeText(BuyerNewOrderActivity.this, "Failed! Fill all input fields to create an order", Toast.LENGTH_LONG).show();
+                    Toast.makeText(FarmerMarketDetailActivity.this, "Failed! Fill all input fields to create an order", Toast.LENGTH_LONG).show();
                 }else if(cropName.isEmpty()){
                     crop_name.setError("Crop name required!");
                     crop_name.requestFocus();
@@ -177,9 +173,9 @@ public class BuyerNewOrderActivity extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
                             if(task.isSuccessful()){
-                                Toast.makeText(BuyerNewOrderActivity.this, "Order was successfully placed!", Toast.LENGTH_LONG).show();
+                                Toast.makeText(FarmerMarketDetailActivity.this, "Order was successfully placed!", Toast.LENGTH_LONG).show();
                             }else {
-                                Toast.makeText(BuyerNewOrderActivity.this, "Failed! Try again.", Toast.LENGTH_LONG).show();
+                                Toast.makeText(FarmerMarketDetailActivity.this, "Failed! Try again.", Toast.LENGTH_LONG).show();
                             }
                         }
                     });

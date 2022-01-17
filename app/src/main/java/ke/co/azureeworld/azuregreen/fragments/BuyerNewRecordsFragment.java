@@ -21,6 +21,7 @@ import android.widget.Toast;
 import java.time.LocalDate;
 
 import ke.co.azureeworld.azuregreen.R;
+import ke.co.azureeworld.azuregreen.view_models.EmailViewModel;
 import ke.co.azureeworld.azuregreen.view_models.FarmerRecordsViewModel;
 
 /**
@@ -96,6 +97,7 @@ public class BuyerNewRecordsFragment extends Fragment {
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View view) {
+
                 String activityName = activity_name.getText().toString().trim();
                 String activityDescription = activity_description.getText().toString().trim();
                 String Cost = cost.getText().toString().trim();

@@ -5,14 +5,16 @@ public class FarmerRecord {
     private String activityDescription;
     private String cost;
     private String date;
+    private String email;
 
     public FarmerRecord(){}
 
-    public FarmerRecord(String activityName, String activityDescription, String cost, String date) {
+    public FarmerRecord(String activityName, String activityDescription, String cost, String date, String email) {
         this.activityName = activityName;
         this.activityDescription = activityDescription;
         this.cost = cost;
         this.date = date;
+        this.email = email;
     }
 
     public String getActivityName() {
@@ -45,5 +47,13 @@ public class FarmerRecord {
 
     public void setDate(String date) {
         this.date = date;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

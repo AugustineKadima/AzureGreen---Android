@@ -27,6 +27,7 @@ import ke.co.azureeworld.azuregreen.R;
 import ke.co.azureeworld.azuregreen.buyer.BuyerSubmissionsActivity;
 import ke.co.azureeworld.azuregreen.constants.AzureConstants;
 import ke.co.azureeworld.azuregreen.farmer.FarmerHomeActivity;
+import ke.co.azureeworld.azuregreen.view_models.EmailViewModel;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -35,10 +36,13 @@ public class LoginActivity extends AppCompatActivity {
     private TextView farmer_new_user_create_account;
     private EditText email, password;
     private FirebaseAuth mAuth;
+    String Email;
 //    private FirebaseAuth.AuthStateListener mAuthListener;
 
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor editor;
+
+    EmailViewModel emailViewModel;
 
 
     @Override
@@ -85,7 +89,7 @@ public class LoginActivity extends AppCompatActivity {
                     Toast.makeText(LoginActivity.this, "Are you logging in as a farmer or buyer? Select the appropriate option above.", Toast.LENGTH_LONG).show();
                 }
                 else if(radio_farmer.isChecked()){
-                    String Email = email.getText().toString().trim();
+                    Email = email.getText().toString().trim();
                     String Password = password.getText().toString().trim();
                     if(Email.isEmpty() && Password.isEmpty()){
                         Toast.makeText(LoginActivity.this, "Please enter login details", Toast.LENGTH_SHORT).show();
@@ -106,7 +110,7 @@ public class LoginActivity extends AppCompatActivity {
                     mAuth.signInWithEmailAndPassword(Email, Password);
                     startActivity(new Intent(LoginActivity.this, FarmerHomeActivity.class));
                 }else if(radio_buyer.isChecked()){
-                    String Email = email.getText().toString().trim();
+                    Email = email.getText().toString().trim();
                     String Password = password.getText().toString().trim();
                     if(Email.isEmpty() && Password.isEmpty()){
                         Toast.makeText(LoginActivity.this, "Please enter login details", Toast.LENGTH_SHORT).show();
@@ -140,6 +144,8 @@ public class LoginActivity extends AppCompatActivity {
                                 }
                             }
                         });
+
+                        emailViewModel = new EmailViewModel(Email);
 
                     }
                 }

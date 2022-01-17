@@ -3,6 +3,8 @@
     package="ke.co.azureeworld.azuregreen">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+
 
     <application
         android:allowBackup="true"
@@ -11,6 +13,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AzureGreen">
+        <activity
+            android:name=".buyer.BuyActivity"
+            android:exported="true" />
         <activity
             android:name=".buyer.BuyerMarketDetailActivity"
             android:exported="true" />
@@ -39,7 +44,7 @@
             android:name=".menu.ProfileActivity"
             android:exported="true" />
         <activity
-            android:name=".buyer.BuyerNewOrderActivity"
+            android:name=".buyer.FarmerMarketDetailActivity"
             android:exported="true" />
         <activity
             android:name=".buyer.BuyerOpenOrdersActivity"
