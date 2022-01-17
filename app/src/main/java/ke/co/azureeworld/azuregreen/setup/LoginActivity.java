@@ -107,6 +107,7 @@ public class LoginActivity extends AppCompatActivity {
                         password.setError("Password should contain a minimum of 6 values");
                         password.requestFocus();
                     }
+                    emailViewModel = new EmailViewModel(Email);
                     mAuth.signInWithEmailAndPassword(Email, Password);
                     startActivity(new Intent(LoginActivity.this, FarmerHomeActivity.class));
                 }else if(radio_buyer.isChecked()){
