@@ -3,6 +3,7 @@ package ke.co.azureeworld.azuregreen.buyer;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -13,6 +14,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -42,6 +44,8 @@ public class BuyerSavedActivity extends AppCompatActivity {
     BuyerSavedAdapter adapter;
     List<BuyerSaved> savedList;
     RelativeLayout orders, records,home;
+
+    List<String> userIds;
 
 
     FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
@@ -98,8 +102,13 @@ public class BuyerSavedActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setHasFixedSize(true);
         savedList = new ArrayList<>();
+        userIds = new ArrayList<>();
         adapter = new BuyerSavedAdapter(savedList, this);
         recyclerView.setAdapter(adapter);
+
+
+        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(simpleCallback);
+        itemTouchHelper.attachToRecyclerView(recyclerView);
 
         orders.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -126,12 +135,16 @@ public class BuyerSavedActivity extends AppCompatActivity {
         root.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                userIds.clear();
+                savedList.clear();
                 for(DataSnapshot dataSnapshot: snapshot.getChildren()){
                     BuyerSaved saved = dataSnapshot.getValue(BuyerSaved.class);
                     if(EmailViewModel.email.equals(saved.getEmail())){
                         savedList.add(saved);
+                        userIds.add(dataSnapshot.getKey());
                     }
                 }
+                adapter.setIds(userIds);
                 adapter.notifyDataSetChanged();
             }
 
@@ -155,4 +168,19 @@ public class BuyerSavedActivity extends AppCompatActivity {
             }
         });
     }
+
+    ItemTouchHelper.SimpleCallback simpleCallback = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT) {
+        @Override
+        public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
+            return false;
+        }
+
+        @Override
+        public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+            if(direction == ItemTouchHelper.LEFT){
+                adapter.deleteItem(viewHolder.getAdapterPosition());
+                Toast.makeText(BuyerSavedActivity.this, "Deleting", Toast.LENGTH_SHORT).show();
+            }
+        }
+    };
 }

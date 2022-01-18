@@ -9,8 +9,14 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.ArrayList;
 import java.util.List;
 
 import ke.co.azureeworld.azuregreen.R;
@@ -22,10 +28,12 @@ public class FarmerSavedAdapter extends RecyclerView.Adapter<FarmerSavedAdapter.
 
     Context mContext;
     List<FarmerSaved> saved_crops;
+    List<String> userIds;
 
     public FarmerSavedAdapter(Context mContext, List<FarmerSaved> saved_crops) {
         this.mContext = mContext;
         this.saved_crops = saved_crops;
+        userIds = new ArrayList<>();
     }
 
     @NonNull
@@ -63,6 +71,23 @@ public class FarmerSavedAdapter extends RecyclerView.Adapter<FarmerSavedAdapter.
                 intent.putExtra("price", crop.getPrice());
                 intent.putExtra("cropName", crop.getCropName());
                 mContext.startActivity(intent);
+            }
+        });
+    }
+
+    public void setIds(List<String> ids){
+        userIds.clear();
+        userIds.addAll(ids);
+    }
+
+    //    Delete Item
+    public void deleteItem(int position){
+        DatabaseReference mRef = FirebaseDatabase.getInstance().getReference("farmer_saved_crops");
+
+        mRef.child(userIds.get(position)).removeValue(new DatabaseReference.CompletionListener() {
+            @Override
+            public void onComplete(@Nullable DatabaseError error, @NonNull DatabaseReference ref) {
+
             }
         });
     }

@@ -3,6 +3,7 @@ package ke.co.azureeworld.azuregreen.farmer;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -26,6 +27,7 @@ import java.util.List;
 
 import ke.co.azureeworld.azuregreen.R;
 import ke.co.azureeworld.azuregreen.adapters.FarmerSavedAdapter;
+import ke.co.azureeworld.azuregreen.buyer.BuyerSavedActivity;
 import ke.co.azureeworld.azuregreen.menu.ProfileActivity;
 import ke.co.azureeworld.azuregreen.menu.SettingsActivity;
 import ke.co.azureeworld.azuregreen.modules.FarmerSaved;
@@ -40,6 +42,7 @@ public class FarmerSavedActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     FarmerSavedAdapter adapter;
     List<FarmerSaved> saved_crops;
+    List<String> userIds;
 
     FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
     DatabaseReference root = firebaseDatabase.getReference().child("farmer_saved_crops");
@@ -97,8 +100,13 @@ public class FarmerSavedActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setHasFixedSize(true);
         saved_crops = new ArrayList<>();
+        userIds = new ArrayList<>();
         adapter = new FarmerSavedAdapter(this, saved_crops);
         recyclerView.setAdapter(adapter);
+
+
+        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(simpleCallback);
+        itemTouchHelper.attachToRecyclerView(recyclerView);
 
         myStall.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -145,12 +153,16 @@ public class FarmerSavedActivity extends AppCompatActivity {
         root.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                userIds.clear();
+                saved_crops.clear();
                 for(DataSnapshot dataSnapshot: snapshot.getChildren()){
                     FarmerSaved saved = dataSnapshot.getValue(FarmerSaved.class);
                     if(saved.getEmail().equals(EmailViewModel.email)){
                         saved_crops.add(saved);
+                        userIds.add(dataSnapshot.getKey());
                     }
                 }
+                adapter.setIds(userIds);
                 adapter.notifyDataSetChanged();
             }
 
@@ -163,4 +175,19 @@ public class FarmerSavedActivity extends AppCompatActivity {
 
 
     }
+
+    ItemTouchHelper.SimpleCallback simpleCallback = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT) {
+        @Override
+        public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
+            return false;
+        }
+
+        @Override
+        public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+            if(direction == ItemTouchHelper.LEFT){
+                adapter.deleteItem(viewHolder.getAdapterPosition());
+                Toast.makeText(FarmerSavedActivity.this, "Deleting", Toast.LENGTH_SHORT).show();
+            }
+        }
+    };
 }
