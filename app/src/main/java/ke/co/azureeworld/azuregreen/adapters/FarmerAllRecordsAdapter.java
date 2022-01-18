@@ -7,8 +7,14 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.ArrayList;
 import java.util.List;
 
 import ke.co.azureeworld.azuregreen.R;
@@ -18,10 +24,12 @@ public class FarmerAllRecordsAdapter extends RecyclerView.Adapter<FarmerAllRecor
 
     List<FarmerRecord> records;
     Context mContext;
+    List<String> userIds;
 
     public FarmerAllRecordsAdapter(List<FarmerRecord> records, Context mContext) {
         this.records = records;
         this.mContext = mContext;
+        this.userIds = new ArrayList<>();
     }
 
     @NonNull
@@ -41,6 +49,22 @@ public class FarmerAllRecordsAdapter extends RecyclerView.Adapter<FarmerAllRecor
     }
 
 
+    public void setIds(List<String> ids){
+        userIds.clear();
+        userIds.addAll(ids);
+    }
+
+    //    Delete Item
+    public void deleteItem(int position){
+        DatabaseReference mRef = FirebaseDatabase.getInstance().getReference("farmer_records");
+
+        mRef.child(userIds.get(position)).removeValue(new DatabaseReference.CompletionListener() {
+            @Override
+            public void onComplete(@Nullable DatabaseError error, @NonNull DatabaseReference ref) {
+
+            }
+        });
+    }
     @Override
     public int getItemCount() {
         return records.size();

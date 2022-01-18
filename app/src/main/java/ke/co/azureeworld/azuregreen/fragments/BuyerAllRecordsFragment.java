@@ -5,12 +5,14 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -93,8 +95,12 @@ public class BuyerAllRecordsFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setHasFixedSize(true);
         records = new ArrayList<>();
+        List<String> userIds = new ArrayList<>();
         adapter = new FarmerAllRecordsAdapter(records, getContext());
         recyclerView.setAdapter(adapter);
+
+        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(simpleCallback);
+        itemTouchHelper.attachToRecyclerView(recyclerView);
 
         mRef.addValueEventListener(new ValueEventListener() {
             @Override
@@ -103,9 +109,11 @@ public class BuyerAllRecordsFragment extends Fragment {
                     FarmerRecord newRecord = dataSnapshot.getValue(FarmerRecord.class);
                     if(EmailViewModel.email.equals(newRecord.getEmail())){
                         records.add(newRecord);
+                        userIds.add(dataSnapshot.getKey());
                     }
 
                 }
+                adapter.setIds(userIds);
                 adapter.notifyDataSetChanged();
             }
 
@@ -117,4 +125,19 @@ public class BuyerAllRecordsFragment extends Fragment {
 
 
     }
+
+    ItemTouchHelper.SimpleCallback simpleCallback = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT) {
+        @Override
+        public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
+            return false;
+        }
+
+        @Override
+        public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+            if(direction == ItemTouchHelper.LEFT){
+                adapter.deleteItem(viewHolder.getAdapterPosition());
+                Toast.makeText(getContext(), "Deleting", Toast.LENGTH_SHORT).show();
+            }
+        }
+    };
 }
