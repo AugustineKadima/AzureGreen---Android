@@ -84,25 +84,15 @@ public class FarmerOrderAdapter extends RecyclerView.Adapter<FarmerOrderAdapter.
         holder.apply.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                DatabaseReference root = firebaseDatabase.getReference("submissions");
-                HashMap<String, String> application = new HashMap<>();
-                application.put("cropName", order.getCropName());
-                application.put("cropDescription", order.getCropDescription());
-                application.put("orderDate", order.getOrderDate());
-                application.put("orderTime", order.getOrderTime());
-                application.put("price", order.getPrice());
-                application.put("Kgs", order.getKgs());
-//
-//                root.push().setValue(application).addOnCompleteListener(new OnCompleteListener<Void>() {
-//                    @Override
-//                    public void onComplete(@NonNull Task<Void> task) {
-//                        if(task.isSuccessful()) Toast.makeText(mContext, "Applied!", Toast.LENGTH_SHORT).show();
-//                    }
-//                });
 
                 Intent intent = new Intent(mContext, FarmerOrderApplyActivity.class);
                 intent.putExtra("cropName", order.getCropName());
+                intent.putExtra("cropDescription", order.getCropDescription());
+                intent.putExtra("orderDate", order.getOrderDate());
+                intent.putExtra("orderTime", order.getOrderTime());
                 intent.putExtra("price", order.getPrice());
+                intent.putExtra("Kgs", order.getKgs());
+                intent.putExtra("buyerEmail", order.getEmail());
                 mContext.startActivity(intent);
             }
         });
