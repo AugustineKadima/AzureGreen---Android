@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -13,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 import ke.co.azureeworld.azuregreen.R;
+import ke.co.azureeworld.azuregreen.buyer.BuyActivity;
 import ke.co.azureeworld.azuregreen.buyer.BuyerMarketDetailActivity;
 import ke.co.azureeworld.azuregreen.farmer.FarmerMarketDetailActivity;
 import ke.co.azureeworld.azuregreen.modules.Sell;
@@ -54,6 +56,15 @@ public class BuyerMarketAdapter extends RecyclerView.Adapter<BuyerMarketAdapter.
                 mContext.startActivity(intent);
             }
         });
+
+        holder.btn_buy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(mContext, BuyActivity.class);
+                intent.putExtra("email", sell.getEmail());
+                mContext.startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -64,6 +75,7 @@ public class BuyerMarketAdapter extends RecyclerView.Adapter<BuyerMarketAdapter.
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         TextView date, title, description, status;
+        Button btn_buy;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -72,6 +84,7 @@ public class BuyerMarketAdapter extends RecyclerView.Adapter<BuyerMarketAdapter.
             title = itemView.findViewById(R.id.sell_title);
             description = itemView.findViewById(R.id.sell_description);
             status = itemView.findViewById(R.id.sell_status);
+            btn_buy = itemView.findViewById(R.id.btn_apply_order_recycler);
         }
     }
 }

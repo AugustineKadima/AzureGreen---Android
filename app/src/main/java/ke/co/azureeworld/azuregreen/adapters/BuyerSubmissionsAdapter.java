@@ -21,6 +21,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import ke.co.azureeworld.azuregreen.R;
+import ke.co.azureeworld.azuregreen.buyer.BuyActivity;
 import ke.co.azureeworld.azuregreen.buyer.BuyerSubmissionDetailActivity;
 import ke.co.azureeworld.azuregreen.modules.Submission;
 import ke.co.azureeworld.azuregreen.view_models.EmailViewModel;
@@ -79,7 +80,8 @@ public class BuyerSubmissionsAdapter extends RecyclerView.Adapter<BuyerSubmissio
         holder.btn_buy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(mContext, "Buy clicked!", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(mContext, BuyActivity.class);
+                intent.putExtra("email", submission.)
             }
         });
 

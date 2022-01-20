@@ -9,11 +9,15 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import ke.co.azureeworld.azuregreen.R;
 
 public class BuyActivity extends AppCompatActivity {
 
     TextView farmer_email, farmer_phone;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +33,12 @@ public class BuyActivity extends AppCompatActivity {
         farmer_email.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String[] recepients = {"k@gmail.com"};
                 Intent intent = new Intent(Intent.ACTION_SENDTO);
+                intent.setData(Uri.parse("mailto:"));
+                intent.putExtra(Intent.EXTRA_EMAIL, recepients);
+                intent.putExtra(Intent.EXTRA_SUBJECT, "TEST SUBJECT");
+                intent.putExtra(Intent.EXTRA_TEXT, "Hi there");
                 startActivity(intent);
             }
         });
@@ -37,10 +46,8 @@ public class BuyActivity extends AppCompatActivity {
         farmer_phone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String phone = "5465758678467";
-                String s = "tel:" + phone;
                 Intent intent = new Intent(Intent.ACTION_CALL);
-                intent.setData(Uri.parse(s));
+                intent.setData(Uri.parse("tel:2345555"));
                 startActivity(intent);
             }
         });

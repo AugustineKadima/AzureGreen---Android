@@ -30,6 +30,7 @@ import ke.co.azureeworld.azuregreen.R;
 import ke.co.azureeworld.azuregreen.menu.ProfileActivity;
 import ke.co.azureeworld.azuregreen.menu.SettingsActivity;
 import ke.co.azureeworld.azuregreen.setup.LoginActivity;
+import ke.co.azureeworld.azuregreen.view_models.EmailViewModel;
 
 public class FarmerSellActivity extends AppCompatActivity {
 
@@ -170,6 +171,7 @@ public class FarmerSellActivity extends AppCompatActivity {
                     itemOnSell.put("sellDate", date.toString());
                     itemOnSell.put("sellTime", time.toString());
                     itemOnSell.put("status", "Open");
+                    itemOnSell.put("email", EmailViewModel.email);
 
                     myRef.push().setValue(itemOnSell).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override

@@ -11,16 +11,18 @@ public class Submission {
     private String orderDate;
     private String orderTime;
     private String price;
+    private String email;
 
     public Submission(){}
 
-    public Submission(String cropName, String cropDescription, String kgs, String orderDate,String orderTime, String price) {
+    public Submission(String cropName, String cropDescription, String kgs, String orderDate, String orderTime, String price, String email) {
         this.cropName = cropName;
         this.cropDescription = cropDescription;
         Kgs = kgs;
         this.orderDate = orderDate;
         this.orderTime = orderTime;
         this.price = price;
+        this.email = email;
     }
 
     public String getCropName() {
@@ -69,5 +71,13 @@ public class Submission {
 
     public void setPrice(String price) {
         this.price = price;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

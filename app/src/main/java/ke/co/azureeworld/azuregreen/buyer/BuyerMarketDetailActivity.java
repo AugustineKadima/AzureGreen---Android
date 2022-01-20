@@ -70,6 +70,7 @@ public class BuyerMarketDetailActivity extends AppCompatActivity {
         _price = (TextView) findViewById(R.id.order_details_price);
         order_date = (TextView) findViewById(R.id.order_details_date);
         back = (ImageView) findViewById(R.id.order_details_back);
+        btn_buy = (Button) findViewById(R.id.btn_apply_order_details);
 
         Intent intent = getIntent();
 
@@ -89,6 +90,13 @@ public class BuyerMarketDetailActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(BuyerMarketDetailActivity.this, BuyerMarketActivity.class));
+            }
+        });
+
+        btn_buy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(BuyerMarketDetailActivity.this, BuyActivity.class));
             }
         });
 

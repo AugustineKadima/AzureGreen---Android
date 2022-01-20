@@ -21,6 +21,7 @@ import java.time.LocalTime;
 
 import ke.co.azureeworld.azuregreen.R;
 import ke.co.azureeworld.azuregreen.view_models.BuyerOrderViewModel;
+import ke.co.azureeworld.azuregreen.view_models.EmailViewModel;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -121,7 +122,7 @@ public class BuyerNewOrderFragment extends Fragment {
                     _location.setError("Location required!");
                     _location.requestFocus();
                 }else{
-                    orderViewModel.setData(cropName,cropDescription,kgs,orderDate.toString(), orderTime.toString(),price, "Open", location);
+                    orderViewModel.setData(cropName,cropDescription,kgs,orderDate.toString(), orderTime.toString(),price, "Open", location, EmailViewModel.email);
                 }
             }
         });

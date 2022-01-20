@@ -9,10 +9,11 @@ public class Sell {
     private String sellDate;
     private String sellTime;
     private String status;
+    private String email;
 
     public Sell(){}
 
-    public Sell(String cropName, String cropDescription, String price, String kgs, String sellDate, String sellTime, String status) {
+    public Sell(String cropName, String cropDescription, String price, String kgs, String sellDate, String sellTime, String status, String email) {
         this.cropName = cropName;
         this.cropDescription = cropDescription;
         this.price = price;
@@ -20,6 +21,7 @@ public class Sell {
         this.sellDate = sellDate;
         this.sellTime = sellTime;
         this.status = status;
+        this.email = email;
     }
 
     public String getCropName() {
@@ -76,5 +78,13 @@ public class Sell {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }
