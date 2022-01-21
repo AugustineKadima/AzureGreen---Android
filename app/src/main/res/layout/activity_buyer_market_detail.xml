@@ -42,7 +42,7 @@
             android:gravity="center"
             android:text="Submissions"
             android:textAllCaps="false"
-            android:textColor="@color/azure_orange" />
+            android:textColor="@color/azure_light_green" />
 
 
         <!-- Saved-->
@@ -326,7 +326,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/my_stall_icon_farmer"
                 android:layout_centerHorizontal="true"
-                android:text="My Stall"
+                android:text="Orders"
                 android:textColor="@color/white" />
         </RelativeLayout>
 

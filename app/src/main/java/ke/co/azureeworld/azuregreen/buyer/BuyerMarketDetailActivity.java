@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import ke.co.azureeworld.azuregreen.R;
@@ -21,6 +22,9 @@ public class BuyerMarketDetailActivity extends AppCompatActivity {
     TextView crop_name, crop_description, _kgs, _price, order_date;
     ImageView back;
     Button btn_buy;
+    RelativeLayout home, orders, records;
+    Button btn_submissions, btn_market,  btn_saved;
+
 
 
 
@@ -71,6 +75,13 @@ public class BuyerMarketDetailActivity extends AppCompatActivity {
         order_date = (TextView) findViewById(R.id.order_details_date);
         back = (ImageView) findViewById(R.id.order_details_back);
         btn_buy = (Button) findViewById(R.id.btn_apply_order_details);
+        home = (RelativeLayout) findViewById(R.id.home_wrapper_farmer);
+        orders = (RelativeLayout) findViewById(R.id.my_stall_wrapper_farmer);
+        records = (RelativeLayout) findViewById(R.id.my_records_wrapper_farmer);
+        btn_submissions = (Button) findViewById(R.id.btn_submissions_nav);
+        btn_saved = (Button) findViewById(R.id.btn_saved_nav);
+        btn_market = (Button) findViewById(R.id.btn_market_nav);
+
 
         Intent intent = getIntent();
 
@@ -97,6 +108,48 @@ public class BuyerMarketDetailActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(BuyerMarketDetailActivity.this, BuyActivity.class));
+            }
+        });
+
+        home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(BuyerMarketDetailActivity.this, BuyerSubmissionsActivity.class));
+            }
+        });
+
+        orders.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(BuyerMarketDetailActivity.this, BuyerOrdersActivity.class));
+            }
+        });
+
+        records.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(BuyerMarketDetailActivity.this, BuyerRecordsActivity.class));
+            }
+        });
+
+        btn_saved.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(BuyerMarketDetailActivity.this, BuyerSavedActivity.class));
+            }
+        });
+
+        btn_submissions.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(BuyerMarketDetailActivity.this, BuyerSubmissionsActivity.class));
+            }
+        });
+
+        btn_market.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(BuyerMarketDetailActivity.this, BuyerMarketActivity.class));
             }
         });
 
