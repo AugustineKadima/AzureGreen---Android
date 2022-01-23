@@ -26,6 +26,7 @@
         android:layout_below="@id/toolbar"
         android:layout_marginEnd="16dp"
         android:layout_marginStart="16dp"
+        android:fillViewport="true"
         android:paddingTop="4dp"
         android:paddingBottom="4dp">
 
@@ -246,8 +247,9 @@
                 android:id="@+id/btn_order"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
+                android:layout_below="@id/crop_price_new_order"
                 android:layout_marginStart="16dp"
+                android:layout_marginTop="200dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginBottom="80dp"
                 android:background="@drawable/btn"

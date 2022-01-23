@@ -220,25 +220,25 @@
                     android:textColorHint="@color/azure_light_green"
                     android:textSize="14dp" />
 
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_apply_farmer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/apply_attach_photo"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:background="@drawable/corner_azure_bg_color"
+                    android:elevation="8dp"
+                    android:text="Sell"
+                    android:textAllCaps="false"
+                    android:textColor="@color/azure_orange"
+                    android:textSize="16dp" />
+
 
             </RelativeLayout>
         </ScrollView>
 
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btn_apply_farmer"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp"
-            android:background="@drawable/corner_azure_bg_color"
-            android:elevation="8dp"
-            android:text="Sell"
-            android:textAllCaps="false"
-            android:textColor="@color/azure_orange"
-            android:textSize="16dp" />
 
 
     </RelativeLayout>

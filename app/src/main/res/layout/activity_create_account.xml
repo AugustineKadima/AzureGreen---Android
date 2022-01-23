@@ -172,15 +172,14 @@
 
             <LinearLayout
                 android:id="@+id/photo_wrapper"
-                android:background="@drawable/edt_shape"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_below="@id/create_account_location"
                 android:layout_marginStart="16dp"
-                android:gravity="center_vertical"
                 android:layout_marginEnd="16dp"
                 android:layout_marginBottom="8dp"
-                android:layout_below="@id/create_account_location"
-                >
+                android:background="@drawable/edt_shape"
+                android:gravity="center_vertical">
 
                 <TextView
                     android:id="@+id/attach_photo"
@@ -203,8 +202,8 @@
                     android:layout_marginStart="4dp"
                     android:layout_marginEnd="8dp"
                     android:background="@drawable/corner_azure_bg_color"
-                    android:minHeight="32dp"
                     android:gravity="center"
+                    android:minHeight="32dp"
                     android:paddingStart="16dp"
                     android:textColorHint="@color/azure_light_green"
                     android:textSize="14dp" />
@@ -213,15 +212,15 @@
                     android:id="@+id/upload_photo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/edt_shape"
+                    android:layout_marginEnd="16dp"
                     android:layout_weight="1"
+                    android:background="@drawable/edt_shape"
                     android:drawableLeft="@drawable/upload_24"
                     android:drawablePadding="8dp"
                     android:gravity="center_vertical"
                     android:hint="Upload"
                     android:minHeight="32dp"
                     android:paddingStart="16dp"
-                    android:layout_marginEnd="16dp"
                     android:textColorHint="@color/azure_light_green"
                     android:textSize="14dp" />
             </LinearLayout>
@@ -255,57 +254,58 @@
 
             </RadioGroup>
 
+            <!--        Create account button-->
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_create_account_get_started"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/create_account_farmer_buyer_option"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/btn"
+                android:elevation="8dp"
+                android:text="Create Account"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="16dp" />
+
+            <!--    Login instead-->
+            <RelativeLayout
+                android:id="@+id/create_account_extra"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/btn_create_account_get_started"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="16dp">
+
+                <TextView
+                    android:id="@+id/already_have_account_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:text="Already have an account?"
+                    android:textColor="@color/azure_orange"
+                    android:textSize="12dp" />
+
+                <!--        Already have account, Login-->
+                <TextView
+                    android:id="@+id/farmer_new_user_create_account"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_toRightOf="@id/already_have_account_text"
+                    android:text="Login"
+                    android:textColor="@color/azure_green"
+                    android:textSize="12dp" />
+
+
+            </RelativeLayout>
+
 
         </RelativeLayout>
     </ScrollView>
 
-    <!--        Create account button-->
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_create_account_get_started"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@id/create_account_extra"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="8dp"
-        android:background="@drawable/btn"
-        android:elevation="8dp"
-        android:text="Create Account"
-        android:textAllCaps="false"
-        android:textColor="@color/white"
-        android:textSize="16dp" />
 
-<!--    Login instead-->
-    <RelativeLayout
-        android:id="@+id/create_account_extra"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:layout_alignParentBottom="true"
-        android:layout_marginTop="8dp">
-
-        <TextView
-            android:id="@+id/already_have_account_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:text="Already have an account?"
-            android:textColor="@color/azure_orange"
-            android:textSize="12dp" />
-
-        <!--        Already have account, Login-->
-        <TextView
-            android:id="@+id/farmer_new_user_create_account"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_toRightOf="@id/already_have_account_text"
-            android:text="Login"
-            android:textColor="@color/azure_green"
-            android:textSize="12dp" />
-
-
-
-    </RelativeLayout>
 </RelativeLayout>

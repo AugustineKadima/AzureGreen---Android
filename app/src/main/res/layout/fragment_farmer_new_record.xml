@@ -31,9 +31,9 @@
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_above="@id/btn_apply_farmer"
             android:layout_below="@id/apply_title_farmer"
-            android:layout_marginBottom="16dp">
+            android:layout_marginBottom="16dp"
+            android:fillViewport="true">
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -81,7 +81,6 @@
                     android:textSize="14dp" />
 
 
-
                 <!--           Cost-->
                 <EditText
                     android:id="@+id/activity_cost_farmer"
@@ -102,24 +101,26 @@
                     android:textColorHint="@color/azure_light_green"
                     android:textSize="14dp" />
 
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_apply_farmer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_below="@id/activity_cost_farmer"
+                    android:layout_marginEnd="16dp"
+                    android:background="@drawable/corner_azure_bg_color_with_corner"
+                    android:elevation="8dp"
+                    android:text="Add to Records"
+                    android:textAllCaps="false"
+                    android:textColor="@color/azure_orange"
+                    android:textSize="16dp" />
+
             </RelativeLayout>
         </ScrollView>
 
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btn_apply_farmer"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp"
-            android:background="@drawable/corner_azure_bg_color_with_corner"
-            android:elevation="8dp"
-            android:text="Add to Records"
-            android:textAllCaps="false"
-            android:textColor="@color/azure_orange"
-            android:textSize="16dp" />
+
 
 
     </RelativeLayout>
