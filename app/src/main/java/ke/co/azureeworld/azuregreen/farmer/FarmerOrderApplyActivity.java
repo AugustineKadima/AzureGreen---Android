@@ -17,14 +17,18 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.HashMap;
 
 import ke.co.azureeworld.azuregreen.R;
 import ke.co.azureeworld.azuregreen.menu.ProfileActivity;
 import ke.co.azureeworld.azuregreen.menu.SettingsActivity;
+import ke.co.azureeworld.azuregreen.modules.User;
 import ke.co.azureeworld.azuregreen.setup.LoginActivity;
 import ke.co.azureeworld.azuregreen.view_models.EmailViewModel;
 
@@ -37,6 +41,9 @@ public class FarmerOrderApplyActivity extends AppCompatActivity {
     
     FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
     DatabaseReference mRef = firebaseDatabase.getReference("submissions");
+    DatabaseReference farmerRef = firebaseDatabase.getReference().child("farmers");
+    User user;
+
 
 
     @Override
@@ -101,9 +108,31 @@ public class FarmerOrderApplyActivity extends AppCompatActivity {
         price.setText(_price);
         product_name.setText(_productName);
 
+        user = new User();
+
+        farmerRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for(DataSnapshot dataSnapshot: snapshot.getChildren()){
+                    User newFarmer = dataSnapshot.getValue(User.class);
+                    if(newFarmer.getEmail().equals(EmailViewModel.email)){
+                        user = newFarmer;
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+
+
         btn_apply.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 Intent intent= getIntent();
                 HashMap<String, String> application = new HashMap<>();
 
@@ -113,14 +142,15 @@ public class FarmerOrderApplyActivity extends AppCompatActivity {
                 application.put("orderTime",intent.getStringExtra("orderTime"));
                 application.put("price",intent.getStringExtra("price"));
                 application.put("kgs", intent.getStringExtra("Kgs"));
-                application.put("farmerEmail", EmailViewModel.email);
+                application.put("farmerEmail", user.getEmail());
+                application.put("farmerPhone", user.getPhoneNumber());
                 application.put("buyerEmail", intent.getStringExtra("farmerEmail"));
 
                 mRef.push().setValue(application).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if(task.isSuccessful()){
-                            Toast.makeText(FarmerOrderApplyActivity.this, "", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(FarmerOrderApplyActivity.this, "Your application was successful.", Toast.LENGTH_SHORT).show();
                         }else{
                             Toast.makeText(FarmerOrderApplyActivity.this, "Failed! Try again.", Toast.LENGTH_SHORT).show();
                         }
