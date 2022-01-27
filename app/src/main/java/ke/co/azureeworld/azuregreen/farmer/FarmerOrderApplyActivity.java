@@ -144,7 +144,7 @@ public class FarmerOrderApplyActivity extends AppCompatActivity {
                 application.put("kgs", intent.getStringExtra("Kgs"));
                 application.put("farmerEmail", user.getEmail());
                 application.put("farmerPhone", user.getPhoneNumber());
-                application.put("buyerEmail", intent.getStringExtra("farmerEmail"));
+                application.put("buyerEmail", intent.getStringExtra("buyerEmail"));
 
                 mRef.push().setValue(application).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override

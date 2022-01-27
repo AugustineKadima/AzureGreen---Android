@@ -11,18 +11,22 @@ public class Submission {
     private String orderDate;
     private String orderTime;
     private String price;
-    private String email;
+    private String farmerEmail;
+    private String buyerEmail;
+    private String farmerPhone;
 
     public Submission(){}
 
-    public Submission(String cropName, String cropDescription, String kgs, String orderDate, String orderTime, String price, String email) {
+    public Submission(String cropName, String cropDescription, String kgs, String orderDate, String orderTime, String price, String farmerEmail, String buyerEmail, String farmerPhone) {
         this.cropName = cropName;
         this.cropDescription = cropDescription;
         Kgs = kgs;
         this.orderDate = orderDate;
         this.orderTime = orderTime;
         this.price = price;
-        this.email = email;
+        this.farmerEmail = farmerEmail;
+        this.buyerEmail = buyerEmail;
+        this.farmerPhone = farmerPhone;
     }
 
     public String getCropName() {
@@ -73,11 +77,27 @@ public class Submission {
         this.price = price;
     }
 
-    public String getEmail() {
-        return email;
+    public String getFarmerEmail() {
+        return farmerEmail;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setFarmerEmail(String farmerEmail) {
+        this.farmerEmail = farmerEmail;
+    }
+
+    public String getBuyerEmail() {
+        return buyerEmail;
+    }
+
+    public void setBuyerEmail(String buyerEmail) {
+        this.buyerEmail = buyerEmail;
+    }
+
+    public String getFarmerPhone() {
+        return farmerPhone;
+    }
+
+    public void setFarmerPhone(String farmerPhone) {
+        this.farmerPhone = farmerPhone;
     }
 }

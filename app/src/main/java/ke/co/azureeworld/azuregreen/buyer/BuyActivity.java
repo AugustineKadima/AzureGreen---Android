@@ -27,13 +27,20 @@ public class BuyActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+
+
         farmer_email = (TextView) findViewById(R.id.farmer_email);
         farmer_phone = (TextView) findViewById(R.id.farmer_phone);
+        Intent contactIntent = getIntent();
+        String farmerEmail = contactIntent.getStringExtra("email");
+        String farmerPhone = contactIntent.getStringExtra("farmerPhone");
+        farmer_email.setText(farmerEmail);
+        farmer_phone.setText(farmerPhone);
 
         farmer_email.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String[] recepients = {"k@gmail.com"};
+                String[] recepients = {farmerEmail};
                 Intent intent = new Intent(Intent.ACTION_SENDTO);
                 intent.setData(Uri.parse("mailto:"));
                 intent.putExtra(Intent.EXTRA_EMAIL, recepients);
@@ -47,7 +54,7 @@ public class BuyActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(Intent.ACTION_CALL);
-                intent.setData(Uri.parse("tel:2345555"));
+                intent.setData(Uri.parse("tel:"+farmerPhone));
                 startActivity(intent);
             }
         });

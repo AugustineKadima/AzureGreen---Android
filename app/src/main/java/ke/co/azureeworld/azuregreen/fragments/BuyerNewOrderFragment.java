@@ -16,10 +16,17 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 import java.time.LocalDate;
 import java.time.LocalTime;
 
 import ke.co.azureeworld.azuregreen.R;
+import ke.co.azureeworld.azuregreen.modules.User;
 import ke.co.azureeworld.azuregreen.view_models.BuyerOrderViewModel;
 import ke.co.azureeworld.azuregreen.view_models.EmailViewModel;
 
@@ -32,6 +39,9 @@ public class BuyerNewOrderFragment extends Fragment {
     BuyerOrderViewModel orderViewModel;
     EditText crop_name, crop_description, _kgs, _price, _location;
     Button btn_create_order;
+    FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+    DatabaseReference buyerRef = firebaseDatabase.getReference().child("buyers");
+    User user;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -92,6 +102,27 @@ public class BuyerNewOrderFragment extends Fragment {
         _location = view.findViewById(R.id.crop_location_buyer);
         btn_create_order = view.findViewById(R.id.btn_create_order_buyer);
 
+        user = new User();
+        buyerRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for(DataSnapshot dataSnapshot: snapshot.getChildren()){
+                    User newBuyer = dataSnapshot.getValue(User.class);
+                    if(newBuyer.getEmail().equals(EmailViewModel.email)){
+                        user = newBuyer;
+                    }
+
+
+
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
         btn_create_order.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
@@ -122,7 +153,7 @@ public class BuyerNewOrderFragment extends Fragment {
                     _location.setError("Location required!");
                     _location.requestFocus();
                 }else{
-                    orderViewModel.setData(cropName,cropDescription,kgs,orderDate.toString(), orderTime.toString(),price, "Open", location, EmailViewModel.email);
+                    orderViewModel.setData(cropName,cropDescription,kgs,orderDate.toString(), orderTime.toString(),price, "Open", location, user.getEmail(), user.getPhoneNumber());
                 }
             }
         });

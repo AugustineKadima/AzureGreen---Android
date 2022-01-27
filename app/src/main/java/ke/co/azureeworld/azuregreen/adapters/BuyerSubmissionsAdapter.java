@@ -81,8 +81,9 @@ public class BuyerSubmissionsAdapter extends RecyclerView.Adapter<BuyerSubmissio
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(mContext, BuyActivity.class);
-                intent.putExtra("email", submission.getEmail());
+                intent.putExtra("email", submission.getFarmerEmail());
                 intent.putExtra("cropName", submission.getCropName());
+                intent.putExtra("farmerPhone", submission.getFarmerPhone());
                 mContext.startActivity(intent);
             }
         });

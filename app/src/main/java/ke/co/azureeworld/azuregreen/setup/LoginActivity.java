@@ -107,9 +107,20 @@ public class LoginActivity extends AppCompatActivity {
                         password.setError("Password should contain a minimum of 6 values");
                         password.requestFocus();
                     }
+
+                    editor.putString(USER_EMAIL, Email).apply();
+                    editor.putString(PASSWORD, Password).apply();
                     emailViewModel = new EmailViewModel(Email);
-                    mAuth.signInWithEmailAndPassword(Email, Password);
-                    startActivity(new Intent(LoginActivity.this, FarmerHomeActivity.class));
+                    mAuth.signInWithEmailAndPassword(Email, Password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if(task.isSuccessful()){
+                                startActivity(new Intent(LoginActivity.this, FarmerHomeActivity.class));
+                            }else{
+                                Toast.makeText(LoginActivity.this, "Login Failed! Check your credentials and try again.", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    });
                 }else if(radio_buyer.isChecked()){
                     Email = email.getText().toString().trim();
                     String Password = password.getText().toString().trim();
@@ -133,6 +144,7 @@ public class LoginActivity extends AppCompatActivity {
 
                         editor.putString(USER_EMAIL, Email).apply();
                         editor.putString(PASSWORD, Password).apply();
+                        emailViewModel = new EmailViewModel(Email);
 
                         mAuth.signInWithEmailAndPassword(Email, Password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                             @Override
@@ -146,7 +158,7 @@ public class LoginActivity extends AppCompatActivity {
                             }
                         });
 
-                        emailViewModel = new EmailViewModel(Email);
+
 
                     }
                 }

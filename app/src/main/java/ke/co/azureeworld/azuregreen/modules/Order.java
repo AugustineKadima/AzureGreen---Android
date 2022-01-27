@@ -10,10 +10,11 @@ public class Order {
     private String status;
     private String location;
     private String email;
+    private String buyerPhone;
 
     public Order(){}
 
-    public Order(String cropName, String cropDescription, String kgs, String orderDate, String orderTime, String price, String status, String location, String email) {
+    public Order(String cropName, String cropDescription, String kgs, String orderDate, String orderTime, String price, String status, String location, String email, String buyerPhone) {
         this.cropName = cropName;
         this.cropDescription = cropDescription;
         Kgs = kgs;
@@ -23,6 +24,7 @@ public class Order {
         this.status = status;
         this.location = location;
         this.email = email;
+        this.buyerPhone = buyerPhone;
     }
 
     public String getCropName() {
@@ -95,5 +97,13 @@ public class Order {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getBuyerPhone() {
+        return buyerPhone;
+    }
+
+    public void setBuyerPhone(String buyerPhone) {
+        this.buyerPhone = buyerPhone;
     }
 }
