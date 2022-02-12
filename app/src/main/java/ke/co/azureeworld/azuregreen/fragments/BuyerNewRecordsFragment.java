@@ -82,6 +82,7 @@ public class BuyerNewRecordsFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_buyer_new_records, container, false);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -115,6 +116,9 @@ public class BuyerNewRecordsFragment extends Fragment {
                 }
                 else{
                     recordsViewModel.setData(activityName, activityDescription,Cost,localDate.toString(), EmailViewModel.email);
+                    activity_name.setText("");
+                    activity_description.setText("");
+                    cost.setText("");
                 }
 
             }

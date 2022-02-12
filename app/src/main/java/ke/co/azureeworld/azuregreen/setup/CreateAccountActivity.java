@@ -78,28 +78,28 @@ public class CreateAccountActivity extends AppCompatActivity {
        password = (EditText) findViewById(R.id.create_account_password);
        confirm_password = (EditText) findViewById(R.id.create_account_confirm_password);
        location = (EditText) findViewById(R.id.create_account_location);
-       attach_photo = (TextView) findViewById(R.id.attach_photo);
-       photo_link = (ImageView) findViewById(R.id.photo_link);
+//       attach_photo = (TextView) findViewById(R.id.attach_photo);
+//       photo_link = (ImageView) findViewById(R.id.photo_link);
        radio_buyer = (RadioButton) findViewById(R.id.create_account_buyer);
        radio_farmer = (RadioButton) findViewById(R.id.create_account_farmer);
        btn_create_account = (Button) findViewById(R.id.btn_create_account_get_started);
        farmer_new_user_create_account = (TextView) findViewById(R.id.farmer_new_user_create_account);
-       upload_photo = (TextView) findViewById(R.id.upload_photo);
+//       upload_photo = (TextView) findViewById(R.id.upload_photo);
 
 
-       upload_photo.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View view) {
-               if(imageUri != null){
-                   uploadToFirebase(imageUri);
-                   Toast.makeText(CreateAccountActivity.this, "Upload successful!", Toast.LENGTH_SHORT).show();
-
-
-               }else{
-                   Toast.makeText(CreateAccountActivity.this, "Please select image", Toast.LENGTH_SHORT).show();
-               }
-           }
-       });
+//       upload_photo.setOnClickListener(new View.OnClickListener() {
+//           @Override
+//           public void onClick(View view) {
+//               if(imageUri != null){
+//                   uploadToFirebase(imageUri);
+//                   Toast.makeText(CreateAccountActivity.this, "Upload successful!", Toast.LENGTH_SHORT).show();
+//
+//
+//               }else{
+//                   Toast.makeText(CreateAccountActivity.this, "Please select image", Toast.LENGTH_SHORT).show();
+//               }
+//           }
+//       });
 
         farmer_new_user_create_account.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -232,15 +232,15 @@ public class CreateAccountActivity extends AppCompatActivity {
            }
        });
 
-       attach_photo.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View view) {
-               Intent intent = new Intent();
-               intent.setAction(Intent.ACTION_GET_CONTENT);
-               intent.setType("image/*");
-               startActivityForResult(intent, 2);
-           }
-       });
+//       attach_photo.setOnClickListener(new View.OnClickListener() {
+//           @Override
+//           public void onClick(View view) {
+//               Intent intent = new Intent();
+//               intent.setAction(Intent.ACTION_GET_CONTENT);
+//               intent.setType("image/*");
+//               startActivityForResult(intent, 2);
+//           }
+//       });
 
 
 

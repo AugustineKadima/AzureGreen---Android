@@ -53,8 +53,9 @@ public class BuyActivity extends AppCompatActivity {
         farmer_phone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String phone = "tel:"+farmerPhone;
                 Intent intent = new Intent(Intent.ACTION_CALL);
-                intent.setData(Uri.parse("tel:"+farmerPhone));
+                intent.setData(Uri.parse(phone));
                 startActivity(intent);
             }
         });

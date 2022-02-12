@@ -105,6 +105,8 @@ public class BuyerAllRecordsFragment extends Fragment {
         mRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                userIds.clear();
+                records.clear();
                 for(DataSnapshot dataSnapshot: snapshot.getChildren()){
                     FarmerRecord newRecord = dataSnapshot.getValue(FarmerRecord.class);
                     if(EmailViewModel.email.equals(newRecord.getEmail())){

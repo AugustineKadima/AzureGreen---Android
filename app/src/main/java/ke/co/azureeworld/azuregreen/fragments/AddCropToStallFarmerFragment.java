@@ -104,6 +104,9 @@ public class AddCropToStallFarmerFragment extends Fragment {
                     crop_location.requestFocus();
                 }else{
                     cropViewModel.setData(cropName, cropDescription, cropLocation);
+                    crop_name.setText("");
+                    crop_description.setText("");
+                    crop_location.setText("");
                 }
             }
         });

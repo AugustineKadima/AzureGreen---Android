@@ -154,6 +154,11 @@ public class BuyerNewOrderFragment extends Fragment {
                     _location.requestFocus();
                 }else{
                     orderViewModel.setData(cropName,cropDescription,kgs,orderDate.toString(), orderTime.toString(),price, "Open", location, user.getEmail(), user.getPhoneNumber());
+                    crop_name.setText("");
+                    crop_description.setText("");
+                    _kgs.setText("");
+                    _price.setText("");
+                    _location.setText("");
                 }
             }
         });

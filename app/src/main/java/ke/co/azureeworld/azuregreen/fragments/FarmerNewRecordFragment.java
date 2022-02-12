@@ -81,6 +81,7 @@ public class FarmerNewRecordFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_farmer_new_record, container, false);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -113,6 +114,9 @@ public class FarmerNewRecordFragment extends Fragment {
                 }
                 else{
                     recordsViewModel.setData(activityName, activityDescription,Cost,localDate.toString(), EmailViewModel.email);
+                    activity_name.setText("");
+                    activity_description.setText("");
+                    cost.setText("");
                 }
 
             }

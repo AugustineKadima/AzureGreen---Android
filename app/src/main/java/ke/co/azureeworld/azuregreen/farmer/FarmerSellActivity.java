@@ -183,6 +183,11 @@ public class FarmerSellActivity extends AppCompatActivity {
                             }
                         }
                     });
+
+                    product_name.setText("");
+                    product_description.setText("");
+                    kgs.setText("");
+                    price.setText("");
                 }
 
             }
