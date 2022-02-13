@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.BuyerNewOrderFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/back_recycler"
+        android:elevation="8dp">
+
+
+        <!--            Title-->
+        <TextView
+            android:id="@+id/apply_title_farmer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:padding="16dp"
+            android:text="New Order"
+            android:textColor="@color/azure_green"
+            android:textSize="16dp"
+            android:textStyle="bold" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/apply_title_farmer"
+            android:fillViewport="true"
+            android:layout_marginBottom="16dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <!--            Product name-->
+                <EditText
+                    android:id="@+id/crop_name_buyer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:background="@drawable/corner_green"
+                    android:drawableLeft="@drawable/new_label_24"
+                    android:drawablePadding="8dp"
+                    android:elevation="8dp"
+                    android:hint="Crop name"
+                    android:maxLines="10"
+                    android:padding="8dp"
+                    android:textColor="@color/azure_green"
+                    android:textColorHint="@color/azure_light_green"
+                    android:textSize="14dp" />
+
+
+                <!--            Describe-->
+                <EditText
+                    android:id="@+id/crop_description_buyer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/crop_name_buyer"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="8dp"
+                    android:background="@drawable/corner_green"
+                    android:drawableLeft="@drawable/description_24"
+                    android:drawablePadding="8dp"
+                    android:elevation="8dp"
+                    android:hint="Crop description"
+                    android:maxLines="10"
+                    android:padding="8dp"
+                    android:textColor="@color/azure_green"
+                    android:textColorHint="@color/azure_light_green"
+                    android:textSize="14dp" />
+
+                <!--            Kgs-->
+                <EditText
+                    android:id="@+id/kgs_buyer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/crop_description_buyer"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="8dp"
+                    android:background="@drawable/corner_green"
+                    android:drawableLeft="@drawable/scale_24"
+                    android:drawablePadding="8dp"
+                    android:elevation="8dp"
+                    android:hint="How many Kgs?"
+                    android:inputType="number"
+                    android:padding="8dp"
+                    android:textColor="@color/azure_green"
+                    android:textColorHint="@color/azure_light_green"
+                    android:textSize="14dp" />
+
+                <!--            Price-->
+                <EditText
+                    android:id="@+id/price_buyer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/kgs_buyer"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="8dp"
+                    android:background="@drawable/corner_green"
+                    android:drawableLeft="@drawable/money_24"
+                    android:drawablePadding="8dp"
+                    android:elevation="8dp"
+                    android:hint="Price per Kg"
+                    android:inputType="number"
+                    android:padding="8dp"
+                    android:textColor="@color/azure_green"
+                    android:textColorHint="@color/azure_light_green"
+                    android:textSize="14dp" />
+
+                <!--           Location-->
+                <EditText
+                    android:id="@+id/crop_location_buyer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/price_buyer"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="8dp"
+                    android:background="@drawable/corner_green"
+                    android:drawableLeft="@drawable/location_on_24"
+                    android:drawablePadding="8dp"
+                    android:elevation="8dp"
+                    android:hint="Location"
+                    android:inputType="text"
+                    android:padding="8dp"
+                    android:textColor="@color/azure_green"
+                    android:textColorHint="@color/azure_light_green"
+                    android:textSize="14dp" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_create_order_buyer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/crop_location_buyer"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:background="@drawable/corner_azure_bg_color_with_corner"
+                    android:elevation="8dp"
+                    android:text="Create Order"
+                    android:textAllCaps="false"
+                    android:textColor="@color/azure_orange"
+                    android:textSize="16dp" />
+
+            </RelativeLayout>
+        </ScrollView>
+
+
+
+
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

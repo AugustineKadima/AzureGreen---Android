@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/back_recycler"
+    android:elevation="8dp"
+    android:layout_marginTop="8dp"
+    android:padding="16dp"
+    android:layout_marginEnd="16dp"
+    android:layout_marginStart="16dp">
+
+
+
+
+
+    <!--        Donor name-->
+    <TextView
+        android:id="@+id/order_date_buyer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginEnd="16dp"
+        android:gravity="center"
+        android:text="1/2/2021"
+        android:textColor="@color/azure_light_green" />
+
+    <!--        Order title-->
+    <TextView
+        android:id="@+id/order_title_buyer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:gravity="center"
+        android:text="I need 50 sacks of mangoes"
+        android:textColor="@color/azure_green"
+        android:textStyle="bold" />
+
+    <!--        Order description-->
+    <TextView
+        android:id="@+id/order_description_buyer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/order_title_buyer"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:gravity="left"
+        android:maxLines="5"
+        android:text="I urgently need 50 gggggggggggg sacks of ripe mangoes that can be squized to to produce  juice. Our company is located in Nairobi. Our ideal candidate is  ..."
+        android:textColor="@color/black"
+        android:textSize="14dp" />
+
+    <!--        Status-->
+    <TextView
+        android:id="@+id/order_status_buyer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/order_description_buyer"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:gravity="left"
+        android:maxLines="3"
+        android:text="Status: Open"
+        android:textColor="@color/azure_light_green"
+        android:textSize="12dp" />
+
+    <LinearLayout
+        android:layout_below="@id/order_status_buyer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="16dp"
+        >
+        <!--        Save-->
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_save_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:background="@drawable/corner_azure_bg_color"
+            android:elevation="4dp"
+            android:text="Edit"
+            android:textAllCaps="false"
+            android:textColor="@color/azure_green"
+            android:textSize="12dp" />
+
+        <!--        Apply-->
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_delete"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/corner_azure_bg_color"
+            android:elevation="4dp"
+            android:text="Delete"
+            android:textAllCaps="false"
+            android:textColor="@color/azure_orange"
+            android:textSize="12dp" />
+    </LinearLayout>
+
+</RelativeLayout>

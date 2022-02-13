@@ -9,7 +9,7 @@ android {
     defaultConfig {
         applicationId "ke.co.azureeworld.azuregreen"
         minSdk 22
-        targetSdk 31
+        targetSdk 29
         versionCode 1
         versionName "1.0"
 

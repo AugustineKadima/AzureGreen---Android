@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/back_recycler"
+    android:padding="16dp"
+    android:layout_marginStart="16dp"
+    android:layout_marginEnd="16dp"
+    android:layout_marginTop="8dp"
+    android:elevation="8dp">
+
+
+    <!--        Donor image-->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_order_item_image"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        app:cardCornerRadius="50dp"
+        >
+
+        <ImageView
+            android:id="@+id/buyer_image_orders"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@drawable/corner_green"
+            android:src="@drawable/farmer_sample" />
+    </androidx.cardview.widget.CardView>
+
+    <!--        Donor name-->
+    <TextView
+        android:id="@+id/buyer_name_orders"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:layout_marginStart="16dp"
+        android:layout_toRightOf="@id/card_order_item_image"
+        android:gravity="center"
+        android:text="Bonny Kieru"
+        android:textColor="@color/black" />
+
+    <!--        Date-->
+    <TextView
+        android:id="@+id/buyer_date_orders"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginEnd="16dp"
+        android:gravity="center"
+        android:text="1/2/2021"
+        android:textColor="@color/azure_light_green" />
+
+    <!--        Order title-->
+    <TextView
+        android:id="@+id/buyer_order_title_orders"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/card_order_item_image"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:gravity="center"
+        android:text="I need 50 sacks of mangoes"
+        android:textColor="@color/azure_green"
+        android:textStyle="bold" />
+
+    <!--        Order description-->
+    <TextView
+        android:id="@+id/buyer_order_description_orders"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/buyer_order_title_orders"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:gravity="left"
+        android:maxLines="5"
+        android:text="I urgently need 50 gggggggggggg sacks of ripe mangoes that can be squized to to produce  juice. Our company is located in Nairobi. Our ideal candidate is  ..."
+        android:textColor="@color/black"
+        android:textSize="14dp" />
+
+
+
+    <LinearLayout
+        android:layout_below="@id/buyer_order_description_orders"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="16dp"
+        >
+
+
+        <!--        Apply-->
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_buy_order_recycler"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/corner_azure_bg_color"
+            android:elevation="4dp"
+            android:text="Buy"
+            android:textAllCaps="false"
+            android:textColor="@color/azure_orange"
+            android:textSize="12dp" />
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".farmer.FarmerHomeActivity"
+    android:background="@color/azure_background_color">
+
+<!--    Toolbar-->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/azure_green"
+        android:elevation="8px"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+    </androidx.appcompat.widget.Toolbar>
+
+<!--    Top Nav-->
+
+    <LinearLayout
+        android:id="@+id/top_nav_farmer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toolbar"
+        android:background="@color/white"
+        android:elevation="8dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingBottom="4dp">
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_orders_nav"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:layout_weight="1"
+            android:elevation="4dp"
+            android:gravity="center"
+            android:text="Orders"
+            android:textAllCaps="false"
+            android:textColor="@color/azure_orange" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_sell_nav"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:layout_weight="1"
+            android:elevation="4dp"
+            android:gravity="center"
+            android:text="Sell"
+            android:textAllCaps="false"
+            android:textColor="@color/azure_light_green" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_saved_nav"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:layout_weight="1"
+            android:elevation="4dp"
+            android:gravity="center"
+            android:text="Saved"
+            android:textAllCaps="false"
+            android:textColor="@color/azure_light_green" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_market_nav"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:layout_weight="1"
+            android:elevation="4dp"
+            android:gravity="center"
+            android:text="Market"
+            android:textAllCaps="false"
+            android:textColor="@color/azure_light_green" />
+
+
+    </LinearLayout>
+
+<!--    Orders recycler-->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view_orders1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/space_margin"
+        android:layout_below="@id/top_nav_farmer"
+        android:scrollbars="vertical" />
+
+    <RelativeLayout
+        android:id="@+id/space_margin"
+        android:layout_width="match_parent"
+        android:layout_height="8dp"
+        android:layout_above="@id/bottom_nav_farmer"
+        />
+
+<!--    Bottom nav-->
+    <RelativeLayout
+        android:id="@+id/bottom_nav_farmer"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/bottom_nav_background">
+        <!--        Home-->
+        <RelativeLayout
+            android:id="@+id/home_wrapper_farmer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="16dp"
+            android:background="@drawable/border_white_green_bg"
+            android:paddingTop="4dp"
+            android:paddingStart="8dp"
+            android:paddingBottom="4dp"
+            android:paddingEnd="8dp"
+            android:elevation="8dp">
+
+            <ImageView
+                android:id="@+id/home_icon_farmer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/home_white_24" />
+
+            <TextView
+                android:id="@+id/home_name_farmer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/home_icon_farmer"
+                android:layout_centerHorizontal="true"
+                android:text="Home"
+                android:textColor="@color/white" />
+        </RelativeLayout>
+
+        <!--        My Stall-->
+        <RelativeLayout
+            android:id="@+id/my_stall_wrapper_farmer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_centerVertical="true">
+
+            <ImageView
+                android:id="@+id/my_stall_icon_farmer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/featured_play_list_24" />
+
+            <TextView
+                android:id="@+id/my_stall_name_farmer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/my_stall_icon_farmer"
+                android:layout_centerHorizontal="true"
+                android:text="My Stall"
+                android:textColor="@color/white" />
+        </RelativeLayout>
+
+        <!--        Records-->
+        <RelativeLayout
+            android:id="@+id/my_records_wrapper_farmer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="16dp">
+
+            <ImageView
+                android:id="@+id/records_icon_farmer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/book_24" />
+
+            <TextView
+                android:id="@+id/records_name_farmer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/records_icon_farmer"
+                android:layout_centerHorizontal="true"
+                android:text="Records"
+                android:textColor="@color/white" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+
+</RelativeLayout>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="16dp"
+    android:layout_marginStart="16dp"
+    android:elevation="4dp"
+    android:background="@drawable/back_recycler"
+    android:padding="16dp"
+    android:layout_marginBottom="8dp"
+    >
+
+
+
+    <!--        Activity title-->
+    <TextView
+        android:id="@+id/crop_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:gravity="center"
+        android:text="I need 50 sacks of mangoes"
+        android:textColor="@color/azure_green"
+        android:textStyle="bold" />
+
+    <!--        Record description-->
+    <TextView
+        android:id="@+id/crop_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/crop_name"
+        android:layout_marginTop="8dp"
+        android:layout_marginRight="16dp"
+        android:gravity="left"
+        android:maxLines="3"
+        android:text="I urgently need 50 sacks of ripe mangoes that can be squized to to produce  juice. Our company is located in Nairobi. Our ideal candidate is  ..."
+        android:textColor="@color/black"
+        android:textSize="12dp" />
+
+    <!--        Activity title-->
+    <TextView
+        android:id="@+id/crop_location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/crop_description"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:gravity="center"
+        android:text="Nairobi"
+        android:textColor="@color/azure_light_green"
+        android:textSize="10sp"/>
+
+    <!--        Apply-->
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_sell_crop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/crop_location"
+        android:layout_marginTop="16dp"
+        android:layout_weight="1"
+        android:background="@drawable/corner_azure_bg_color"
+        android:elevation="4dp"
+        android:text="Sell"
+        android:textAllCaps="false"
+        android:textColor="@color/azure_orange"
+        android:textSize="12dp" />
+
+
+
+</RelativeLayout>

@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".buyer.BuyerOrdersActivity"
+    android:background="@color/azure_background_color">
+
+    <!--    Toolbar-->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/azure_green"
+        android:elevation="8px"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <!--    Top Nav-->
+
+    <LinearLayout
+        android:id="@+id/top_nav_farmer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toolbar"
+        android:orientation="horizontal"
+        android:background="@color/white"
+        android:elevation="8dp"
+        >
+
+
+        <!--            Submissions-->
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_submissions_nav"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:elevation="4dp"
+            android:background="@color/white"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Submissions"
+            android:textAllCaps="false"
+            android:textColor="@color/azure_light_green" />
+
+
+        <!-- Saved-->
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_saved_nav"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:elevation="4dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Saved"
+            android:background="@color/white"
+            android:textAllCaps="false"
+            android:textColor="@color/azure_light_green" />
+
+        <!--            Market-->
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_market_nav"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:elevation="4dp"
+            android:gravity="center"
+            android:text="Market"
+            android:textAllCaps="false"
+            android:textColor="@color/azure_light_green" />
+
+
+    </LinearLayout>
+
+
+    <!--    Apply Page-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/toolbar"
+        android:background="@color/azure_opacity">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="88dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/back_recycler"
+            android:elevation="8dp">
+
+
+
+            <LinearLayout
+                android:id="@+id/stall_nav"
+                android:layout_marginTop="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:elevation="4dp"
+                >
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/all_crops"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:text="All Orders"
+                    android:textAllCaps="false"
+                    android:textColor="@color/azure_orange" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/on_sell_crops"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:layout_weight="1"
+                    android:text=""
+                    android:textAllCaps="false"
+                    android:textColor="@color/azure_light_green" />
+
+                <ImageView
+                    android:id="@+id/add_new_crop"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:padding="12dp"
+                    android:src="@drawable/add_new_24" />
+            </LinearLayout>
+
+            <!--            FrameLayout-->
+            <FrameLayout
+                android:id="@+id/buyer_orders_container"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/stall_nav"
+                android:layout_marginBottom="72dp" />
+
+
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <!--    Bottom nav-->
+    <RelativeLayout
+        android:id="@+id/bottom_nav_farmer"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/bottom_nav_background">
+        <!--        Home-->
+        <RelativeLayout
+            android:id="@+id/home_wrapper_farmer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="16dp">
+
+            <ImageView
+                android:id="@+id/home_icon_farmer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/home_white_24" />
+
+            <TextView
+                android:id="@+id/home_name_farmer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/home_icon_farmer"
+                android:layout_centerHorizontal="true"
+                android:text="Home"
+                android:textColor="@color/white" />
+        </RelativeLayout>
+
+        <!--        My Stall-->
+        <RelativeLayout
+            android:id="@+id/my_stall_wrapper_farmer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/border_white_green_bg"
+            android:paddingTop="4dp"
+            android:paddingStart="8dp"
+            android:paddingBottom="4dp"
+            android:paddingEnd="8dp"
+            android:elevation="8dp">
+
+            <ImageView
+                android:id="@+id/my_stall_icon_farmer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/featured_play_list_24" />
+
+            <TextView
+                android:id="@+id/my_stall_name_farmer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/my_stall_icon_farmer"
+                android:layout_centerHorizontal="true"
+                android:text="Orders"
+                android:textColor="@color/white" />
+        </RelativeLayout>
+
+        <!--        Records-->
+        <RelativeLayout
+            android:id="@+id/my_records_wrapper_farmer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="16dp">
+
+            <ImageView
+                android:id="@+id/records_icon_farmer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/book_24" />
+
+            <TextView
+                android:id="@+id/records_name_farmer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/records_icon_farmer"
+                android:layout_centerHorizontal="true"
+                android:text="Records"
+                android:textColor="@color/white" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+
+
+</RelativeLayout>

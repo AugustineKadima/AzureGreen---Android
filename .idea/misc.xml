@@ -19,18 +19,109 @@
         <entry key="app/src/main/res/drawable/library_add_24.xml" value="0.18333333333333332" />
         <entry key="app/src/main/res/drawable/nav_border.xml" value="0.1111111111111111" />
         <entry key="app/src/main/res/drawable/shape_white.xml" value="0.11944444444444445" />
+        <entry key="app/src/main/res/layout-normal/activity_buyer_market.xml" value="0.13046875" />
+        <entry key="app/src/main/res/layout-normal/activity_buyer_market_detail.xml" value="0.13046875" />
+        <entry key="app/src/main/res/layout-normal/activity_buyer_new_order.xml" value="0.17395833333333333" />
         <entry key="app/src/main/res/layout-normal/activity_buyer_open_orders.xml" value="0.15462962962962962" />
-        <entry key="app/src/main/res/layout-small/activity_buyer_market.xml" value="0.7428571428571429" />
+        <entry key="app/src/main/res/layout-normal/activity_buyer_orders.xml" value="0.17395833333333333" />
+        <entry key="app/src/main/res/layout-normal/activity_buyer_profile.xml" value="0.17395833333333333" />
+        <entry key="app/src/main/res/layout-normal/activity_buyer_records.xml" value="0.17395833333333333" />
+        <entry key="app/src/main/res/layout-normal/activity_buyer_saved.xml" value="0.17395833333333333" />
+        <entry key="app/src/main/res/layout-normal/activity_buyer_saved_detail.xml" value="0.21" />
+        <entry key="app/src/main/res/layout-normal/activity_buyer_settings.xml" value="0.17395833333333333" />
+        <entry key="app/src/main/res/layout-normal/activity_buyer_submission_detail.xml" value="0.17395833333333333" />
+        <entry key="app/src/main/res/layout-normal/activity_buyer_submissions.xml" value="0.17395833333333333" />
+        <entry key="app/src/main/res/layout-normal/activity_create_account.xml" value="0.17395833333333333" />
+        <entry key="app/src/main/res/layout-normal/activity_farmer_home.xml" value="0.17395833333333333" />
+        <entry key="app/src/main/res/layout-normal/activity_farmer_market.xml" value="0.13046875" />
+        <entry key="app/src/main/res/layout-normal/activity_farmer_market_detail.xml" value="0.13046875" />
+        <entry key="app/src/main/res/layout-normal/activity_farmer_order_apply.xml" value="0.14279606669516887" />
+        <entry key="app/src/main/res/layout-normal/activity_farmer_order_detail.xml" value="0.17395833333333333" />
+        <entry key="app/src/main/res/layout-normal/activity_farmer_records.xml" value="0.13046875" />
+        <entry key="app/src/main/res/layout-normal/activity_farmer_saved.xml" value="0.17395833333333333" />
+        <entry key="app/src/main/res/layout-normal/activity_farmer_saved_detail.xml" value="0.17395833333333333" />
+        <entry key="app/src/main/res/layout-normal/activity_farmer_sell.xml" value="0.13046875" />
+        <entry key="app/src/main/res/layout-normal/activity_login.xml" value="0.17395833333333333" />
+        <entry key="app/src/main/res/layout-normal/activity_main.xml" value="0.17395833333333333" />
+        <entry key="app/src/main/res/layout-normal/activity_my_stall.xml" value="0.17395833333333333" />
+        <entry key="app/src/main/res/layout-normal/activity_profile.xml" value="0.13046875" />
+        <entry key="app/src/main/res/layout-normal/activity_settings.xml" value="0.17395833333333333" />
+        <entry key="app/src/main/res/layout-normal/fragment_add_crop_to_stall_farmer.xml" value="0.17395833333333333" />
+        <entry key="app/src/main/res/layout-normal/fragment_all_crops_in_my_stall_farmer.xml" value="0.17395833333333333" />
+        <entry key="app/src/main/res/layout-normal/fragment_buyer_all_orders.xml" value="0.17395833333333333" />
+        <entry key="app/src/main/res/layout-normal/fragment_buyer_all_records.xml" value="0.17395833333333333" />
+        <entry key="app/src/main/res/layout-normal/fragment_buyer_new_order.xml" value="0.17395833333333333" />
+        <entry key="app/src/main/res/layout-normal/fragment_buyer_new_records.xml" value="0.17395833333333333" />
+        <entry key="app/src/main/res/layout-normal/fragment_buyer_open_orders.xml" value="0.17395833333333333" />
+        <entry key="app/src/main/res/layout-normal/fragment_farmer_all_records.xml" value="0.17395833333333333" />
+        <entry key="app/src/main/res/layout-normal/fragment_farmer_new_record.xml" value="0.17395833333333333" />
+        <entry key="app/src/main/res/layout-normal/fragment_on_sell_my_stall_farmer.xml" value="0.14273504273504273" />
+        <entry key="app/src/main/res/layout-normal/item_buyer_submission.xml" value="0.17395833333333333" />
+        <entry key="app/src/main/res/layout-normal/item_crop_farmer.xml" value="0.17395833333333333" />
+        <entry key="app/src/main/res/layout-normal/item_farmer_record.xml" value="0.17395833333333333" />
+        <entry key="app/src/main/res/layout-normal/item_market_farmer.xml" value="0.17395833333333333" />
+        <entry key="app/src/main/res/layout-normal/item_on_sell_farmer.xml" value="0.17395833333333333" />
+        <entry key="app/src/main/res/layout-normal/item_order_buyer.xml" value="0.17395833333333333" />
+        <entry key="app/src/main/res/layout-normal/item_order_farmer.xml" value="0.17395833333333333" />
+        <entry key="app/src/main/res/layout-normal/item_saved_buyer.xml" value="0.17395833333333333" />
+        <entry key="app/src/main/res/layout-normal/item_saved_farmer.xml" value="0.13046875" />
+        <entry key="app/src/main/res/layout-small/activity_buyer_market.xml" value="0.17395833333333333" />
+        <entry key="app/src/main/res/layout-small/activity_buyer_market_detail.xml" value="0.17395833333333333" />
+        <entry key="app/src/main/res/layout-small/activity_buyer_new_order.xml" value="0.17395833333333333" />
+        <entry key="app/src/main/res/layout-small/activity_buyer_open_orders.xml" value="0.17395833333333333" />
+        <entry key="app/src/main/res/layout-small/activity_buyer_orders.xml" value="0.17395833333333333" />
+        <entry key="app/src/main/res/layout-small/activity_buyer_profile.xml" value="0.17395833333333333" />
+        <entry key="app/src/main/res/layout-small/activity_buyer_records.xml" value="0.13046875" />
+        <entry key="app/src/main/res/layout-small/activity_buyer_saved.xml" value="0.17395833333333333" />
+        <entry key="app/src/main/res/layout-small/activity_buyer_saved_detail.xml" value="0.21" />
+        <entry key="app/src/main/res/layout-small/activity_buyer_settings.xml" value="0.17395833333333333" />
+        <entry key="app/src/main/res/layout-small/activity_buyer_submission_detail.xml" value="0.17395833333333333" />
+        <entry key="app/src/main/res/layout-small/activity_buyer_submissions.xml" value="0.17395833333333333" />
+        <entry key="app/src/main/res/layout-small/activity_create_account.xml" value="0.17395833333333333" />
+        <entry key="app/src/main/res/layout-small/activity_farmer_home.xml" value="0.17395833333333333" />
+        <entry key="app/src/main/res/layout-small/activity_farmer_market.xml" value="0.17395833333333333" />
+        <entry key="app/src/main/res/layout-small/activity_farmer_market_detail.xml" value="0.17395833333333333" />
+        <entry key="app/src/main/res/layout-small/activity_farmer_order_apply.xml" value="0.17395833333333333" />
+        <entry key="app/src/main/res/layout-small/activity_farmer_order_detail.xml" value="0.17395833333333333" />
+        <entry key="app/src/main/res/layout-small/activity_farmer_records.xml" value="0.17395833333333333" />
+        <entry key="app/src/main/res/layout-small/activity_farmer_saved.xml" value="0.17395833333333333" />
+        <entry key="app/src/main/res/layout-small/activity_farmer_saved_detail.xml" value="0.17395833333333333" />
+        <entry key="app/src/main/res/layout-small/activity_farmer_sell.xml" value="0.17395833333333333" />
+        <entry key="app/src/main/res/layout-small/activity_login.xml" value="0.17395833333333333" />
+        <entry key="app/src/main/res/layout-small/activity_main.xml" value="0.17395833333333333" />
+        <entry key="app/src/main/res/layout-small/activity_my_stall.xml" value="0.17395833333333333" />
+        <entry key="app/src/main/res/layout-small/activity_profile.xml" value="0.17395833333333333" />
+        <entry key="app/src/main/res/layout-small/activity_settings.xml" value="0.17395833333333333" />
+        <entry key="app/src/main/res/layout-small/fragment_add_crop_to_stall_farmer.xml" value="0.17395833333333333" />
+        <entry key="app/src/main/res/layout-small/fragment_all_crops_in_my_stall_farmer.xml" value="0.17395833333333333" />
+        <entry key="app/src/main/res/layout-small/fragment_buyer_all_orders.xml" value="0.17395833333333333" />
+        <entry key="app/src/main/res/layout-small/fragment_buyer_all_records.xml" value="0.17395833333333333" />
+        <entry key="app/src/main/res/layout-small/fragment_buyer_new_order.xml" value="0.17395833333333333" />
+        <entry key="app/src/main/res/layout-small/fragment_buyer_new_records.xml" value="0.17395833333333333" />
+        <entry key="app/src/main/res/layout-small/fragment_buyer_open_orders.xml" value="0.17395833333333333" />
+        <entry key="app/src/main/res/layout-small/fragment_farmer_all_records.xml" value="0.17395833333333333" />
+        <entry key="app/src/main/res/layout-small/fragment_farmer_new_record.xml" value="0.17395833333333333" />
+        <entry key="app/src/main/res/layout-small/fragment_on_sell_my_stall_farmer.xml" value="0.17395833333333333" />
+        <entry key="app/src/main/res/layout-small/item_buyer_submission.xml" value="0.17395833333333333" />
+        <entry key="app/src/main/res/layout-small/item_crop_farmer.xml" value="0.17395833333333333" />
+        <entry key="app/src/main/res/layout-small/item_farmer_record.xml" value="0.17395833333333333" />
+        <entry key="app/src/main/res/layout-small/item_market_farmer.xml" value="0.17395833333333333" />
+        <entry key="app/src/main/res/layout-small/item_on_sell_farmer.xml" value="0.17395833333333333" />
+        <entry key="app/src/main/res/layout-small/item_order_buyer.xml" value="0.17395833333333333" />
+        <entry key="app/src/main/res/layout-small/item_order_farmer.xml" value="0.17395833333333333" />
+        <entry key="app/src/main/res/layout-small/item_saved_buyer.xml" value="0.17395833333333333" />
+        <entry key="app/src/main/res/layout-small/item_saved_farmer.xml" value="0.17395833333333333" />
+        <entry key="app/src/main/res/layout-sw600dp/activity_farmer_order_apply.xml" value="0.13046875" />
         <entry key="app/src/main/res/layout/activity_buy.xml" value="0.22" />
-        <entry key="app/src/main/res/layout/activity_buyer_market.xml" value="0.22" />
-        <entry key="app/src/main/res/layout/activity_buyer_market_detail.xml" value="0.22" />
-        <entry key="app/src/main/res/layout/activity_buyer_new_order.xml" value="0.2" />
+        <entry key="app/src/main/res/layout/activity_buyer_market.xml" value="0.14" />
+        <entry key="app/src/main/res/layout/activity_buyer_market_detail.xml" value="0.13046875" />
+        <entry key="app/src/main/res/layout/activity_buyer_new_order.xml" value="0.13046875" />
         <entry key="app/src/main/res/layout/activity_buyer_open_orders.xml" value="0.2" />
         <entry key="app/src/main/res/layout/activity_buyer_orders.xml" value="0.22" />
         <entry key="app/src/main/res/layout/activity_buyer_profile.xml" value="0.18" />
-        <entry key="app/src/main/res/layout/activity_buyer_records.xml" value="0.18" />
+        <entry key="app/src/main/res/layout/activity_buyer_records.xml" value="0.13046875" />
         <entry key="app/src/main/res/layout/activity_buyer_saved.xml" value="0.22" />
-        <entry key="app/src/main/res/layout/activity_buyer_saved_detail.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/activity_buyer_saved_detail.xml" value="0.16" />
         <entry key="app/src/main/res/layout/activity_buyer_settings.xml" value="0.18" />
         <entry key="app/src/main/res/layout/activity_buyer_submission_detail.xml" value="0.22" />
         <entry key="app/src/main/res/layout/activity_buyer_submissions.xml" value="0.2248995983935743" />
@@ -56,11 +147,12 @@
         <entry key="app/src/main/res/layout/fragment_buyer_all_records.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_buyer_new_order.xml" value="0.22" />
         <entry key="app/src/main/res/layout/fragment_buyer_new_records.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/fragment_buyer_open_orders.xml" value="0.13046875" />
         <entry key="app/src/main/res/layout/fragment_farmer_all_records.xml" value="0.18" />
         <entry key="app/src/main/res/layout/fragment_farmer_new_record.xml" value="0.22" />
         <entry key="app/src/main/res/layout/fragment_on_sell_my_stall_farmer.xml" value="0.1" />
         <entry key="app/src/main/res/layout/item_buyer_submission.xml" value="0.22" />
-        <entry key="app/src/main/res/layout/item_crop_farmer.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/item_crop_farmer.xml" value="0.13046875" />
         <entry key="app/src/main/res/layout/item_farmer_record.xml" value="0.25" />
         <entry key="app/src/main/res/layout/item_market_farmer.xml" value="0.22" />
         <entry key="app/src/main/res/layout/item_on_sell_farmer.xml" value="0.22" />

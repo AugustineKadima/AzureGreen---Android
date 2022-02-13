@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".setup.CreateAccountActivity"
+    android:background="@color/azure_background_color">
+
+    <!--    Top title icon-->
+    <RelativeLayout
+        android:id="@+id/top_title_icon"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:background="@color/azure_background_color"
+        android:gravity="center"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:gravity="center"
+            android:text="Create Account"
+            android:textColor="@color/azure_orange"
+            android:textSize="24sp" />
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginEnd="-20dp"
+            android:src="@drawable/icon_logo" />
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:id="@+id/create_account_scroll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/top_title_icon">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <!--        Name-->
+            <EditText
+                android:id="@+id/create_account_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/edt_shape"
+                android:drawableLeft="@drawable/account_circle_24"
+                android:drawablePadding="8dp"
+                android:elevation="8dp"
+                android:hint="Name"
+                android:inputType="text"
+                android:minHeight="48dp"
+                android:paddingStart="16dp"
+                android:textColor="@color/azure_green"
+                android:textColorHint="@color/azure_light_green"
+                android:textSize="14dp" />
+
+            <!--    Email-->
+            <EditText
+                android:id="@+id/create_account_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/create_account_name"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/edt_shape"
+                android:drawableLeft="@drawable/email_24"
+                android:drawablePadding="8dp"
+                android:elevation="8dp"
+                android:hint="Email"
+                android:inputType="textWebEmailAddress"
+                android:minHeight="48dp"
+                android:paddingStart="16dp"
+                android:textColor="@color/azure_green"
+                android:textColorHint="@color/azure_light_green"
+                android:textSize="14dp" />
+
+            <!--        Phone-->
+            <EditText
+                android:id="@+id/create_account_phone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/create_account_email"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/edt_shape"
+                android:drawableLeft="@drawable/phone_24"
+                android:drawablePadding="8dp"
+                android:elevation="8dp"
+                android:hint="Phone Number"
+                android:inputType="phone"
+                android:minHeight="48dp"
+                android:paddingStart="16dp"
+                android:textColor="@color/azure_green"
+                android:textColorHint="@color/azure_light_green"
+                android:textSize="14dp" />
+
+            <!--        Password-->
+            <EditText
+                android:id="@+id/create_account_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/create_account_phone"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/edt_shape"
+                android:drawableLeft="@drawable/password_24"
+                android:drawablePadding="8dp"
+                android:elevation="8dp"
+                android:hint="Password"
+                android:inputType="textPassword"
+                android:minHeight="48dp"
+                android:paddingStart="16dp"
+                android:textColor="@color/azure_green"
+                android:textColorHint="@color/azure_light_green"
+                android:textSize="14dp" />
+
+            <!--        Confirm password-->
+            <EditText
+                android:id="@+id/create_account_confirm_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/create_account_password"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/edt_shape"
+                android:drawableLeft="@drawable/password_24"
+                android:drawablePadding="8dp"
+                android:elevation="8dp"
+                android:hint="Confirm Password"
+                android:inputType="textPassword"
+                android:minHeight="48dp"
+                android:paddingStart="16dp"
+                android:textColor="@color/azure_green"
+                android:textColorHint="@color/azure_light_green"
+                android:textSize="14dp" />
+
+            <EditText
+                android:id="@+id/create_account_location"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/create_account_confirm_password"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/edt_shape"
+
+                android:drawableLeft="@drawable/location_on_24"
+                android:drawablePadding="8dp"
+                android:elevation="8dp"
+                android:hint="Location"
+                android:inputType="textAutoComplete"
+                android:minHeight="48dp"
+                android:paddingStart="16dp"
+                android:textColor="@color/azure_green"
+                android:textColorHint="@color/azure_light_green"
+                android:textSize="14dp" />
+
+<!--            <LinearLayout-->
+<!--                android:id="@+id/photo_wrapper"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_below="@id/create_account_location"-->
+<!--                android:layout_marginStart="16dp"-->
+<!--                android:layout_marginEnd="16dp"-->
+<!--                android:layout_marginBottom="8dp"-->
+<!--                android:background="@drawable/edt_shape"-->
+<!--                android:gravity="center_vertical">-->
+
+<!--                <TextView-->
+<!--                    android:id="@+id/attach_photo"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:drawableLeft="@drawable/add_photo_24"-->
+<!--                    android:drawablePadding="8dp"-->
+<!--                    android:gravity="center_vertical"-->
+<!--                    android:hint="Attach Photo"-->
+<!--                    android:minHeight="48dp"-->
+<!--                    android:paddingStart="16dp"-->
+<!--                    android:textColorHint="@color/azure_light_green"-->
+<!--                    android:textSize="14dp" />-->
+
+<!--                <ImageView-->
+<!--                    android:id="@+id/photo_link"-->
+<!--                    android:layout_width="48dp"-->
+<!--                    android:layout_height="32dp"-->
+<!--                    android:layout_marginStart="4dp"-->
+<!--                    android:layout_marginEnd="8dp"-->
+<!--                    android:background="@drawable/corner_azure_bg_color"-->
+<!--                    android:gravity="center"-->
+<!--                    android:minHeight="32dp"-->
+<!--                    android:paddingStart="16dp"-->
+<!--                    android:textColorHint="@color/azure_light_green"-->
+<!--                    android:textSize="14dp" />-->
+
+<!--                <TextView-->
+<!--                    android:id="@+id/upload_photo"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginEnd="16dp"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:background="@drawable/edt_shape"-->
+<!--                    android:drawableLeft="@drawable/upload_24"-->
+<!--                    android:drawablePadding="8dp"-->
+<!--                    android:gravity="center_vertical"-->
+<!--                    android:hint="Upload"-->
+<!--                    android:minHeight="32dp"-->
+<!--                    android:paddingStart="16dp"-->
+<!--                    android:textColorHint="@color/azure_light_green"-->
+<!--                    android:textSize="14dp" />-->
+<!--            </LinearLayout>-->
+
+
+            <!--        Radio Buttons-->
+            <RadioGroup
+                android:id="@+id/create_account_farmer_buyer_option"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/create_account_location"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp">
+
+                <RadioButton
+                    android:id="@+id/create_account_farmer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    android:text="Farmer"
+
+                    android:textColor="@color/azure_green" />
+
+                <RadioButton
+                    android:id="@+id/create_account_buyer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    android:text="Buyer"
+                    android:textColor="@color/azure_green" />
+
+            </RadioGroup>
+
+            <!--        Create account button-->
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_create_account_get_started"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/create_account_farmer_buyer_option"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/btn"
+                android:elevation="8dp"
+                android:text="Create Account"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="16dp" />
+
+            <!--    Login instead-->
+            <RelativeLayout
+                android:id="@+id/create_account_extra"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/btn_create_account_get_started"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="16dp">
+
+                <TextView
+                    android:id="@+id/already_have_account_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:text="Already have an account?"
+                    android:textColor="@color/azure_orange"
+                    android:textSize="12dp" />
+
+                <!--        Already have account, Login-->
+                <TextView
+                    android:id="@+id/farmer_new_user_create_account"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_toRightOf="@id/already_have_account_text"
+                    android:text="Login"
+                    android:textColor="@color/azure_green"
+                    android:textSize="12dp" />
+
+
+            </RelativeLayout>
+
+
+        </RelativeLayout>
+    </ScrollView>
+
+
+</RelativeLayout>
